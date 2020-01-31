@@ -67,19 +67,22 @@ class Block extends React.Component {
           {
             if (this._isMounted)
             {
+              
               console.log(this.state.participant_info.block_number)
               const newblocknumber = this.state.participant_info.block_number + 1
               console.log(newblocknumber)
 
-              this.fetchBlock(this.state.participant_info.game_id,newblocknumber+1) //this.state.participant_info.block_number
-              
-              this.fetchSymbols(this.state.participant_info.game_id,newblocknumber+1); 
-              
-              this.setState({newblock_frame : true, participant_info : {...this.state.participant_info, block_number:newblocknumber},}) // what gets updated 
-              // add Score here when last block
               if (newblocknumber === this.state.participant_info.TotalBlock+1){
-                this.fetchScore()
-              }              
+                console.log('Fetching the score')
+                this.fetchScore() }
+
+              else {
+                this.fetchBlock(this.state.participant_info.game_id,newblocknumber+1) //this.state.participant_info.block_number
+              
+                this.fetchSymbols(this.state.participant_info.game_id,newblocknumber+1); 
+              
+                this.setState({newblock_frame : true, participant_info : {...this.state.participant_info, block_number:newblocknumber},}) // what gets updated 
+              }
             }
           }
         }
@@ -88,6 +91,7 @@ class Block extends React.Component {
   // When the task is over 
   fetchScore() {
   if (this._isMounted) {
+
     fetch(`${API_URL}/participants_data/score/`+ this.state.participant_info.participant_id + this.state.participant_info.game_id + this.state.participant_info.prolific_id)
             .then(handleResponse)
             .then((data) => {
