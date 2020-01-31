@@ -18,6 +18,14 @@ code {
   box-sizing: border-box;
 }
 
+.IntroText{
+  font: "Century Gothic", Futura, sans-serif;
+  font-size  : 100%;
+  margin-top : 5%;
+  margin-left: 5%;
+}
+
+
 .QuizBlock{
   font: "Century Gothic", Futura, sans-serif;
   background: white;
@@ -33,7 +41,7 @@ code {
 
 .SurveyIntroText{
   font: "Century Gothic", Futura, sans-serif;
-  font-size  : 150%;
+  font-size  : 100%;
   margin-top : 10%;
   margin-bottom: 15%;
   margin-left: 5%;
