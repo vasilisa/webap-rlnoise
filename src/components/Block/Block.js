@@ -104,7 +104,7 @@ class Block extends React.Component {
                   loading : false,
                   load_bonus: true,
                   newblock_frame : true,
-                  participant_info : {...this.state.participant_info, block_number:newblocknumber}
+                  participant_info : {...this.state.participant_info, block_number:this.state.participant_info.TotalBlock+1}
                 });
             })
             .catch((error) => {
