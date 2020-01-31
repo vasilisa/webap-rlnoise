@@ -1,0 +1,1 @@
+export const API_URL='https://rlnoise.osc-fr1.scalingo.io'

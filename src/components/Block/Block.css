@@ -1,0 +1,70 @@
+body {
+  font: 14px "Century Gothic", Futura, sans-serif;
+  margin: 5%;
+  background: #fffff;
+  margin-top: 5%;
+  margin-left:5%;
+  margin-right:5%;
+  }
+
+.title{
+  font: 26px "Century Gothic", Futura, sans-serif;
+  background: white;
+  margin-top: 50px;
+  margin-left:5px;
+
+}
+.block {
+  text-align: center;
+    display:flex;
+    padding-top:10%;
+    justify-content:center;
+    flex-direction:row;  
+    font-size: 150%;
+}
+
+
+.restarttraining {
+  text-align: center;
+    padding-top:5%;
+    justify-content:center;
+    font-size: 200%;
+}
+
+.translatetext {
+	margin-top: 4%;
+}
+
+.button{
+  top: 5%;
+  padding: 2%; 
+  width: 10%;
+  height: 5%; 
+  margin: 1% 1% 0 0;
+  vertical-align: center;
+  background: #8594; 
+  border: 4px solid black;
+  cursor: pointer;
+}
+
+.textbox{
+  font: 26px "Century Gothic", Futura, sans-serif;
+}
+
+.introsymbol {
+  width: 20%;
+  height: 20%;
+  height: 20%;
+  width: 20%;
+  margin-left: 5%;
+  margin-right: 5%;
+  margin-top: 2%;
+  margin-bottom: 2%; 
+    -moz-box-sizing:border-box;
+    -webkit-box-sizing:border-box;
+    box-sizing:border-box;  
+  border: 4px solid black;
+  border-radius: 6px;    
+}
+
+

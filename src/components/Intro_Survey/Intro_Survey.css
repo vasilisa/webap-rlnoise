@@ -1,0 +1,43 @@
+.introSurvey {
+  font-size: 26px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+}
+
+.IntroText{
+  font: "Century Gothic", Futura, sans-serif;
+  font-size  : 150%;
+  margin-top : 5%;
+  margin-left: 5%;
+
+}
+
+input[type="checkbox"] {
+  display: none;
+}
+input[type="checkbox"] + span {
+  display: inline-block;
+  position: relative;
+  margin-top: 5%;
+  width:  40px;
+  height: 40px; 
+  margin-left: 150%;
+  vertical-align: middle;
+  background: white left top no-repeat;
+  border: 2px solid black;
+  cursor: pointer;
+  padding: 10px; 
+}
+
+input[type="checkbox"]:checked + span {
+  background: salmon top;
+  margin-top: 5%;
+  margin-left: 150%;
+  stroke: white;
+  stroke-width: 2px;
+  padding: 10px; 
+}
+
+
