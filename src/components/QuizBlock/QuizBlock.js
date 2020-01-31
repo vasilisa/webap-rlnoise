@@ -146,7 +146,7 @@ class QuizBlock extends Component {
                           }
 
   console.log(body)
-  fetch(`${API_URL}/participants_question_data/create/` + this.state.participant_info.participant_id + `/` + block_id , + `/` + this.state.participant_info.prolific_id, {
+  fetch(`${API_URL}/participants_question_data/create/` + this.state.participant_info.participant_id + `/` + block_id + `/` + this.state.participant_info.prolific_id, {
        method: 'POST',
        headers: {
          'Accept': 'application/json',
@@ -174,7 +174,7 @@ class QuizBlock extends Component {
     { 
       return (
         <Quiz
-          answer          ={this.state.answer} // false 
+          answer          ={this.state.answer}  
           answerOptions   ={this.state.answerOptions} 
           questionId      ={this.state.questionId}
           questionCount   ={this.state.questionCount}
