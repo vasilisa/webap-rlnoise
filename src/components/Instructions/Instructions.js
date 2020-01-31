@@ -22,6 +22,8 @@ class Instructions extends React.Component {
         let url = this.props.location.search;
         let params = queryString.parse(url);
 
+        const prolific_id = (params['PROLIFIC_ID']===''? 'undefined' : params['PROLIFIC_ID']) 
+
         var currentDate = new Date();
         var date        = currentDate.getDate();
         var month       = currentDate.getMonth(); //Be careful! January is 0 not 1
@@ -39,7 +41,7 @@ class Instructions extends React.Component {
             newblock_frame : true, 
             readyToProceed: false,
             redirect: false,
-            prolific_id : params['PROLIFIC_PID']
+            prolific_id : prolific_id 
         }
 
     console.log(this.state.prolific_id)    

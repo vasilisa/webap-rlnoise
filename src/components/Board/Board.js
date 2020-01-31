@@ -80,9 +80,6 @@ class Board extends React.Component {
       
       
     // complete feedback 
-    console.log(this.state.block_info.block_feedback)
-
-    
     if (this.state.block_info.block_feedback==="2") {
 
         if (this.state.block_info.position[this.state.block_info.trial_numb] === "1") {
@@ -162,8 +159,6 @@ class Board extends React.Component {
       let unchosen_rewards = this.state.unchosen_rewards; 
       unchosen_rewards.push(feedback[1-i])
 
-      console.log('block_perf',block_perf)
-      
       this.setState({        
         chosen_positions : chosen_positions,
         chosen_symbols   : chosen_symbols,

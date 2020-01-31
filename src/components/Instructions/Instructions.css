@@ -16,7 +16,7 @@
 
 .IntroText{
   font: "Century Gothic", Futura, sans-serif;
-  font-size  : 75%;
+  font-size  : 60%;
   margin-top : 5%;
   margin-left: 5%;
   border-width: 1px;
@@ -60,7 +60,7 @@
 }
 
 .introbandits {
-  width: 100%;
+  width: 120%;
   height: 60%;
   height: 60%;
   width: 60%;
