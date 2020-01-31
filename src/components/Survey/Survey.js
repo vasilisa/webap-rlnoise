@@ -62,7 +62,7 @@ class Survey extends React.Component {
     
     
   redirectToEnd() {
-    location.href = 'https://app.prolific.co/submissions/complete?cc=1A496EDB'
+    window.location.replace('https://app.prolific.co/submissions/complete?cc=1A496EDB')
   }
 
   }
