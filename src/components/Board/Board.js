@@ -213,7 +213,7 @@ class Board extends React.Component {
                             'date'             : this.state.participant_info.date,
                             'game_id'          : this.state.participant_info.game_id}
     
-    fetch(`${API_URL}/participants_data/create/` + this.state.participant_info.participant_id + `/` + block_id , `/` + this.state.participant_info.prolific_id, {
+    fetch(`${API_URL}/participants_data/create/` + this.state.participant_info.participant_id + `/` + block_id + `/` + this.state.participant_info.prolific_id, {
        method: 'POST',
        headers: {
          'Accept': 'application/json',
