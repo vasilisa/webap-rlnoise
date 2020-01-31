@@ -351,7 +351,7 @@ render()
         </center>
         </div>);
     }
-    else if (this.state.participant_info.block_number===this.state.participant_info.TotalBlock+1) && (this.state.load_bonus===true)
+    else if ((this.state.participant_info.block_number===this.state.participant_info.TotalBlock+1) && (this.state.load_bonus===true))
     {
       return(
           <div>{this.redirectToScore()}</div>       
