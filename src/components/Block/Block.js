@@ -207,7 +207,7 @@ redirectToSurvey = () => {
           th_reward_2    : Object.keys(data['th_reward_2']).map((key, index) => (data['th_reward_2'][key])),
           position       : Object.keys(data['position']).map((key, index) => (data['position'][key])),
           trial_numb     : 0,
-          TotalTrial: Object.keys(data['reward_1']).length 
+          TotalTrial: 2 // CHANGED FOR DEBUGGING Object.keys(data['reward_1']).length 
 
         }
           
