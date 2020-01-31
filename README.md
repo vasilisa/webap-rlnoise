@@ -1,5 +1,14 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## This is the MASTER BRUNCH for the RLNOISE ONLINE TASK built for the production. 
+For debugging and testing see the test brunch. It has fewer trials and more logs. 
+This part contains the FRONT-END React JS scripts for the task and the questionnaires.
+For the back-end architecture and DB queries see api-rlnoise and db-rlnoise projects. 
+
+To check the content of the questionnaires see src/questionnaires JS object. 
+Currently, the brunch Master is deployed on SCALINGO. 
+
+
 ## Available Scripts
 
 In the project directory, you can run:
