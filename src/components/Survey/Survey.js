@@ -240,7 +240,7 @@ render()
             </div>
           </center>
           <div>
-          <Button variant="secondary" color="danger" size="sm" className="button" type="submit" onClick={()=>redirectToEnd()}> Click here </Button></div>
+          <Button variant="secondary" color="danger" size="sm" className="button" type="submit" onClick={()=>this.redirectToEnd()}> Click here </Button></div>
           </div>);        
     }
 
