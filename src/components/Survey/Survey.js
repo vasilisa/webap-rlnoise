@@ -26,8 +26,8 @@ class Survey extends React.Component {
 
     this.getSurveyBlock.bind(this);
     this.redirectToQuiz.bind(this); 
+    this.redirectToEnd.bind(this); 
       
-    // this._handlePressKey.bind(this);
     this._isMounted = false;
     this._handleGoBack.bind(this);   
   }
@@ -61,7 +61,11 @@ class Survey extends React.Component {
         }
     
     
-  
+  redirectToEnd() {
+    location.href = 'https://app.prolific.co/submissions/complete?cc=1A496EDB'
+  }
+
+  }
   componentDidMount() { 
   this._isMounted = true;
   document.body.style.background= '#fff'; 
@@ -237,7 +241,7 @@ render()
             </div>
           </center>
           <div>
-          <Button variant="secondary" color="danger" size="sm" className="button" type="submit" onClick="location.href = 'https://app.prolific.co/submissions/complete?cc=1A496EDB'"> Click here </Button></div>
+          <Button variant="secondary" color="danger" size="sm" className="button" type="submit" onClick={()=>redirectToEnd()}> Click here </Button></div>
           </div>);        
     }
 
