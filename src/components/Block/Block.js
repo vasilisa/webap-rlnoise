@@ -75,7 +75,7 @@ class Block extends React.Component {
               if (newblocknumber === this.state.participant_info.TotalBlock+1){
                 console.log('Fetching the score')
                 this.fetchScore()
-                this.redirectToScore() }
+                }
 
               else {
                 this.fetchBlock(this.state.participant_info.game_id,newblocknumber+1) //this.state.participant_info.block_number
@@ -102,7 +102,9 @@ class Block extends React.Component {
               this.setState({
                   score : bonus,
                   loading : false,
-                  load_bonus: true
+                  load_bonus: true,
+                  newblock_frame : true,
+                  participant_info : {...this.state.participant_info, block_number:newblocknumber}
                 });
             })
             .catch((error) => {
