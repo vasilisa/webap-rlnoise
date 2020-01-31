@@ -92,7 +92,7 @@ class Block extends React.Component {
   fetchScore() {
   if (this._isMounted) {
 
-    fetch(`${API_URL}/participants_data/score/`+ this.state.participant_info.participant_id +'/'+ this.state.participant_info.game_id +'/'+this.state.participant_info.prolific_id)
+    fetch(`${API_URL}/participants_data/score/`+ this.state.participant_info.participant_id +'/'+ this.state.participant_info.game_id)
             .then(handleResponse)
             .then((data) => {
               const bonus = data['bonus']
