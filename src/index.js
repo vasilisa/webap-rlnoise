@@ -59,11 +59,3 @@ ReactDOM.render(
 // Learn more about service workers: http://bit.ly/CRA-PWA
 serviceWorker.unregister();
 
-/*
-<Route path="/" component={Intro_UK} exact />
-                <Route path="/Instructions" component={Instructions} exact />
-                <Route path="/Block" component={Block} exact />
-                <Route path="/Board" component={Board} exact />
-*/
-
-
