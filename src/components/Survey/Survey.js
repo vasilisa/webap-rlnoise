@@ -65,7 +65,6 @@ class Survey extends React.Component {
     window.location.replace('https://app.prolific.co/submissions/complete?cc=1A496EDB')
   }
 
-  }
   componentDidMount() { 
   this._isMounted = true;
   document.body.style.background= '#fff'; 
