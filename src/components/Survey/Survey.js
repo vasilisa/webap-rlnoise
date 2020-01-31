@@ -59,7 +59,7 @@ class Survey extends React.Component {
             }
           }
         }
-      }
+    
     
   
   componentDidMount() { 
