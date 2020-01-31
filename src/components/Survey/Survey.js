@@ -26,9 +26,7 @@ class Survey extends React.Component {
 
     this.getSurveyBlock.bind(this);
     this.redirectToQuiz.bind(this); 
-    this.redirectToEnd.bind(this); 
       
-  
     // this._handlePressKey.bind(this);
     this._isMounted = false;
     this._handleGoBack.bind(this);   
@@ -57,9 +55,6 @@ class Survey extends React.Component {
 
               this.getSurveyBlock(newblocknumber+1)
               this.setState({newblock_frame : true, participant_info : {...this.state.participant_info, block_number:newblocknumber},}) // what gets updated 
-              // add Score here when last block
-              if (newblocknumber === this.state.participant_info.TotalBlock+1){
-                this.redirectToEnd()
               }              
             }
           }
