@@ -22,7 +22,7 @@ class Instructions extends React.Component {
         let url = this.props.location.search;
         let params = queryString.parse(url);
 
-        const prolific_id = (params['PROLIFIC_ID']===''? 'undefined' : params['PROLIFIC_ID']) 
+        const prolific_id = (params['PROLIFIC_ID']=== undefined ? 'undefined' : params['PROLIFIC_ID']) 
 
         var currentDate = new Date();
         var date        = currentDate.getDate();
