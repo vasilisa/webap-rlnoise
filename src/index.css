@@ -26,6 +26,22 @@ code {
 }
 
 
+.introsymbol {
+  width: 10%;
+  height: 10%;
+  height: 10%;
+  width: 10%;
+  margin-left: 5%;
+  margin-right: 5%;
+  margin-top: 2%;
+  margin-bottom: 2%; 
+    -moz-box-sizing:border-box;
+    -webkit-box-sizing:border-box;
+    box-sizing:border-box;  
+  border: 2px solid black;
+  border-radius: 6px; 
+  }   
+
 .QuizBlock{
   font: "Century Gothic", Futura, sans-serif;
   background: white;
