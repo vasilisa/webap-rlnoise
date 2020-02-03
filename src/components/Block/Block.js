@@ -51,7 +51,7 @@ class Block extends React.Component {
   }
 
   redirectToTarget () {
-      console.log(this.state.pool_symbols)
+      // console.log(this.state.pool_symbols)
       if((this.state.participant_info.block_number <= (this.state.participant_info.TotalBlock)))
           {           
           if (this.state.newblock_frame){
@@ -68,12 +68,12 @@ class Block extends React.Component {
             if (this._isMounted)
             {
               
-              console.log(this.state.participant_info.block_number)
+              // console.log(this.state.participant_info.block_number)
               const newblocknumber = this.state.participant_info.block_number + 1
-              console.log(newblocknumber)
+              // console.log(newblocknumber)
 
               if (newblocknumber === this.state.participant_info.TotalBlock+1){
-                console.log('Fetching the score')
+                // console.log('Fetching the score')
                 this.fetchScore()
                 }
 
@@ -97,7 +97,7 @@ class Block extends React.Component {
             .then(handleResponse)
             .then((data) => {
               const bonus = data['bonus']
-              console.log(bonus)
+              // console.log(bonus)
 
               this.setState({
                   score : bonus,
@@ -136,7 +136,7 @@ redirectToSurvey = () => {
               'date'            : this.state.participant_info.date,
               'bonus'           : this.state.score}
               
-    console.log(body) 
+    // console.log(body) 
     fetch(`${API_URL}/participants_data_bonus/create/`+this.state.participant_info.participant_id +'/'+this.state.participant_info.prolific_id, {
        method: 'POST',
        headers: {
@@ -182,7 +182,7 @@ redirectToSurvey = () => {
 
         const required_pool_of_symbols = Object.keys(data['symbols']).map((key, index) => (require('../../images/' + data['symbols'][key])))
 
-        console.log(data['symbols'])  
+        // console.log(data['symbols'])  
 
           this.setState({
             pool_symbols : required_pool_of_symbols,
@@ -198,7 +198,7 @@ redirectToSurvey = () => {
 
 // This is to get the data for a specific block from the Back 
   async fetchBlock(game_id_,block_number_) {
-    console.log(block_number_)
+    // console.log(block_number_)
     this.setState({ loading: true });
     const fetchResult = fetch(`${API_URL}/game_blocks/`+game_id_+'/'+block_number_)
       .then(handleResponse)
@@ -214,14 +214,14 @@ redirectToSurvey = () => {
           th_reward_2    : Object.keys(data['th_reward_2']).map((key, index) => (data['th_reward_2'][key])),
           position       : Object.keys(data['position']).map((key, index) => (data['position'][key])),
           trial_numb     : 0,
-          TotalTrial: 2 // THIS IS FOR THE TEST ONLY Object.keys(data['reward_1']).length 
+          TotalTrial: Object.keys(data['reward_1']).length 
 
         }
           
         this.setState({
           block_info: block_info,
         });
-        console.log(this.state.block_info)
+        // console.log(this.state.block_info)
       })
         .catch((error) => {
           this.setState({ error : error.errorMessage, loading: false });

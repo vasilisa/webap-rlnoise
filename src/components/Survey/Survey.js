@@ -9,7 +9,7 @@ class Survey extends React.Component {
   constructor(props){
     super(props);
 
-    console.log(this.props.location.state)
+    // console.log(this.props.location.state)
     
     // Information about a specific block of the Survey: 
     const block_info = {
@@ -23,7 +23,7 @@ class Survey extends React.Component {
       questions        : quizQuestions,
     }
 
-    console.log(this.props.location.state.participant_info)
+    // console.log(this.props.location.state.participant_info)
 
     this.getSurveyBlock.bind(this);
     this.redirectToQuiz.bind(this); 
@@ -52,9 +52,9 @@ class Survey extends React.Component {
           {
             if (this._isMounted)
             {
-              console.log(this.state.participant_info.block_number)
+              // console.log(this.state.participant_info.block_number)
               const newblocknumber = this.state.participant_info.block_number + 1
-              console.log(newblocknumber)
+              // console.log(newblocknumber)
 
               this.getSurveyBlock(newblocknumber+1)
               this.setState({newblock_frame : true, participant_info : {...this.state.participant_info, block_number:newblocknumber},}) // what gets updated 
@@ -93,7 +93,7 @@ class Survey extends React.Component {
  // Get info about the specific Survey Block: questions IDS to play on this block + entry text 
 getSurveyBlock(block_number_) {
 
-    console.log(block_number_)
+    // console.log(block_number_)
 
     this.setState({ loading: true });
 
@@ -129,9 +129,9 @@ getSurveyBlock(block_number_) {
     const { block_info }   = { ...this.state }; // recreate the current state 
     const currentState     = block_info;        // assigned it to a const 
     currentState.surveytag = surveytag_block    // change the value of the survey field 
-    console.log(currentState)
+    // console.log(currentState)
     this.setState({block_info: currentState }) // insert it into a state. 
-    console.log('Block_info state after update', this.state.block_info);
+    // console.log('Block_info state after update', this.state.block_info);
  }
 
  redirectToEnd(){
@@ -235,7 +235,7 @@ render()
           </center>
           </div>);
       }
-    else if (this.state.participant_info.block_number === 1) // FOR TEST this.state.participant_info.TotalBlock+1) 
+    else if (this.state.participant_info.block_number === this.state.participant_info.TotalBlock+1) 
     {
       text = <div className='SurveyIntroText'> <p>You finished the survey! Thank you for your participation!</p> 
       <Button variant="secondary" color="danger" size="sm" className="button" type="submit" onClick={() => this.redirectToEnd()}> Click here </Button></div>

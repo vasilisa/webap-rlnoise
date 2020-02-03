@@ -14,7 +14,7 @@ class Board extends React.Component {
     const block_info       = this.props.location.state.block_info
     const pool_symbols     = this.props.location.state.pool_symbols
 
-    console.log(block_info)
+    // console.log(block_info)
     const current_symbols  = ['','']
 
     
@@ -67,7 +67,7 @@ class Board extends React.Component {
 
   handleClick(i) {
 
-    console.log(i) // 0 if the left brick clicked and 1 if the right one  
+    // console.log(i) // 0 if the left brick clicked and 1 if the right one  
     // update symbol without Mutation
     const newcount     = this.state.block_info.trial_numb + 1
     const end_of_block = (newcount === this.state.block_info.TotalTrial ? true : false ) ? true : false 
@@ -140,7 +140,7 @@ class Board extends React.Component {
       }
 
       chosen_symbols.push(chosen_symbol)  
-      console.log(chosen_symbols)
+      // console.log(chosen_symbols)
 
       const chosen_r_th   = chosen_symbol===1 ? this.state.block_info.th_reward_1[this.state.block_info.trial_numb] : this.state.block_info.th_reward_2[this.state.block_info.trial_numb];
       const unchosen_r_th = chosen_symbol===1 ? this.state.block_info.th_reward_2[this.state.block_info.trial_numb] : this.state.block_info.th_reward_1[this.state.block_info.trial_numb];
@@ -200,7 +200,7 @@ class Board extends React.Component {
   {
     let block_id   = this.state.block_info.block_number
 
-    console.log(this.state.participant_info.game_id)
+    // console.log(this.state.participant_info.game_id)
     
     let body     = {        'block_number'     : this.state.participant_info.block_number+1, 
                             'chosen_positions' : this.state.chosen_positions,

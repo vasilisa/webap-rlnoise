@@ -63,7 +63,7 @@ class Instructions extends React.Component {
            .then(handleResponse)
            .then((data) => {
              const participant_id_ = parseInt(data['new_participant_id'])
-             console.log(participant_id_)
+             // console.log(participant_id_)
 
              this.setState({
                      participant_id : participant_id_,
@@ -81,7 +81,7 @@ class Instructions extends React.Component {
            .then(handleResponse)
            .then((data) => {
              const game_id_ = parseInt(data['game_id'])
-             console.log(game_id_)
+             // console.log(game_id_)
 
              this.setState({
                      game_id : game_id_,
