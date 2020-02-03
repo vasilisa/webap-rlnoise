@@ -67,19 +67,23 @@ class Block extends React.Component {
           {
             if (this._isMounted)
             {
+              
               console.log(this.state.participant_info.block_number)
               const newblocknumber = this.state.participant_info.block_number + 1
               console.log(newblocknumber)
 
-              this.fetchBlock(this.state.participant_info.game_id,newblocknumber+1) //this.state.participant_info.block_number
-              
-              this.fetchSymbols(this.state.participant_info.game_id,newblocknumber+1); 
-              
-              this.setState({newblock_frame : true, participant_info : {...this.state.participant_info, block_number:newblocknumber},}) // what gets updated 
-              // add Score here when last block
               if (newblocknumber === this.state.participant_info.TotalBlock+1){
+                console.log('Fetching the score')
                 this.fetchScore()
-              }              
+                }
+
+              else {
+                this.fetchBlock(this.state.participant_info.game_id,newblocknumber+1) //this.state.participant_info.block_number
+              
+                this.fetchSymbols(this.state.participant_info.game_id,newblocknumber+1); 
+              
+                this.setState({newblock_frame : true, participant_info : {...this.state.participant_info, block_number:newblocknumber},}) // what gets updated 
+              }
             }
           }
         }
@@ -88,7 +92,8 @@ class Block extends React.Component {
   // When the task is over 
   fetchScore() {
   if (this._isMounted) {
-    fetch(`${API_URL}/participants_data/score/`+ this.state.participant_info.participant_id + this.state.participant_info.game_id + this.state.participant_info.prolific_id)
+
+    fetch(`${API_URL}/participants_data/score/`+ this.state.participant_info.participant_id +'/'+ this.state.participant_info.game_id)
             .then(handleResponse)
             .then((data) => {
               const bonus = data['bonus']
@@ -97,7 +102,9 @@ class Block extends React.Component {
               this.setState({
                   score : bonus,
                   loading : false,
-                  load_bonus: true
+                  load_bonus: true,
+                  newblock_frame : true,
+                  participant_info : {...this.state.participant_info, block_number:this.state.participant_info.TotalBlock+1}
                 });
             })
             .catch((error) => {
@@ -130,7 +137,7 @@ redirectToSurvey = () => {
               'bonus'           : this.state.score}
               
     console.log(body) 
-    fetch(`${API_URL}/participants_data_bonus/create/` + this.state.participant_info.participant_id + this.state.participant_info.prolific_id, {
+    fetch(`${API_URL}/participants_data_bonus/create/`+this.state.participant_info.participant_id +'/'+this.state.participant_info.prolific_id, {
        method: 'POST',
        headers: {
          'Accept': 'application/json',
@@ -207,7 +214,7 @@ redirectToSurvey = () => {
           th_reward_2    : Object.keys(data['th_reward_2']).map((key, index) => (data['th_reward_2'][key])),
           position       : Object.keys(data['position']).map((key, index) => (data['position'][key])),
           trial_numb     : 0,
-          TotalTrial: 2 // CHANGED FOR DEBUGGING Object.keys(data['reward_1']).length 
+          TotalTrial: Object.keys(data['reward_1']).length 
 
         }
           
@@ -347,7 +354,7 @@ render()
         </center>
         </div>);
     }
-    else if (this.state.participant_info.block_number===this.state.participant_info.TotalBlock+1)
+    else if ((this.state.participant_info.block_number===this.state.participant_info.TotalBlock+1) && (this.state.load_bonus===true))
     {
       return(
           <div>{this.redirectToScore()}</div>       

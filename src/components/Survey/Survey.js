@@ -28,8 +28,6 @@ class Survey extends React.Component {
     this.redirectToQuiz.bind(this); 
     this.redirectToEnd.bind(this); 
       
-  
-    // this._handlePressKey.bind(this);
     this._isMounted = false;
     this._handleGoBack.bind(this);   
   }
@@ -57,16 +55,16 @@ class Survey extends React.Component {
 
               this.getSurveyBlock(newblocknumber+1)
               this.setState({newblock_frame : true, participant_info : {...this.state.participant_info, block_number:newblocknumber},}) // what gets updated 
-              // add Score here when last block
-              if (newblocknumber === this.state.participant_info.TotalBlock+1){
-                this.redirectToEnd()
               }              
             }
           }
         }
-      }
     
-  
+    
+  redirectToEnd() {
+    window.location.replace('https://app.prolific.co/submissions/complete?cc=1A496EDB')
+  }
+
   componentDidMount() { 
   this._isMounted = true;
   document.body.style.background= '#fff'; 
@@ -242,7 +240,7 @@ render()
             </div>
           </center>
           <div>
-          <Button variant="secondary" color="danger" size="sm" className="button" type="submit" onClick="location.href = 'https://app.prolific.co/submissions/complete?cc=1A496EDB'"> Click here </Button></div>
+          <Button variant="secondary" color="danger" size="sm" className="button" type="submit" onClick={()=>this.redirectToEnd()}> Click here </Button></div>
           </div>);        
     }
 
