@@ -135,7 +135,8 @@ getSurveyBlock(block_number_) {
  }
 
  redirectToEnd(){
-    window.location.replace('https://app.prolific.co/submissions/complete?cc=1A496EDB')
+    // window.location.replace('https://app.prolific.co/submissions/complete?cc=1A496EDB')
+    window.location = 'https://app.prolific.co/submissions/complete?cc=1A496EDB'
 }
 
 render()
@@ -237,7 +238,7 @@ render()
     else if (this.state.participant_info.block_number === 1) // FOR TEST this.state.participant_info.TotalBlock+1) 
     {
       text = <div className='SurveyIntroText'> <p>You finished the survey! Thank you for your participation!</p> 
-      <Button variant="secondary" color="danger" size="sm" className="button" type="submit" onClick={() => window.location = 'https://app.prolific.co/submissions/complete?cc=1A496EDB'}> Click here </Button></div>
+      <Button variant="secondary" color="danger" size="sm" className="button" type="submit" onClick={() => this.redirectToEnd()}> Click here </Button></div>
         return (
           <div>
           <center> 
