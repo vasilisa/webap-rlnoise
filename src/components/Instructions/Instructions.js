@@ -162,7 +162,7 @@ class Instructions extends React.Component {
         return (
             <div>
             <div className="center translate">
-            <div className="IntroText">
+            <div className="InstructText">
             <center> 
             <p className='title'>INSTRUCTIONS</p>
             </center>

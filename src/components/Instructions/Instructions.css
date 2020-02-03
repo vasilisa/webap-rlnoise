@@ -1,8 +1,8 @@
 .introsymbol {
-  width: 20%;
-  height: 20%;
-  height: 20%;
-  width: 20%;
+  width: 10%;
+  height: 10%;
+  height: 10%;
+  width: 10%;
   margin-left: 5%;
   margin-right: 5%;
   margin-top: 2%;
@@ -14,7 +14,15 @@
   border-radius: 6px; 
   }   
 
-.IntroText{
+.InstructText{
+  font: "Century Gothic", Futura, sans-serif;
+  font-size  : 60%;
+  margin-top : 5%;
+  margin-left: 5%;
+  border-width: 1px;
+}
+
+.textbox{
   font: "Century Gothic", Futura, sans-serif;
   font-size  : 60%;
   margin-top : 5%;
