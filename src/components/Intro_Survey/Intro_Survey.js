@@ -45,7 +45,7 @@ class Intro_Survey extends React.Component {
 render() {
   return (
       <div>
-        <div className="IntroText">
+        <div className="IntroConsentText">
           <center>
           <p>INFORMATION and CONSENT</p></center>
           <p></p>

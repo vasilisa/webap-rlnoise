@@ -2,6 +2,7 @@ import React from 'react';
 import { Button } from 'react-bootstrap';
 import {withRouter} from 'react-router-dom';
 import quizQuestions from '../../questionnaires/quizQuestions'; // a JS object with the total list of questions for the survey. 
+// import './Survey.css'
 
 
 class Survey extends React.Component {
@@ -28,6 +29,8 @@ class Survey extends React.Component {
     this.redirectToQuiz.bind(this); 
     this.redirectToEnd.bind(this); 
       
+  
+    // this._handlePressKey.bind(this);
     this._isMounted = false;
     this._handleGoBack.bind(this);   
   }
@@ -55,16 +58,16 @@ class Survey extends React.Component {
 
               this.getSurveyBlock(newblocknumber+1)
               this.setState({newblock_frame : true, participant_info : {...this.state.participant_info, block_number:newblocknumber},}) // what gets updated 
+              // add Score here when last block
+              if (newblocknumber === this.state.participant_info.TotalBlock+1){
+                this.redirectToEnd()
               }              
             }
           }
         }
+      }
     
-    
-  redirectToEnd() {
-    window.location.replace('https://app.prolific.co/submissions/complete?cc=1A496EDB')
-  }
-
+  
   componentDidMount() { 
   this._isMounted = true;
   document.body.style.background= '#fff'; 
@@ -130,6 +133,10 @@ getSurveyBlock(block_number_) {
     this.setState({block_info: currentState }) // insert it into a state. 
     console.log('Block_info state after update', this.state.block_info);
  }
+
+ redirectToEnd(){
+    window.location.replace('https://app.prolific.co/submissions/complete?cc=1A496EDB')
+}
 
 render()
   { 
@@ -227,11 +234,10 @@ render()
           </center>
           </div>);
       }
-    else if (this.state.participant_info.block_number === this.state.participant_info.TotalBlock+1) 
+    else if (this.state.participant_info.block_number === 1) // FOR TEST this.state.participant_info.TotalBlock+1) 
     {
-      text = <div className='SurveyIntroText'> <p>You finished the survey! Thank you for your participation!</p>
-      <p>Please, validate your participation</p>
-      </div>  
+      text = <div className='SurveyIntroText'> <p>You finished the survey! Thank you for your participation!</p> 
+      <Button variant="secondary" color="danger" size="sm" className="button" type="submit" onClick="location.href = 'https://app.prolific.co/submissions/complete?cc=1A496EDB'"> Click here </Button></div>
         return (
           <div>
           <center> 
@@ -239,8 +245,6 @@ render()
               {text}  <div className="translate"/>
             </div>
           </center>
-          <div>
-          <Button variant="secondary" color="danger" size="sm" className="button" type="submit" onClick={()=>this.redirectToEnd()}> Click here </Button></div>
           </div>);        
     }
 
