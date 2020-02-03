@@ -72,7 +72,7 @@ class Survey extends React.Component {
   this._isMounted = true;
   document.body.style.background= '#fff'; 
   this._isMounted && this.getSurveyBlock(this.state.participant_info.block_number+1);
-   window.history.pushState(window.state, null, window.location.href);
+    window.history.pushState(window.state, null, window.location.href);
     window.addEventListener('popstate', e => this._handleGoBack(e));
     window.onbeforeunload = this._handleRefresh
   }
