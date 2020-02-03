@@ -1,6 +1,6 @@
-.IntroText{
+.IntroConsentText{
   font: "Century Gothic", Futura, sans-serif;
-  font-size  : 26px;
+  font-size  : 100%;
   margin-top : 5%;
   margin-left: 5%;
 }

@@ -40,7 +40,7 @@ class Intro extends React.Component {
 render() {
   return (
       <div>
-        <div className="IntroText">
+        <div className="IntroConsentText">
         <div>
           <p>CONSENT</p>
           <p>INFORMATION FOR THE PARTICIPANT</p>
