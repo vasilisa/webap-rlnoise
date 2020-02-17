@@ -19,8 +19,8 @@ class Board extends React.Component {
 
     
     // Define intitial left and right symbols: 
-    current_symbols[0]    = pool_symbols[block_info.position[0]-1]
-    current_symbols[1]    = pool_symbols[2-block_info.position[0]]
+    current_symbols[0]    = pool_symbols[block_info.position[0]-1] // 1 if on the right symbol 1, 0 if on the left 
+    current_symbols[1]    = pool_symbols[2-block_info.position[0]] // 
 
     
     this.state = {
@@ -78,17 +78,25 @@ class Board extends React.Component {
       const noFeedback      = this.state.noFeedback.slice();
       const symbolHighlight = this.state.symbolHighlight.slice();
       
-      
+    
     // complete feedback 
     if (this.state.block_info.block_feedback==="2") {
-
         if (this.state.block_info.position[this.state.block_info.trial_numb] === "1") {
-          feedback[i]   = this.state.block_info.reward_1[this.state.block_info.trial_numb] 
-          feedback[1-i] = this.state.block_info.reward_2[this.state.block_info.trial_numb]
+         // symbol 1 is on the left
+
+          feedback[i]   = this.state.block_info.reward_1[this.state.block_info.trial_numb]*(i===0) + this.state.block_info.reward_2[this.state.block_info.trial_numb]*(i===1)
+          // feedback[i]   = this.state.block_info.reward_1[this.state.block_info.trial_numb] 
+          feedback[1-i] = this.state.block_info.reward_2[this.state.block_info.trial_numb]*(i===0) + this.state.block_info.reward_1[this.state.block_info.trial_numb]*(i===1)
         }
         else {
-          feedback[i]   = this.state.block_info.reward_2[this.state.block_info.trial_numb]
-          feedback[1-i] = this.state.block_info.reward_1[this.state.block_info.trial_numb]  
+
+          // first symbol is on the right 
+
+          feedback[i]   = this.state.block_info.reward_1[this.state.block_info.trial_numb]*(i===1) + this.state.block_info.reward_2[this.state.block_info.trial_numb]*(i===0)
+          feedback[1-i] = this.state.block_info.reward_2[this.state.block_info.trial_numb]*(i===1) + this.state.block_info.reward_1[this.state.block_info.trial_numb]*(i===0)
+       
+          // feedback[i]   = this.state.block_info.reward_2[this.state.block_info.trial_numb]
+          // feedback[1-i] = this.state.block_info.reward_1[this.state.block_info.trial_numb]  
         }
 
         noFeedback[1 - i]    = ''
@@ -145,11 +153,18 @@ class Board extends React.Component {
       const chosen_r_th   = chosen_symbol===1 ? this.state.block_info.th_reward_1[this.state.block_info.trial_numb] : this.state.block_info.th_reward_2[this.state.block_info.trial_numb];
       const unchosen_r_th = chosen_symbol===1 ? this.state.block_info.th_reward_2[this.state.block_info.trial_numb] : this.state.block_info.th_reward_1[this.state.block_info.trial_numb];
       
+      
+      const chosen_r   = chosen_symbol===1 ? this.state.block_info.reward_1[this.state.block_info.trial_numb] : this.state.block_info.reward_2[this.state.block_info.trial_numb];
+      const unchosen_r = chosen_symbol===1 ? this.state.block_info.reward_2[this.state.block_info.trial_numb] : this.state.block_info.reward_1[this.state.block_info.trial_numb];
+      
       console.log('Chosen reward theoretical',chosen_r_th)
       console.log('Unchosen reward theoretical',unchosen_r_th)
 
-      console.log('Observed chosen reward',feedback[i])
-      console.log('Observed unchosen reward',feedback[1-i])
+      console.log('Chosen reward',chosen_r)
+      console.log('Unchosen reward',unchosen_r)
+
+      console.log('Observed chosen feedback',feedback[i])
+      console.log('Observed unchosen feedback',feedback[1-i])
       
       let block_perf = this.state.block_perf + ((chosen_r_th-unchosen_r_th)/this.state.block_info.position.length) 
 
