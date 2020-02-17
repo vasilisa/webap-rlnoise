@@ -140,10 +140,16 @@ class Board extends React.Component {
       }
 
       chosen_symbols.push(chosen_symbol)  
-      console.log(chosen_symbols)
+      console.log('Chosen_symbol',chosen_symbols)
 
       const chosen_r_th   = chosen_symbol===1 ? this.state.block_info.th_reward_1[this.state.block_info.trial_numb] : this.state.block_info.th_reward_2[this.state.block_info.trial_numb];
       const unchosen_r_th = chosen_symbol===1 ? this.state.block_info.th_reward_2[this.state.block_info.trial_numb] : this.state.block_info.th_reward_1[this.state.block_info.trial_numb];
+      
+      console.log('Chosen reward theoretical',chosen_r_th)
+      console.log('Unchosen reward theoretical',unchosen_r_th)
+
+      console.log('Observed chosen reward',feedback[i])
+      console.log('Observed unchosen reward',feedback[1-i])
       
       let block_perf = this.state.block_perf + ((chosen_r_th-unchosen_r_th)/this.state.block_info.position.length) 
 
