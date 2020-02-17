@@ -107,10 +107,15 @@ class Board extends React.Component {
       }
       else {
         if (this.state.block_info.position[this.state.block_info.trial_numb] === "1") {
-          feedback[i] = this.state.block_info.reward_1[this.state.block_info.trial_numb]
+
+          feedback[i]   = this.state.block_info.reward_1[this.state.block_info.trial_numb]*(i===0) + this.state.block_info.reward_2[this.state.block_info.trial_numb]*(i===1)
+       
+          // feedback[i] = this.state.block_info.reward_1[this.state.block_info.trial_numb]
         }
         else {
-          feedback[i] = this.state.block_info.reward_2[this.state.block_info.trial_numb]
+          feedback[i]   = this.state.block_info.reward_1[this.state.block_info.trial_numb]*(i===1) + this.state.block_info.reward_2[this.state.block_info.trial_numb]*(i===0)
+          
+          // feedback[i] = this.state.block_info.reward_2[this.state.block_info.trial_numb]
         }
 
       feedback[1 - i]      = null // unchosen option this will work for the partial feedback
