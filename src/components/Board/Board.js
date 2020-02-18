@@ -78,25 +78,19 @@ class Board extends React.Component {
       const noFeedback      = this.state.noFeedback.slice();
       const symbolHighlight = this.state.symbolHighlight.slice();
       
-    
     // complete feedback 
     if (this.state.block_info.block_feedback==="2") {
         if (this.state.block_info.position[this.state.block_info.trial_numb] === "1") {
          // symbol 1 is on the left
-
           feedback[i]   = this.state.block_info.reward_1[this.state.block_info.trial_numb]*(i===0) + this.state.block_info.reward_2[this.state.block_info.trial_numb]*(i===1)
-          // feedback[i]   = this.state.block_info.reward_1[this.state.block_info.trial_numb] 
           feedback[1-i] = this.state.block_info.reward_2[this.state.block_info.trial_numb]*(i===0) + this.state.block_info.reward_1[this.state.block_info.trial_numb]*(i===1)
         }
         else {
 
-          // first symbol is on the right 
-
+          // symbol 1 is on the right 
           feedback[i]   = this.state.block_info.reward_1[this.state.block_info.trial_numb]*(i===1) + this.state.block_info.reward_2[this.state.block_info.trial_numb]*(i===0)
           feedback[1-i] = this.state.block_info.reward_2[this.state.block_info.trial_numb]*(i===1) + this.state.block_info.reward_1[this.state.block_info.trial_numb]*(i===0)
        
-          // feedback[i]   = this.state.block_info.reward_2[this.state.block_info.trial_numb]
-          // feedback[1-i] = this.state.block_info.reward_1[this.state.block_info.trial_numb]  
         }
 
         noFeedback[1 - i]    = ''
@@ -105,17 +99,16 @@ class Board extends React.Component {
         symbolHighlight[1-i] = 'null'
 
       }
-      else {
+      else  // partial feedback 
+      {
         if (this.state.block_info.position[this.state.block_info.trial_numb] === "1") {
 
           feedback[i]   = this.state.block_info.reward_1[this.state.block_info.trial_numb]*(i===0) + this.state.block_info.reward_2[this.state.block_info.trial_numb]*(i===1)
        
-          // feedback[i] = this.state.block_info.reward_1[this.state.block_info.trial_numb]
         }
         else {
           feedback[i]   = this.state.block_info.reward_1[this.state.block_info.trial_numb]*(i===1) + this.state.block_info.reward_2[this.state.block_info.trial_numb]*(i===0)
           
-          // feedback[i] = this.state.block_info.reward_2[this.state.block_info.trial_numb]
         }
 
       feedback[1 - i]      = null // unchosen option this will work for the partial feedback
