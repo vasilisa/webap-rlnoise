@@ -48,24 +48,24 @@ var quizQuestions = [
       ]
   },
   {
-      question: "Please, indicate your date of birth (MM/DD/YYYY)",
+      question: "Please, indicate your age (in years)",
       answers: [{
-        type: "DOB",
+        type: "age",
         content: " "
       }],
-      qtype: 'date',
+      qtype: 'report',
       questionId: 3,
       surveytag: 'intro',
       title: 'Introduction',
       constraint: [
-        {min: "1903"},
-        {max: "2002"}
+        {min: "17.99999"},
+        {max: "100"}
       ]
 
   },
   
   {
-      question: "Please, report your ACTUAL weight (lbs)",
+      question: "Please, report your ACTUAL weight (lb)",
       answers: [
         {
           type: "actual-weight ",
@@ -123,7 +123,7 @@ var quizQuestions = [
         {min: "21.2"},
         {max: "105.1"}
       
-        // {min: "54.6"},
+        // {min: "54.6"}, for cm 
         // {max: "267"}
     
       ]
@@ -159,25 +159,25 @@ var quizQuestions = [
       
       answers: [{
         type: "answer-1",
-        content: "Disagree strongly"},
+        content: "Agree strongly"},
 
         {type: "answer-2",
-        content: "Disagree"},
+        content: "Agree"},
 
         {type: "answer-3",
-        content: "Disagree a little"},
+        content: "Agree a little"},
 
         {type: "answer-4",
         content: "Neither agree nor disagree"},
 
         {type: "answer-5",
-        content: "Agree a little"},
+        content: "Disagree a little"},
 
         {type: "answer-6",
-        content: "Agree"},
+        content: "Disagree"},
 
         {type: "answer-7",
-        content: "Agree strongly"},
+        content: "Disagree strongly"},
       ],
       qtype: 'quiz',
       questionId: 8,
@@ -195,25 +195,25 @@ var quizQuestions = [
       
       answers: [{
         type: "answer-1",
-        content: "Disagree strongly"},
+        content: "Agree strongly"},
 
         {type: "answer-2",
-        content: "Disagree"},
+        content: "Agree"},
 
         {type: "answer-3",
-        content: "Disagree a little"},
+        content: "Agree a little"},
 
         {type: "answer-4",
         content: "Neither agree nor disagree"},
 
         {type: "answer-5",
-        content: "Agree a little"},
+        content: "Disagree a little"},
 
         {type: "answer-6",
-        content: "Agree"},
+        content: "Disagree"},
 
         {type: "answer-7",
-        content: "Agree strongly"},
+        content: "Disagree strongly"},
       ],
       qtype: 'quiz',
       questionId: 9,
@@ -231,25 +231,25 @@ var quizQuestions = [
       
       answers: [{
         type: "answer-1",
-        content: "Disagree strongly"},
+        content: "Agree strongly"},
 
         {type: "answer-2",
-        content: "Disagree"},
+        content: "Agree"},
 
         {type: "answer-3",
-        content: "Disagree a little"},
+        content: "Agree a little"},
 
         {type: "answer-4",
         content: "Neither agree nor disagree"},
 
         {type: "answer-5",
-        content: "Agree a little"},
+        content: "Disagree a little"},
 
         {type: "answer-6",
-        content: "Agree"},
+        content: "Disagree"},
 
         {type: "answer-7",
-        content: "Agree strongly"},
+        content: "Disagree strongly"},
       ],
       qtype: 'quiz',
       questionId: 10,
@@ -303,25 +303,25 @@ var quizQuestions = [
   {   
       question:"Your highest level of education attained: ",
       
-      answers: [{
-        type: "answer-1",
-        content: "Some high school or less"},
+      answers: [
       
+        {type: "answer-1",
+        content: "Trade/technical school"},
+
         {type: "answer-2",
-        content: "Completed high school"},
+        content: "Post graduate"},  
 
         {type: "answer-3",
-        content: "Some college"},
-
-        {type: "answer-4",
         content: "Completed college"}, 
 
+        {type: "answer-4",
+        content: "Some college"},
+
         {type: "answer-5",
-        content: "Post graduate"}, 
+        content: "Completed high school"},
 
         {type: "answer-6",
-        content: "Trade/technical school"}
-        
+        content: "Some high school or less"},
       ],
       qtype: 'quiz',
       questionId: 13,
@@ -372,28 +372,29 @@ var quizQuestions = [
 {   
       question:"The level of education attained by your FATHER at that time: ",
       
-      answers: [{
-        type: "answer-1",
-        content: "Not applicable"},
-      
+      answers: [
+
+        {type: "answer-1",
+        content: "Trade/technical school"},
+
         {type: "answer-2",
-        content: "Some high scool or less"},
+        content: "Post graduate"},  
 
         {type: "answer-3",
-        content: "Completed high school"},
+        content: "Completed college"}, 
 
         {type: "answer-4",
         content: "Some college"},
 
         {type: "answer-5",
-        content: "Completed college"}, 
+        content: "Completed high school"},
 
         {type: "answer-6",
-        content: "Post graduate"}, 
+        content: "Some high school or less"},
 
         {type: "answer-7",
-        content: "Trade/technical school"}
-        
+        content: "Not applicable"},
+    
       ],
       qtype: 'quiz',
       questionId: 16,
@@ -410,28 +411,29 @@ var quizQuestions = [
 {   
       question:"The level of education attained by your MOTHER at that time: ",
       
-      answers: [{
-        type: "answer-1",
-        content: "Not applicable"},
-      
+      answers: [
+
+        {type: "answer-1",
+        content: "Trade/technical school"},
+
         {type: "answer-2",
-        content: "Some high scool or less"},
+        content: "Post graduate"},  
 
         {type: "answer-3",
-        content: "Completed high school"},
+        content: "Completed college"}, 
 
         {type: "answer-4",
         content: "Some college"},
 
         {type: "answer-5",
-        content: "Completed college"}, 
+        content: "Completed high school"},
 
         {type: "answer-6",
-        content: "Post graduate"}, 
+        content: "Some high school or less"},
 
         {type: "answer-7",
-        content: "Trade/technical school"}
-        
+        content: "Not applicable"},
+
       ],
       qtype: 'quiz',
       questionId: 17,
@@ -1394,7 +1396,7 @@ var quizQuestions = [
   },
 
   {   
-      question:"When I was younger than 12 ... I grew up in a relatively welthy neighborhood. ", 
+      question:"When I was younger than 12 ... I grew up in a relatively wealthy neighborhood. ", 
 
       answers: [{
         type: "answer-1",
@@ -1418,7 +1420,7 @@ var quizQuestions = [
   },
 
   {   
-      question:"When I was younger than 12 ... I felt relatively welthy compared to other kids in my school. ", 
+      question:"When I was younger than 12 ... I felt relatively wealthy compared to other kids in my school. ", 
 
       answers: [{
         type: "answer-1",
@@ -1583,8 +1585,6 @@ var quizQuestions = [
 }, 
 
 
-
-
 /*
   Part 4: Reproductive development 
 */
@@ -1675,13 +1675,13 @@ var quizQuestions = [
           type: "answer-na",
           content: "Not applicable"}
         ],
-      qtype: 'report-na', 
+      qtype: 'report', 
       questionId: 69,
       surveytag: 'repdevelop',
       title: 'Reproductive development', 
       constraint: [
        {min: -1},
-       {max: 999}
+       {max: 20}
       ]
 }, 
 
@@ -1712,22 +1712,22 @@ var quizQuestions = [
 
       answers: [{
         type: "answer-1",
-        content: "Very poor"},
+        content: "Excellent"},
       
         {type: "answer-2",
-        content: "Poor"},
+        content: "Very Good"},
 
         {type: "answer-3",
-        content: "Fair"},
-
-        {type: "answer-4",
         content: "Good"},
 
+        {type: "answer-4",
+        content: "Fair"}, 
+
         {type: "answer-5",
-        content: "Very good"},
+        content: "Poor"}, 
 
         {type: "answer-6",
-        content: "Excellent"},
+        content: "Very poor"},
 
       ],
       qtype: 'quiz',
@@ -1795,19 +1795,19 @@ var quizQuestions = [
 
       answers: [{
         type: "answer-1",
-        content: "Never or practically never"},
+        content: "Very often"},
       
         {type: "answer-2",
-        content: "Rarely"},
+        content: "Often"},
 
         {type: "answer-3",
         content: "Sometimes"},
 
         {type: "answer-4",
-        content: "Often"},
+        content: "Rarely"}, 
 
         {type: "answer-5",
-        content: "Very often"}
+        content: "Never or practically never"} 
       ],
       qtype: 'quiz',
       questionId: 74,
@@ -1825,22 +1825,22 @@ var quizQuestions = [
 
       answers: [{
         type: "answer-1",
-        content: "Very poor"},
+        content: "Excellent"},
       
         {type: "answer-2",
-        content: "Poor"},
+        content: "Very Good"},
 
         {type: "answer-3",
-        content: "Fair"},
-
-        {type: "answer-4",
         content: "Good"},
 
+        {type: "answer-4",
+        content: "Fair"}, 
+
         {type: "answer-5",
-        content: "Very good"}, 
+        content: "Poor"}, 
 
         {type: "answer-6",
-        content: "Excellent"} 
+        content: "Very poor"},
         
       ],
       qtype: 'quiz',
