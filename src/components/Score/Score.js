@@ -1,7 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { API_URL } from '../../config';
-import { handleResponse } from '../helpers';
 import { Button } from 'react-bootstrap';
 
 
@@ -10,11 +8,11 @@ function Score(props) {
  console.log(props.score) 
  let text 
     
-      if (props.score==='3.75') {
+      if (props.score==='3.0') {
 
         text = <div className='SurveyIntroText'>
-                <p>Impressive! You won a bonus of 3.75 &#163; in addition to your regular payment.</p>
-                <p> Note, that you will only get your bonus if you complete the survey.</p>
+                <p><span class = "bold">Impressive!</span> You won a bonus of <span class = "bold">3.0 &#163;</span> in addition to your regular payment!</p>
+                <p><span class = "bold">Note</span>, that you will only get your bonus if you complete the final survey!</p>
                 </div>
       
       return (
@@ -33,11 +31,11 @@ function Score(props) {
           </center>
           </div>);
       }
-      else if (props.score==='1.75') {
+      else if (props.score==='1.5') {
 
         text = <div className='SurveyIntroText'>
-                <p>Well done! You won a bonus of 1.75 XX in addition to your regular payment.</p>
-                <p> Note, that you will only get your bonus if you complete the survey.</p>
+                <p><span class = "bold">Well done!</span> You won a bonus of <span class = "bold">1.5 &#163;</span> in addition to your regular payment!</p>
+                <p> Note, that you will only get your bonus if you complete the final survey.</p>
                 </div>
       
       
@@ -60,7 +58,7 @@ function Score(props) {
       else {
 
         text = <div className='SurveyIntroText'>
-                <p>Unfortunately, you did not win a bonus this time. Please, proceed to the final survey.</p>
+                <p><span class = "bold">Unfortunately</span>, you did not win a bonus this time. Please, proceed to the final survey.</p>
                 </div>
 
         return (
@@ -71,8 +69,8 @@ function Score(props) {
             {text}           
           </div> 
             <center>
-            <Button className="buttonStart" onClick={()=>props.onClicked()}>
-            START
+            <Button className="buttonInstructionStart" onClick={()=>props.onClicked()}>
+            <span class = "bold">START</span>
             </Button>
             </center>
           </div>

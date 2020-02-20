@@ -3,14 +3,12 @@ import { API_URL } from '../../config';
 
 import Quiz from '../Quiz/Quiz';
 import Report from '../Report/Report';
-import DateReport from '../DateReport/DateReport';
 import ReportNA from '../ReportNA/ReportNA';
 
 
 class QuizBlock extends Component {
   constructor(props) {
     super(props);
-
 
     // Get the right questions JSON part
     console.log(this.props.location.state.questions) 
@@ -31,7 +29,7 @@ class QuizBlock extends Component {
       constraint: [], 
       quizQuestionsBlock: quizQuestionsBlock,
       participant_info: this.props.location.state.participant_info,
-
+      
       // This is to be recorded and POSTED to the DB
       answered_questionsId      : [],
       answered_questionsContent : [],
@@ -44,10 +42,15 @@ class QuizBlock extends Component {
   }
 
   componentDidMount() {
-    const firstQuestion         = this.state.quizQuestionsBlock[0] 
-    const shuffledAnswerOptions = this.state.quizQuestionsBlock.map(question =>
-      this.shuffleArray(question.answers)
-    );
+    const firstQuestion       = this.state.quizQuestionsBlock[0] 
+
+    var shuffledAnswerOptions = this.state.quizQuestionsBlock.map(question =>this.NoShuffleArray(question.answers)); 
+    
+    // if (this.state.do_shuffle===true){
+    //   const shuffledAnswerOptions = this.state.quizQuestionsBlock.map(question =>
+    //   this.shuffleArray(question.answers));
+    // }
+    
     document.body.style.background= '#fff';
     this.setState({
       questionId:    firstQuestion.questionId,
@@ -78,7 +81,11 @@ class QuizBlock extends Component {
     return array;
   }
 
-  // onAnswerSelected point to this function in AnswerOption.js 
+NoShuffleArray(array) {
+    var currentIndex = array.length;
+    return array;
+  }
+  // onAnswerSelected points to this function in AnswerOption.js 
   handleAnswerSelected(answerContent,questionId,event) {
     console.log(answerContent) 
     this.setUserAnswer(event.currentTarget.value,answerContent,questionId); // event.currentTarget.value); // to be changed to see what is recorded 
@@ -197,26 +204,13 @@ class QuizBlock extends Component {
           question        ={this.state.question}
           questionTotal   ={this.state.quizQuestionsBlock.length}
           onAnswerSelected={this.handleAnswerSelected}
+          // questions       ={this.state.questions}
           constraint      ={this.state.constraint}
+          participant_info={this.state.participant_info}
         />
       );
   }
 
-  else if (this.state.qtype === "date")
-  {
-    return (
-        <DateReport
-          answer          ={this.state.answer}
-          questionId      ={this.state.questionId}
-          questionCount   ={this.state.questionCount}
-          question        ={this.state.question}
-          questionTotal   ={this.state.quizQuestionsBlock.length}
-          onAnswerSelected={this.handleAnswerSelected}
-          constraint      ={this.state.constraint}
-      />
-    );
-
-  }
   else if (this.state.qtype === "report-na") 
   {
 
@@ -230,6 +224,7 @@ class QuizBlock extends Component {
           questionTotal   ={this.state.quizQuestionsBlock.length}
           onAnswerSelected={this.handleAnswerSelected}
           constraint      ={this.state.constraint}
+          participant_info={this.state.participant_info}
       />
     );
 
