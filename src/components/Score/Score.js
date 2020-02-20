@@ -5,7 +5,7 @@ import { Button } from 'react-bootstrap';
 
 function Score(props) {
 
- console.log(props.score) 
+ // console.log(props.score) 
  let text 
     
       if (props.score==='3.0') {

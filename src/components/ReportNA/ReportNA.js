@@ -19,7 +19,7 @@ class ReportNA extends React.Component {
     answercheck: false  
 
   }
-  console.log(this.state) // initial states 
+  // console.log(this.state) // initial states 
 
   this.handleSubmit        = this.handleSubmit.bind(this);  
   this.handleChangeReport  = this.handleChangeReport.bind(this);
@@ -63,13 +63,13 @@ _handleRefresh(evt){
     }
     );
   
-  console.log(Number(test))
+  // console.log(Number(test))
 
   if ((test!=="") && (test!==null) && (test>parseInt(this.props.constraint[0].min)) && (test<parseInt(this.props.constraint[1].max))) {
     this.setState({
     answercheck: true }
     );
-    console.log(this.state.answer) 
+    // console.log(this.state.answer) 
   }
 
 }

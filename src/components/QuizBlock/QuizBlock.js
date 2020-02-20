@@ -14,7 +14,7 @@ class QuizBlock extends Component {
     console.log(this.props.location.state.questions) 
     var quizQuestionsBlock = this.props.location.state.questions.filter(d => d.surveytag === this.props.location.state.block_info.surveytag);
     
-    console.log(quizQuestionsBlock)
+    // console.log(quizQuestionsBlock)
     
     this.state = {
       counter: 0,
@@ -87,7 +87,7 @@ NoShuffleArray(array) {
   }
   // onAnswerSelected points to this function in AnswerOption.js 
   handleAnswerSelected(answerContent,questionId,event) {
-    console.log(answerContent) 
+    // console.log(answerContent) 
     this.setUserAnswer(event.currentTarget.value,answerContent,questionId); // event.currentTarget.value); // to be changed to see what is recorded 
 
     if (this.state.questionCount < this.state.quizQuestionsBlock.length) {  // to change to the number of questions in this part of the Survey
@@ -152,7 +152,7 @@ NoShuffleArray(array) {
                             'survey_completed': completed
                           }
 
-  console.log(body)
+  // console.log(body)
   fetch(`${API_URL}/participants_question_data/create/` + this.state.participant_info.participant_id + `/` + block_id + `/` + this.state.participant_info.prolific_id, {
        method: 'POST',
        headers: {
