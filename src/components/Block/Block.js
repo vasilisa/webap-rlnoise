@@ -218,8 +218,6 @@ redirectToSurvey = () => {
           position       : Object.keys(data['position']).map((key, index) => (data['position'][key])),
           trial_numb     : 0,
           TotalTrial     : Object.keys(data['reward_1']).length 
-          TotalTrial     : Object.keys(data['reward_1']).length 
-
         }
           
         this.setState({
