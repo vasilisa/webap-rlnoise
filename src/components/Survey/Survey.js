@@ -236,7 +236,7 @@ render()
           </center>
           </div>);
       }
-    else if (this.state.participant_info.block_number === 1) // FOR TEST this.state.participant_info.TotalBlock+1) 
+    else if (this.state.participant_info.block_number === this.state.participant_info.TotalBlock+1) 
     {
       text = <div className='SurveyIntroText'> <p><span class="bold">You finished the survey!</span> Thank you for your participation!</p> 
       <Button variant="secondary" color="danger" size="sm" className="buttonInstruction" type="submit" onClick={() => this.redirectToEnd()}> Click here </Button></div>
