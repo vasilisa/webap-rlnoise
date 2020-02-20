@@ -44,7 +44,7 @@ class Instructions extends React.Component {
             prolific_id : prolific_id 
         }
 
-    console.log(this.state.prolific_id)    
+    console.log('Prolific_ID',this.state.prolific_id)    
         
     this.handleInstructionsLocal = this.handleInstructionsLocal.bind(this) // bind the method to avoid error on frames collapsed
     this.fetchParticipantInfo.bind(this); 
@@ -77,7 +77,7 @@ class Instructions extends React.Component {
 
     // Based on the participant ID, determine the game_id and then fetch the game specifications 
     fetchParticipantGameId() {
-        fetch(`${API_URL}/participants_game/`+this.state.participant_id) 
+        fetch(`${API_URL}/participants_game/`+this.state.participant_id +'/'+this.state.prolific_id +'/'+this.state.date) 
            .then(handleResponse)
            .then((data) => {
              const game_id_ = parseInt(data['game_id'])
@@ -113,17 +113,23 @@ class Instructions extends React.Component {
     redirectToTarget = () => {
 
     this.props.history.push({
-      pathname: `/Block`, // /Block CHANGE BACK 
-      state: {participant_info: this.state, newblock_frame:this.state.newblock_frame} 
-    })
+       pathname: `/Block`, // /Block CHANGE BACK 
+       state: {participant_info: this.state, newblock_frame:this.state.newblock_frame} 
+     })
+    
+    // this.props.history.push({
+    //   pathname: `/Intro_Survey`, 
+    //   state: {participant_info: this.state} 
+    // })
     }
+
 
     render() {
         let mytext
         if (this.state.currentInstructionText===1) {
-            mytext = <div className='textbox'> <p></p><p> You will play a ‘slot machine’ game in which your goal is to win as many points as you can. </p>
+            mytext = <div className='textbox'> <p></p><p> You will play a ‘slot machine’ game in which <span class="bold">your goal is to win as many points as you can</span>. </p>
             <p> Your final payoff will depend on your choices</p>  
-            <p> At the end of the experiment, we will calculate the cumulated sum of rewards you won and translate the score into real money. You could earn between 1.75&#163; and 3.75&#163; as a bonus. </p> 
+            <p> At the end of the experiment, we will calculate the cumulative sum of rewards you won and translate the score into real money. You could earn between <span class="bold">1.5&#163;</span> and <span class="bold">3.0&#163;</span> as a bonus. </p> 
             <p>The game will be divided in 4 short blocks and will last approximately 30 min.</p></div>;
         }
 
@@ -164,7 +170,7 @@ class Instructions extends React.Component {
             <div className="center translate">
             <div className="InstructText">
             <center> 
-            <p className='title'>INSTRUCTIONS</p>
+            <p className='title'><span class="bold">INSTRUCTIONS</span></p>
             </center>
                 <center> 
                 <div className="instructionsButtonContainer">
@@ -172,21 +178,21 @@ class Instructions extends React.Component {
                     {this.state.currentInstructionText > 1 ? // id helps get which button was clicked to handle the 
 
                         <Button id="left" className="buttonInstructions" onClick={this.handleInstructionsLocal}> 
-                            &#8592;
+                            <span class="bold">&#8592;</span>
                         </Button>
                         :
                         <Button id="left" className="buttonInstructionsHidden">
-                            &#8592;
+                            <span class="bold">&#8592;</span>
                         </Button>
                     }
 
                     {this.state.currentInstructionText < 4 ?
                         <Button id="right" className="buttonInstructions" onClick={this.handleInstructionsLocal}>
-                            &#8594;
+                            <span class="bold">&#8594;</span>
                         </Button>
                         :
                         <Button id="right" className="buttonInstructionsHidden">
-                            &#8594;
+                            <span class="bold">&#8594;</span>
                         </Button>
                     }
 
@@ -194,16 +200,17 @@ class Instructions extends React.Component {
                         {mytext}
                     </div>
                     {this.state.readyToProceed ?
-                    <div className="buttonInstructions">
+                    <div className="buttonInstructionStart">
                     <center>
                         <label className='textbox'> When you are ready, start the training</label><br/>
-                        <Button className="buttonInstructions" onClick={()=>this.redirectToTarget()}>
-                            START
+                        <Button className="buttonInstructionStart" onClick={()=>this.redirectToTarget()}>
+                            <span class="bold">START</span>
                         </Button>
                     </center>
                     
                     </div>
                     : null}
+
             </div>
         </center>
         </div>

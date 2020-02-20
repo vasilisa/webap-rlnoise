@@ -4,6 +4,9 @@ import {withRouter} from 'react-router-dom';
 import { API_URL } from '../../config';
 import { handleResponse } from '../helpers';
 
+import { CSSTransitionGroup } from 'react-transition-group';
+
+
 import Score from '../Score/Score';
 
 import './Block.css'
@@ -93,7 +96,7 @@ class Block extends React.Component {
   fetchScore() {
   if (this._isMounted) {
 
-    fetch(`${API_URL}/participants_data/score/`+ this.state.participant_info.participant_id +'/'+ this.state.participant_info.game_id)
+    fetch(`${API_URL}/participants_data/score/`+ this.state.participant_info.participant_id +'/'+ this.state.participant_info.game_id +'/'+this.state.participant_info.prolific_id)
             .then(handleResponse)
             .then((data) => {
               const bonus = data['bonus']
@@ -156,9 +159,9 @@ redirectToSurvey = () => {
   document.body.style.background= '#fff';   
   this._isMounted && this.fetchBlock(this.state.participant_info.game_id,this.state.participant_info.block_number+1);
   this._isMounted && this.fetchSymbols(this.state.participant_info.game_id,this.state.participant_info.block_number+1);
-   window.history.pushState(window.state, null, window.location.href);
-    window.addEventListener('popstate', e => this._handleGoBack(e));
-    window.onbeforeunload = this._handleRefresh
+  window.history.pushState(window.state, null, window.location.href);
+  window.addEventListener('popstate', e => this._handleGoBack(e));
+  window.onbeforeunload = this._handleRefresh
   }
 
   _handleRefresh(evt){
@@ -214,7 +217,11 @@ redirectToSurvey = () => {
           th_reward_2    : Object.keys(data['th_reward_2']).map((key, index) => (data['th_reward_2'][key])),
           position       : Object.keys(data['position']).map((key, index) => (data['position'][key])),
           trial_numb     : 0,
+<<<<<<< HEAD
           TotalTrial: Object.keys(data['reward_1']).length 
+=======
+          TotalTrial     : 1 // THIS IS FOR THE TEST ONLY Object.keys(data['reward_1']).length 
+>>>>>>> test
 
         }
           
@@ -236,13 +243,22 @@ render()
     let text
     if ((this.state.participant_info.block_number === 0) && (this.state.newblock_frame) && (this.state.block_info.block_feedback==="1"))
     { 
-      text = <div className='textbox'> <p>This is a PARTIAL feedback block: you will ONLY see the feedback of the CHOSEN bandit.</p> 
+      text = <div className='textbox'> <p>This is a <span class="bold">partial</span> feedback block: you will <span class = "bold">only</span> see the feedback of the <span class = "bold">chosen</span> slot machine.</p> 
               <div className="translate"/>
                 <img className="introsymbol"  src={require('../../images/symbol_shape_0_grate_None_color_3.png')} alt='introsymbol' /> 
                 <img className="introsymbol"  src={require('../../images/symbol_shape_2_grate_None_color_0.png')} alt='introsymbol' /> 
             </div>
 
     return (
+      <CSSTransitionGroup
+      className="container"
+      component="div"
+      transitionName="fade"
+      transitionEnterTimeout={800}
+      transitionLeaveTimeout={500}
+      transitionAppear
+      transitionAppearTimeout={500}>
+
       <div>
       <center> 
       <div className="instructionsButtonContainer">
@@ -250,24 +266,34 @@ render()
           {text}           
         </div> 
         <center>
-          <Button className="button" onClick={()=>this.redirectToTarget()}>
+          <Button className="buttonInstructions" onClick={()=>this.redirectToTarget()}>
             &#8594;
           </Button>
         </center>
       </div>
       </center> 
-      </div>);
+      </div>
+      </CSSTransitionGroup>);
     } 
 
     else if ((this.state.participant_info.block_number===0)  && (this.state.newblock_frame) && (this.state.block_info.block_feedback==="2"))
     {
-      text = <div className='textbox'> <p>This is a COMPLETE feedback block: you will see BOTH the feedback of the CHOSEN bandit.</p> 
+      text = <div className='textbox'> <p>This is a <span class = "bold">complete</span> feedback block: you will see <span class = "bold">both </span> the feedback of the <span class="bold">chosen</span> and <span class = "bold">unchosen</span> slot machines.</p> 
                 <div className="translate"/>
                 <img className="introsymbol"  src={require('../../images/symbol_shape_0_grate_None_color_3.png')} alt='introsymbol'/> 
                 <img className="introsymbol"  src={require('../../images/symbol_shape_2_grate_None_color_0.png')} alt='introsymbol'/> 
                 </div>
       
         return (
+          <CSSTransitionGroup
+      className="container"
+      component="div"
+      transitionName="fade"
+      transitionEnterTimeout={800}
+      transitionLeaveTimeout={500}
+      transitionAppear
+      transitionAppearTimeout={500}>
+
           <div>
           <center> 
           <div className="instructionsButtonContainer">
@@ -275,24 +301,39 @@ render()
               {text}           
             </div> 
             <center>
-              <Button className="button" onClick={()=>this.redirectToTarget()}>
+              <Button className="buttonInstructions" onClick={()=>this.redirectToTarget()}>
               &#8594;
               </Button>
             </center>
           </div>
           </center>
           </div>
+          </CSSTransitionGroup>
           );
     }
     else if ((this.state.participant_info.block_number===1) && (this.state.newblock_frame) && (this.state.block_info.block_feedback==="1"))
     {
-      text = <div className='textbox'> <p>This is a PARTIAL feedback block: you will ONLY see the feedback of the CHOSEN bandit.</p> 
+      text = <div className='textbox'> 
+                <p>Did you notice that the most rewarding colored shape was not the same throughout the session?</p>
+                <p>At the beginning it was <span class="bold red"> the red circle </span> but in the middle of the session it changed, and <span class="bold blue">the blue star </span> became more rewarding?!</p>
+                <p></p>
+                <p> It is important that you track these changes in order to maximize your performance and increase your chance to win a bonus!</p>
+                <p>Let's do another training session with <span class = "bold">partial feedback</span>now: you will <span class="bold">only</span> see the feedback of the <span class="bold">chosen</span> slot machine.</p> 
                 <div className="translate"/>
                 <img className="introsymbol"  src={require('../../images/symbol_shape_1_grate_None_color_2.png')} alt='introsymbol'/> 
                 <img className="introsymbol"  src={require('../../images/symbol_shape_3_grate_None_color_1.png')} alt='introsymbol'/> 
                 </div>
       
         return (
+          <CSSTransitionGroup
+      className="container"
+      component="div"
+      transitionName="fade"
+      transitionEnterTimeout={800}
+      transitionLeaveTimeout={500}
+      transitionAppear
+      transitionAppearTimeout={500}>
+
           <div>
           <center> 
           <div className="instructionsButtonContainer">
@@ -300,23 +341,38 @@ render()
               {text}           
             </div>
             <center>
-              <Button className="button" onClick={()=>this.redirectToTarget()}>
+              <Button className="buttonInstructions" onClick={()=>this.redirectToTarget()}>
               &#8594;
               </Button>
             </center>
           </div>
           </center>
-          </div>);
+          </div>
+          </CSSTransitionGroup>);
     }
     else if ((this.state.participant_info.block_number===1) && (this.state.newblock_frame) && (this.state.block_info.block_feedback==="2")) 
     { 
-      text = <div className='textbox'> <p>This is a COMPLETE feedback block: you will see BOTH the feedback of the CHOSEN and UNCHOSEN bandits.</p> 
+      text = <div className='textbox'> 
+                <p>Did you 
+                 that the most rewarding colored shape was not the same throughout the session?</p>
+                <p>At the beginning it was <span class="bold red">the red circle </span> but in the middle of the session it changed, and <span class="bold blue">the blue star </span> became more rewarding?!</p>
+                <p></p>
+                <p>It is important that you track these changes in order to maximize your performance and increase your chance to win a bonus!</p> 
+                <p>Let's do another training session with <span class="bold">complete feedback</span> now: you will see <span class="bold">both</span> the feedback of the <span class="bold">chosen</span> and <span class="bold">unchosen</span> slot machines.</p> 
                 <div className="translate"/>
                 <img className="introsymbol"  src={require('../../images/symbol_shape_1_grate_None_color_2.png')} alt='introsymbol'/> 
                 <img className="introsymbol"  src={require('../../images/symbol_shape_3_grate_None_color_1.png')} alt='introsymbol'/> 
                 </div>
         
         return (
+          <CSSTransitionGroup
+      className="container"
+      component="div"
+      transitionName="fade"
+      transitionEnterTimeout={800}
+      transitionLeaveTimeout={500}
+      transitionAppear
+      transitionAppearTimeout={500}>
         <div>
         <center> 
         <div className="instructionsButtonContainer">
@@ -324,21 +380,31 @@ render()
             {text}           
           </div> 
             <center>
-            <Button className="button" onClick={()=>this.redirectToTarget()}>
+            <Button className="buttonInstructions" onClick={()=>this.redirectToTarget()}>
             &#8594;
             </Button>
             </center>
           </div>
           </center>
-          </div>);
+          </div>
+           </CSSTransitionGroup>);
       }
     else if ((this.state.participant_info.block_number===1) && (this.state.newblock_frame===false))
     {
       text = <div className='textbox'><p> You finished the training!</p>
-                  <p> Let's start the task now </p>
-                  <p> At the beginning of each block you will see if you are playing PARTIAL or COMPLETE feedback block! </p>
-                  <p> Finding the most rewarding bandit will be harder than during the training, so pay attention! </p></div>
+                  <p></p>
+                  <p> Let's start the task now! </p>
+                  <p> At the beginning of each block you will see if you are playing <span class = "bold">partial</span> or <span class = "bold">complete</span> feedback block! </p>
+                  <p> Finding the most rewarding slot machine will be harder than during the training, so pay attention! </p></div>
       return (
+        <CSSTransitionGroup
+      className="container"
+      component="div"
+      transitionName="fade"
+      transitionEnterTimeout={800}
+      transitionLeaveTimeout={500}
+      transitionAppear
+      transitionAppearTimeout={500}>
         <div>
         <center> 
         <div>
@@ -346,17 +412,19 @@ render()
             {text}  <div className="translate"/>
           </div>
           <center>
-            <Button className="button" onClick={()=>this.redirectToTarget()}>
+            <Button className="buttonInstructions" onClick={()=>this.redirectToTarget()}>
             &#8594;
             </Button>
           </center>
         </div>
         </center>
-        </div>);
+        </div>
+        </CSSTransitionGroup>);
     }
     else if ((this.state.participant_info.block_number===this.state.participant_info.TotalBlock+1) && (this.state.load_bonus===true))
     {
       return(
+
           <div>{this.redirectToScore()}</div>       
         )
     }
@@ -364,34 +432,41 @@ render()
     else
     {
       const feedback_type_text = (this.state.block_info.block_feedback==="1") ? 'PARTIAL' : 'COMPLETE';
-      let text_feedback
+      const end_of_block_text  = (this.state.block_info.block_type==="training") ? 'End of training block': 'End of block ' + (this.state.participant_info.block_number-1)
+      
       if (this.state.newblock_frame) 
         {
-          text_feedback = 'The next block is ' + feedback_type_text + ' feedback block!'
-          text = <div><p>{text_feedback}</p></div>
+          text = <div><p>The next block is <span class ="bold">{feedback_type_text}</span> feedback block!</p></div>
         }
       else
         { 
-          text = 'End of block ' + (this.state.participant_info.block_number+1)
+          text = <div><p>{end_of_block_text}</p></div> //'End of block ' + (this.state.participant_info.block_number+1)
         }
         return (
+          <CSSTransitionGroup
+      className="container"
+      component="div"
+      transitionName="fade"
+      transitionEnterTimeout={800}
+      transitionLeaveTimeout={800}
+      transitionAppear
+      transitionAppearTimeout={800}>
+
       <div>
       <center>
       <div className="restarttraining">
         {text}           
       </div>
         <center>
-        <Button className="button" onClick={()=>this.redirectToTarget()}>
+        <Button className="buttonInstructionStart" onClick={()=>this.redirectToTarget()}>
           &#8594;
         </Button>
         </center>
     </center>
-    </div>);
+    </div>
+    </CSSTransitionGroup>);
     }    
   }
-
-
-  
 
 }
 

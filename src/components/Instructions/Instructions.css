@@ -17,8 +17,8 @@
 .InstructText{
   font: "Century Gothic", Futura, sans-serif;
   font-size  : 60%;
-  margin-top : 5%;
-  margin-left: 5%;
+  margin-top : 3%;
+  margin-left: 3%;
   border-width: 1px;
 }
 
@@ -26,8 +26,37 @@
   font: "Century Gothic", Futura, sans-serif;
   font-size  : 60%;
   margin-top : 3%;
+<<<<<<< HEAD
   margin-left: 5%;
+=======
+  margin-left: 3%;
+>>>>>>> test
   border-width: 1px;
+}
+
+.buttonInstructions{
+  width: 10%;
+  height: 10%;
+  margin: 0 auto;
+  border-radius: 3px;
+  font-weight:bold; 
+
+}
+
+.buttonInstructionsHidden{
+  width: 10%;
+  height: 10%;
+  margin: 0 auto;
+  border-radius: 3px;
+  font-weight:bold; 
+}
+
+.buttonInstructionStart{
+  width: 30%;
+  height: 20%;
+  margin: 0 auto;
+  border-radius: 3px;
+
 }
 
 
@@ -80,6 +109,11 @@
     -webkit-box-sizing:border-box;
     box-sizing:border-box;  
   }
+
+
+.bold { font-weight: bold; }
+.red { color: #FF0000; }
+.blue { color: #326699; }
 
 
 

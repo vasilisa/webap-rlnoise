@@ -1,5 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import {withRouter} from 'react-router-dom';
+
 import { CSSTransitionGroup } from 'react-transition-group';
 import Question from '../QuizQuestion/Question';
 import QuestionCount from '../QuizQuestion/QuestionCount';
@@ -24,6 +26,32 @@ class ReportNA extends React.Component {
   this.renderAnswerOptions = this.renderAnswerOptions.bind(this); 
 }
 
+
+componentDidMount() {
+  this._isMounted = true;
+  // document.getElementById("create-course-form").reset();
+  document.body.style.background= '#fff';   
+  this.setState({
+    report: '',
+    answer: '',
+    answercheck: false,
+    shouldBlockNavigation: false}
+    )
+  window.history.pushState(window.state, null, window.location.href);
+  window.addEventListener('keypress' , e => this._handleRefresh(e));
+}
+
+_handleRefresh(evt){
+  if (evt.key==='Enter') {
+
+  if (window.confirm("You are about to leave the survey. All your answers would be lost and you will have to start the survey from the beginning. Are you sure you want to proceed?")){
+  this.props.history.push({
+       pathname: `/Intro_Survey`, 
+       state: {participant_info: this.props.participant_info} // contains participant ID, prolific ID and date-time of the experiment start 
+     })
+  }
+}
+}
 
   handleChangeReport(event) {
 
@@ -109,8 +137,9 @@ ReportNA.propTypes = {
   questionId: PropTypes.number.isRequired,
   questionTotal: PropTypes.number.isRequired,
   onAnswerSelected: PropTypes.func.isRequired,
-  constraint: PropTypes.array.isRequired
+  constraint: PropTypes.array.isRequired,
+  participant_info:PropTypes.object.isRequired
 };
 
 
-export default ReportNA;
+export default withRouter(ReportNA);
