@@ -43,7 +43,7 @@ componentDidMount() {
 
 _handleRefresh(e){
   if (e.key==='Enter') {
-  console.log('enter e', e.srcElement);
+  // console.log('enter e', e.srcElement);
 
   // console.log('value', e.target.value);
 
@@ -56,7 +56,7 @@ _handleRefresh(e){
     answercheck: true}
     );
 
-    console.log(this.state.answercheck)
+    // console.log(this.state.answercheck)
     // Send answers to the parent component
     document.getElementById("create-course-form").reset();
     let prev_report = this.state.report 

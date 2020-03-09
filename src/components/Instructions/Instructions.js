@@ -37,7 +37,7 @@ class Instructions extends React.Component {
             game_id : '',       // to be determined 
             block_number : 0, 
             currentInstructionText: 1,
-            TotalBlock: 1, //5 
+            TotalBlock: 5,  
             newblock_frame : true, 
             readyToProceed: false,
             redirect: false,
