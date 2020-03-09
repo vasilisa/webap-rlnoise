@@ -2,7 +2,6 @@ import React from 'react';
 import { Button } from 'react-bootstrap';
 import {withRouter} from 'react-router-dom';
 import PropTypes from 'prop-types';
-import './Intro_Survey.css';
 
 // Fetch participant data onClick after veryfing that all the boxes are ticked 
 const Checkbox = props => (
@@ -19,7 +18,7 @@ class Intro_Survey extends React.Component {
       prolific_id: this.props.location.state.participant_info.prolific_id,
       date: this.props.location.state.participant_info.date,
       TotalBlock: 4, 
-      block_number: 0,  
+      block_number: 0, // 0  
       newblock_frame: true 
   }
 
@@ -47,13 +46,12 @@ render() {
       <div>
         <div className="IntroConsentText">
           <center>
-          <p><span class="bold">INFORMATION and CONSENT</span></p></center>
+          <p><span class="bold">INFORMATION FOR THE PARTICIPANT</span></p></center>
           <p></p>
-          <p>We are going to ask you to complete a questionnaire that will take about 10-15 minutes.</p>
+          <p>We are now asking you to complete a questionnaire that will take about 10-15 minutes.</p>
 
-          <p>This study is conducted by Drs. Valentin Wyart and Pierre Jacquet - researchers at the Department of Cognitive Studies of the Ecole normale supérieure (Paris, France). 
+          <p>This study is conducted by Drs. Valentin Wyart and Pierre Jacquet - researchers at the Department of Cognitive Studies of the Ecole Normale Supérieure (Paris, France). 
           It aims to better understand the links between living conditions, the reproductive development and the health of individuals.</p> 
-          
           <ul>
           <span class="bold">Two types of questions</span> will be asked, relating to:
           <p></p>
@@ -61,7 +59,7 @@ render() {
           <p></p>
           <li>{}Certain biological data that characterize your development (e.g., weight and size at birth, age at puberty, etc.).</li> </ul>
 
-          <p>All your answers will be treated in a strictly confidential and anonymous manner. 
+          <p>All your answers will be treated in a <span class="bold">strictly confidential and anonymous</span> manner. 
           A numerical code will be automatically assigned to you at the end of the questionnaire in order to maintain your anonymity with the research team. 
           It will be impossible to use this data to identify you.</p>
 
