@@ -179,7 +179,7 @@ render()
               {text}           
             </div> 
             <center>
-              <Button className="buttonStart" onClick={()=>this.redirectToQuiz()}>
+              <Button className="buttonInstructionStart" onClick={()=>this.redirectToQuiz()}>
               START
               </Button>
             </center>
@@ -206,7 +206,7 @@ render()
               {text}           
             </div>
             <center>
-              <Button className="buttonStart" onClick={()=>this.redirectToQuiz()}>
+              <Button className="buttonInstructionStart" onClick={()=>this.redirectToQuiz()}>
               START
               </Button>
             </center>
@@ -228,7 +228,7 @@ render()
             {text}           
           </div> 
             <center>
-            <Button className="buttonStart" onClick={()=>this.redirectToQuiz()}>
+            <Button className="buttonInstructionStart" onClick={()=>this.redirectToQuiz()}>
             START
             </Button>
             </center>
@@ -238,8 +238,9 @@ render()
       }
     else if (this.state.participant_info.block_number === this.state.participant_info.TotalBlock+1) 
     {
-      text = <div className='SurveyIntroText'> <p><span class="bold">You finished the survey!</span> Thank you for your participation!</p> 
-      <Button variant="secondary" color="danger" size="sm" className="buttonInstruction" type="submit" onClick={() => this.redirectToEnd()}> Click here </Button></div>
+      text = <div className='SurveyIntroText'> <p><span class="bold">You finished the survey!</span> </p>
+      <p>Thank you for your participation!</p> 
+      <Button variant="secondary" color="danger" size="sm" className="buttonInstructionFinal" type="submit" onClick={() => this.redirectToEnd()}>Click here </Button></div>
         return (
           <div>
           <center> 

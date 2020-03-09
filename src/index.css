@@ -1,4 +1,4 @@
-body {
+body, html {
   margin: 0;
   padding: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -6,8 +6,22 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  
-}
+  margin: 0;
+  margin-top: 5vh;
+  margin-left:5vh;
+  margin-right:5vh;
+  color: #ffff;
+  font-size: 2vh;
+  /* Full height */
+  height: 100vh; 
+
+  /* Center and scale the image nicely / stretch; */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: stretch; 
+  flex: 1
+  }
+
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
@@ -18,17 +32,25 @@ code {
   box-sizing: border-box;
 }
 
+.IntroConsentText{
+  font: "Century Gothic", Futura, sans-serif;
+  font-size  : 3vh;
+  margin-top : 2vh;
+  margin-left: 2vh;
+}
+
+
 .IntroText{
   font: "Century Gothic", Futura, sans-serif;
-  font-size  : 100%;
-  margin-top : 5%;
-  margin-left: 5%;
+  font-size  : 14vh;
+  margin-top : 3%;
+  margin-left: 3%;
 }
 
 .QuizBlock{
   font: "Century Gothic", Futura, sans-serif;
   background: white;
-  font-size  : 150%;
+  font-size  : 3vh;
   padding: 10px;
   margin-top: 0;
   margin-left:0;
@@ -40,11 +62,11 @@ code {
 
 .SurveyIntroText{
   font: "Century Gothic", Futura, sans-serif;
-  font-size  : 150%;
-  margin-top : 10%;
-  margin-bottom: 15%;
-  margin-left: 5%;
-  border-width: 1px;
+  font-size  : 3vh;
+  margin-top : 2vh;
+  margin-bottom: 5vh;
+  margin-left: 2vh;
+  border-width: 0.5vh;
 }
 
 .translate {
@@ -53,12 +75,14 @@ code {
 
 .buttonStart{
   position: center;
-  width: 25%;
-  height: 15%;
+  width: 2vh;
+  height: 5vh;
   margin: 0 auto;
   background: green;
-  border-radius: 3px;
+  border-radius: 0.5vh;
+  font-size: 5vh;
 }
+
 
 .container {
   position: relative;
@@ -124,7 +148,7 @@ code {
 
 .radioCustomLabel {
   position: relative;
-  width: 100%;
+  width: 110%;
   margin: 0;
   padding: 1.5rem 2.5rem 1.5rem 5rem;
   font-size: 16px;
@@ -133,6 +157,7 @@ code {
 
 .radioCustomButton ~ .radioCustomLabel:before {
   position: absolute;
+  width: 110%;
 
   top: 20px;
   left: 38px;
@@ -179,9 +204,4 @@ code {
 
 .fade-appear {
   opacity: 0;
-}
-
-.fade-appear.fade-appear-active {
-  opacity: 1;
-  transition: opacity 0.5s ease-in-out;
 }

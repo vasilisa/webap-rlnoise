@@ -37,7 +37,7 @@ class Instructions extends React.Component {
             game_id : '',       // to be determined 
             block_number : 0, 
             currentInstructionText: 1,
-            TotalBlock: 5, 
+            TotalBlock: 1, //5 
             newblock_frame : true, 
             readyToProceed: false,
             redirect: false,
@@ -127,41 +127,39 @@ class Instructions extends React.Component {
     render() {
         let mytext
         if (this.state.currentInstructionText===1) {
-            mytext = <div className='textbox'> <p></p><p> You will play a ‘slot machine’ game in which <span class="bold">your goal is to win as many points as you can</span>. </p>
-            <p> Your final payoff will depend on your choices</p>  
-            <p> At the end of the experiment, we will calculate the cumulative sum of rewards you won and translate the score into real money. You could earn between <span class="bold">1.5&#163;</span> and <span class="bold">3.0&#163;</span> as a bonus. </p> 
+            mytext = <div className='textbox'> <p></p><p>You will play a ‘slot machine’ game.</p>
+            <p><span class="bold">Your goal is to win as many points as you can</span>.</p>
+            <p> Your final payoff will depend on your choices. At the end of the experiment, we will calculate the cumulative number of points you won and translate them into real money.</p> 
+            <p>You could earn between <span class="bold">1.5&#163;</span> and <span class="bold">3.0&#163;</span> as a bonus.</p> 
             <p>The game will be divided in 4 short blocks and will last approximately 30 min.</p></div>;
         }
 
         else if (this.state.currentInstructionText===2) {
         mytext = <div className='textbox'> <p></p> <p>At each trial, you will choose between two slot machines depicted by colored shapes.</p> 
                 <div className="translate"/>
-                <p>Be aware: each slot machine is identified by its colored shape, and not by its position on the screen.</p>
+                <p><span class="bold">Be aware</span>:</p>
+                <p>each slot machine is identified by its colored shape, and not by its position on the screen.</p>
                 <div className="symbolframe">    
                     <img className="introsymbol"  src={require('../../images/symbol_shape_0_grate_None_color_3.png')} alt='introsymbol'/> 
                     <img className="introsymbol"  src={require('../../images/symbol_shape_2_grate_None_color_0.png')} alt='introsymbol'/> 
                 </div>
-                <p> The outcome corresponding to your choice will appear below the colored shape that you have chosen, in the form of a number of points won between 1 and 99.</p>
-                <p>In certain blocks you will also see the outcome of the slot machine that you have not chosen.</p>
-                <p>However, you will only win the outcome of the slot machine that you have chosen.</p>
-                
+                <p> The number of points won (between 1 and 99) will appear below the colored shape that you have chosen.</p>
+                <p>In certain blocks you will also see the points associated with the slot machine that you have not chosen.</p>
+                <p>However, you will only win the points of the slot machine that you have chosen.</p>
                 </div>
             }
 
         else if (this.state.currentInstructionText===3) {
-            mytext = <div className='textbox'> <p></p> <p> The average payoffs of the two slot machines change over time. The game consists in finding out which of the two slot machines is currently more rewarding. Beware: the
-            outcome of each slot machine varies around its average value from trial to trial.</p> 
+            mytext = <div className='textbox'> <p></p> <p> The average payoffs of the two slot machines change over time.</p>
+            <p>The game consists in finding out which of the two slot machines is <span class="bold">currently</span> more rewarding.</p>
+            <p><span class="bold">Be aware:</span> the outcome of each slot machine varies around its average value from trial to trial.</p> 
             <p>For example, a slot machine can bring more than 50 points on average but less than 50 points on a particular trial, and vice versa.</p>
             </div>;
         }
-
         else if (this.state.currentInstructionText===4) {
-            mytext = <div className='textbox'> <p></p> <p>There is always a slot machine that gives currenty more points on average then the other one.</p>
+            mytext = <div className='textbox'> <p></p> <p>There is <span class="bold">always</span> a slot machine that gives <span class="bold">currenty</span> more points on average then the other one.</p>
             <p> This will be the case during a certain period of time (what we call an episode).</p>
             <p>You do not know how long the episode would last but you can get a sense of it by trying to remind the outcomes of the slot machines in the nearest past.</p>
-            <div className="symbolframe">    
-                <img className="introbandits" src={require('../../images/instruct_bandits.png')} alt='introbandits'/> 
-            </div>
             </div>;
         }
 
@@ -200,7 +198,7 @@ class Instructions extends React.Component {
                         {mytext}
                     </div>
                     {this.state.readyToProceed ?
-                    <div className="buttonInstructionStart">
+                    <div className="buttonInstruction">
                     <center>
                         <label className='textbox'> When you are ready, start the training</label><br/>
                         <Button className="buttonInstructionStart" onClick={()=>this.redirectToTarget()}>

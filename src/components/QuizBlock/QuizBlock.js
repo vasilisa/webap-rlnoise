@@ -87,7 +87,7 @@ NoShuffleArray(array) {
   }
   // onAnswerSelected points to this function in AnswerOption.js 
   handleAnswerSelected(answerContent,questionId,event) {
-    console.log(answerContent) 
+    console.log('event',event) 
     this.setUserAnswer(event.currentTarget.value,answerContent,questionId); // event.currentTarget.value); // to be changed to see what is recorded 
 
     if (this.state.questionCount < this.state.quizQuestionsBlock.length) {  // to change to the number of questions in this part of the Survey

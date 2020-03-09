@@ -35,28 +35,49 @@ componentDidMount() {
     answercheck: false,
     shouldBlockNavigation: false}
     )
-  window.history.pushState(window.state, null, window.location.href);
-  window.addEventListener('keypress' , e => this._handleRefresh(e));
+  window.history.pushState(window.state, null, window.location.href)
+  window.onbeforeunload = null;
+  window.addEventListener("keypress", e => this._handleRefresh(e));
 
 }
 
-_handleRefresh(evt){
-  if (evt.key==='Enter') {
+_handleRefresh(e){
+  if (e.key==='Enter') {
+  console.log('enter e', e.srcElement);
 
-  if (window.confirm("You are about to leave the survey. All your answers would be lost and you will have to start the survey from the beginning. Are you sure you want to proceed?")){
-  this.props.history.push({
-       pathname: `/Intro_Survey`, 
-       state: {participant_info: this.props.participant_info} // contains participant ID, prolific ID and date-time of the experiment start 
-     })
+  // console.log('value', e.target.value);
+
+  var test = this.state.report
+  // console.log('test',this.state.report)
+    
+  if ((test!=="") && (test!==null) && (test>parseInt(this.props.constraint[0].min)) && (test<parseInt(this.props.constraint[1].max))) 
+  {
+    this.setState({
+    answercheck: true}
+    );
+
+    console.log(this.state.answercheck)
+    // Send answers to the parent component
+    document.getElementById("create-course-form").reset();
+    let prev_report = this.state.report 
+        this.setState({
+          report: ''}
+        )
+
+        this.props.onAnswerSelected(this.state.report,this.props.questionId,e) 
   }
-}
+  else {
+    e.preventDefault()
+  }
+ 
+  }
 }
 
 _handleGoBack(event){
     window.history.go(1);
   }
 
-  handleChangeReport(event) {
+handleChangeReport(event) {
 
   var test = Number(event.target.value)
     
@@ -114,7 +135,7 @@ render() {
 
         <div className="col-md-6 no-padding">
         <form id="create-course-form">
-        <input value={this.state.report} onChange={this.handleChangeReport} name="report" id="report" className="form-control" placeholder="" type="number" inputMode="numeric" required />
+        <input value={this.state.report} onKeyDown={this._handleRefresh} onChange={this.handleChangeReport} name="report" id="report" className="form-control" placeholder="" type="number" inputMode="numeric" required />
         </form>
         </div>
       </div>
@@ -141,7 +162,5 @@ Report.propTypes = {
   participant_info:PropTypes.object.isRequired
 };
 
-// <button type="submit" className="btn btn-save btn-primary pad-20" disabled={!this.state.answercheck} onClick={this.handleSubmit}>Submit
           
-
 export default withRouter(Report);
