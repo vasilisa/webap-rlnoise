@@ -5,7 +5,7 @@ import { Button } from 'react-bootstrap';
 
 function Score(props) {
 
- // console.log(props.score) 
+ console.log(props.score) 
  let text 
     
       if (props.score==='3.0') {
@@ -47,7 +47,7 @@ function Score(props) {
             {text}           
           </div> 
             <center>
-            <Button className="buttonStart" onClick={()=>props.onClicked()}>
+            <Button className="buttonInstructionStart" onClick={()=>props.onClicked()}>
             START
             </Button>
             </center>
