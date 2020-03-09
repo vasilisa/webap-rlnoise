@@ -47,7 +47,7 @@ function Score(props) {
             {text}           
           </div> 
             <center>
-            <Button className="buttonStart" onClick={()=>props.onClicked()}>
+            <Button className="buttonInstructionStart" onClick={()=>props.onClicked()}>
             START
             </Button>
             </center>
