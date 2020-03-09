@@ -1,34 +1,32 @@
-.introsymbol {
-  width: 10%;
-  height: 10%;
-  height: 10%;
-  width: 10%;
-  margin-left: 5%;
-  margin-right: 5%;
-  margin-top: 2%;
-  margin-bottom: 2%; 
+.introsymbol{
+  width: 25vh;
+  height: 25vh;
+  margin-left: 5vh;
+  margin-right: 12vh;
+  margin-top: 2vh;
+  margin-bottom: 2vh; 
     -moz-box-sizing:border-box;
     -webkit-box-sizing:border-box;
     box-sizing:border-box;  
-  border: 2px solid black;
-  border-radius: 6px; 
+  border: 0.5vh solid black;
+  border-radius: 0.5vh; 
   }   
 
 
 .InstructText{
   font: "Century Gothic", Futura, sans-serif;
-  font-size  : 60%;
-  margin-top : 3%;
-  margin-left: 3%;
-  border-width: 1px;
+  font-size  : 4vh;
+  margin-top : 1vh;
+  margin-left: 1vh;
+  border-width: 0.5vh;
 }
 
 .textbox{
   font: "Century Gothic", Futura, sans-serif;
-  font-size  : 60%;
-  margin-top : 3%;
-  margin-left: 3%;
-  border-width: 1px;
+  font-size  : 4vh; 
+  margin-top : 1vh;
+  margin-left: 1vh;
+  border-width: 0.5vh;
 }
 
 .buttonInstructions{
@@ -49,10 +47,13 @@
 }
 
 .buttonInstructionStart{
-  width: 30%;
-  height: 20%;
+  width: 15vh;
+  height: 8vh;
   margin: 0 auto;
-  border-radius: 3px;
+  border-radius: 0.5vh;
+  margin-top:2vh;
+  font-size: 3vh;
+  margin-bottom:2vh;
 
 }
 
@@ -62,15 +63,19 @@
 }
 
 .translate {
-  margin-top: 1%;
+  margin-top: 1vh;
 }
 
-.title {
-  font-size: 200%;
+.title{
+  font: 5vh "Century Gothic", Futura, sans-serif;
+  background: white;
+  margin-top: 5vh;
+  position: center;
 }
+
 
 .text {
-  font-size: 150%;  
+  font-size: 5vh;  
 }
 
 .divider{

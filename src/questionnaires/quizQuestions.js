@@ -1698,8 +1698,8 @@ var quizQuestions = [
       surveytag: 'repdevelop',
       title: 'Reproductive development', 
       constraint: [
-       {min: 0},
-       {max: 999}
+       {min: 10},
+       {max: 99}
       ]
 }, 
 
@@ -1769,26 +1769,6 @@ var quizQuestions = [
        {max: ""}
       ]
   },
-
-
-  {   
-      question:"In total, during how many years did you smoke daily or almost daily?", 
-
-      answers: [
-        {
-          type: "answer-na",
-          content: "I never smoked"}
-        ],
-      qtype: 'report-na',
-      questionId: 73,
-      surveytag: 'health',
-      title: 'Health', 
-      constraint: [
-       {min: 0},
-       {max: 100}
-      ]
-  },
-
 
   {   
       question:"When you were younger than 12 ... How often did you miss school due to illness ?", 

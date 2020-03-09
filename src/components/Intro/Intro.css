@@ -1,25 +1,19 @@
-.IntroConsentText{
-  font: "Century Gothic", Futura, sans-serif;
-  font-size  : 120%;
-  margin-top : 5%;
-  margin-left: 5%;
-}
-
 input[type="checkbox"] {
   display: none;
 }
 input[type="checkbox"] + span {
   display: inline-block;
   position: relative;
-  margin-top: 5%;
-  width:  20px;
-  height: 20px; 
-  margin-left: 150%;
+  margin-top: 2vh;
+  margin-left: 2vh;
+  width:  5vh;
+  height: 5vh; 
+  margin-left: 1vh;
   vertical-align: middle;
   background: white left top no-repeat;
-  border: 2px solid black;
+  border: 0.5vh solid black;
   cursor: pointer;
-  padding: 10px; 
+  padding: 1vh; 
 }
 
 
@@ -39,11 +33,18 @@ input[type="checkbox"] + span {
 
 input[type="checkbox"]:checked + span {
   background: salmon top;
-  margin-top: 5%;
-  margin-left: 150%;
   stroke: white;
   stroke-width: 2px;
-  padding: 10px; 
+  margin-top: 2vh;
+  margin-left: 2vh;
+  width:  5vh;
+  height: 5vh; 
+  margin-left: 1vh;
+  vertical-align: middle;
+  border: 0.5vh solid black;
+  padding: 1vh; 
 }
+
+
 
 

@@ -348,8 +348,7 @@ render()
     else if ((this.state.participant_info.block_number===1) && (this.state.newblock_frame) && (this.state.block_info.block_feedback==="2")) 
     { 
       text = <div className='textbox'> 
-                <p>Did you 
-                 that the most rewarding colored shape was not the same throughout the session?</p>
+                <p>Did you notice that the most rewarding colored shape was not the same throughout the session?</p>
                 <p>At the beginning it was <span class="bold red">the red circle </span> but in the middle of the session it changed, and <span class="bold blue">the blue star </span> became more rewarding?!</p>
                 <p></p>
                 <p>It is important that you track these changes in order to maximize your performance and increase your chance to win a bonus!</p> 
