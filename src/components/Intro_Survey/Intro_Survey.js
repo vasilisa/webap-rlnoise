@@ -57,7 +57,7 @@ render() {
           <p></p>
           <li>{}Your childhood and your adult life (e.g., your current economic situation, your parents' situation as a child, etc.)</li> 
           <p></p>
-          <li>{}Certain biological data that characterize your development (e.g., weight and size at birth, age at puberty, etc.).</li> </ul>
+          <li>{}Certain biological data that characterize your development (e.g., weight and height at birth, age at puberty, etc.).</li> </ul>
 
           <p>All your answers will be treated in a <span class="bold">strictly confidential and anonymous</span> manner. 
           A numerical code will be automatically assigned to you at the end of the questionnaire in order to maintain your anonymity with the research team. 

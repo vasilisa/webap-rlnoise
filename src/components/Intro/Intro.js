@@ -55,7 +55,7 @@ render() {
           <p></p>
           <li>{}Your childhood and your adult life (e.g., your current economic situation, your parents' situation as a child, etc.)</li> 
           <p></p>
-          <li>{}Certain biological data that characterize your development (e.g., weight and size at birth, age at puberty, etc.).</li> 
+          <li>{}Certain biological data that characterize your development (e.g., weight and height at birth, age at puberty, etc.).</li> 
           </ul>
           <p>Our aim is to better understand the links between people's biological development, living conditions (during childhood and adult life) and patterns of decision-making.</p>  
           <p>In total your internet-based participation will require approximately 1 hour.</p>
