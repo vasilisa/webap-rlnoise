@@ -18,7 +18,7 @@ class Intro_Survey extends React.Component {
       prolific_id: this.props.location.state.participant_info.prolific_id,
       date: this.props.location.state.participant_info.date,
       TotalBlock: 6, 
-      block_number: 5, // 0  
+      block_number: 0, // 0  
       newblock_frame: true 
   }
 
