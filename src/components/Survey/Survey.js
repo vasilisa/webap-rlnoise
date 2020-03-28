@@ -55,13 +55,8 @@ class Survey extends React.Component {
               console.log(this.state.participant_info.block_number)
               const newblocknumber = this.state.participant_info.block_number + 1
               console.log(newblocknumber)
-
               this.getSurveyBlock(newblocknumber+1)
               this.setState({newblock_frame : true, participant_info : {...this.state.participant_info, block_number:newblocknumber},}) // what gets updated 
-              // add Score here when last block
-              if (newblocknumber === this.state.participant_info.TotalBlock+1){
-                this.redirectToEnd()
-              }              
             }
           }
         }
@@ -118,6 +113,16 @@ getSurveyBlock(block_number_) {
     else if (block_number_===5) {
         
         surveytag_block = "health"
+    }
+
+    else if (block_number_===6) {
+        
+        surveytag_block = "pvd"
+    }
+
+    else if (block_number_===7) {
+        
+        surveytag_block = "feedback"
     }
 
     else {
@@ -236,6 +241,51 @@ render()
           </center>
           </div>);
       }
+
+    else if ((this.state.block_info.surveytag === "pvd") && (this.state.newblock_frame)) 
+    { 
+      text = <div className='SurveyIntroText'> <p>Vulnerability to pathogens</p>
+                <p>This section contains questions about how you perceive your <span className='bold italic'>current vulnerability</span> to pathogens.</p> 
+                </div>
+        
+        return (
+        <div>
+        <center> 
+        <div className="instructionsButtonContainer">
+          <div>
+            {text}           
+          </div> 
+            <center>
+            <Button className="buttonInstructionStart" onClick={()=>this.redirectToQuiz()}>
+            START
+            </Button>
+            </center>
+          </div>
+          </center>
+          </div>);
+      }
+    else if ((this.state.block_info.surveytag === "feedback") && (this.state.newblock_frame)) 
+    { 
+      text = <div className='SurveyIntroText'> <p>Your feedback</p>
+                <p>Please, provide us with the feedback about this study</p> 
+                </div>
+        return (
+        <div>
+        <center> 
+        <div className="instructionsButtonContainer">
+          <div>
+            {text}           
+          </div> 
+            <center>
+            <Button className="buttonInstructionStart" onClick={()=>this.redirectToQuiz()}>
+            START
+            </Button>
+            </center>
+          </div>
+          </center>
+          </div>);
+      }
+
     else if (this.state.participant_info.block_number === this.state.participant_info.TotalBlock+1) 
     {
       text = <div className='SurveyIntroText'> <p><span class="bold">You finished the survey!</span> </p>

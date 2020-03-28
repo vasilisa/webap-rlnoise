@@ -4,6 +4,7 @@ import { API_URL } from '../../config';
 import Quiz from '../Quiz/Quiz';
 import Report from '../Report/Report';
 import ReportNA from '../ReportNA/ReportNA';
+import FreeReport from '../FreeReport/FreeReport';
 
 
 class QuizBlock extends Component {
@@ -87,7 +88,7 @@ NoShuffleArray(array) {
   }
   // onAnswerSelected points to this function in AnswerOption.js 
   handleAnswerSelected(answerContent,questionId,event) {
-    console.log('event',event) 
+    
     this.setUserAnswer(event.currentTarget.value,answerContent,questionId); // event.currentTarget.value); // to be changed to see what is recorded 
 
     if (this.state.questionCount < this.state.quizQuestionsBlock.length) {  // to change to the number of questions in this part of the Survey
@@ -227,9 +228,23 @@ NoShuffleArray(array) {
           participant_info={this.state.participant_info}
       />
     );
+  }
 
-
-
+  else if (this.state.qtype === "free-report") 
+  {
+    return (
+        <FreeReport
+          answer          ={this.state.answer}
+          answerOptions   ={this.state.answerOptions}
+          questionId      ={this.state.questionId}
+          questionCount   ={this.state.questionCount}
+          question        ={this.state.question}
+          questionTotal   ={this.state.quizQuestionsBlock.length}
+          onAnswerSelected={this.handleAnswerSelected}
+          constraint      ={this.state.constraint}
+          participant_info={this.state.participant_info}
+      />
+    );
   }
 }
 
