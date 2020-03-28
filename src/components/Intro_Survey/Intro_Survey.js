@@ -17,8 +17,8 @@ class Intro_Survey extends React.Component {
       participant_id: this.props.location.state.participant_info.participant_id, 
       prolific_id: this.props.location.state.participant_info.prolific_id,
       date: this.props.location.state.participant_info.date,
-      TotalBlock: 4, 
-      block_number: 0, // 0  
+      TotalBlock: 6, 
+      block_number: 5, // testing only the added PVD + feedback  
       newblock_frame: true 
   }
 
