@@ -1833,6 +1833,568 @@ var quizQuestions = [
       ]
   },
 
+// Added PVD scale 
+{   
+      question:"It really bothers me when people sneeze without covering their mouth", 
+
+      answers: [{
+         type: "answer-1",
+        content: "Agree strongly"},
+
+        {type: "answer-2",
+        content: "Agree somewhat"},
+
+        {type: "answer-3",
+        content: "Agree slightly"},
+
+        {type: "answer-4",
+        content: "Neither agree nor disagree"},
+
+        {type: "answer-5",
+        content: "Disagree slightly"},
+
+        {type: "answer-6",
+        content: "Disagree somewhat"},
+
+        {type: "answer-7",
+        content: "Disagree strongly"},
+        
+      ],
+      qtype: 'quiz',
+      questionId: 76,
+      surveytag: 'pvd',
+      title: 'Vulnerability', 
+      constraint: [
+       {min: ""},
+       {max: ""}
+      ]
+  },
+
+  
+  { question:"If an illness is 'going around', I will get it", 
+
+      answers: [{
+         type: "answer-1",
+        content: "Agree strongly"},
+
+        {type: "answer-2",
+        content: "Agree somewhat"},
+
+        {type: "answer-3",
+        content: "Agree slightly"},
+
+        {type: "answer-4",
+        content: "Neither agree nor disagree"},
+
+        {type: "answer-5",
+        content: "Disagree slightly"},
+
+        {type: "answer-6",
+        content: "Disagree somewhat"},
+
+        {type: "answer-7",
+        content: "Disagree strongly"},
+        
+      ],
+      qtype: 'quiz',
+      questionId: 77,
+      surveytag: 'pvd',
+      title: 'Vulnerability', 
+      constraint: [
+       {min: ""},
+       {max: ""}
+      ]
+  },
+
+  {
+    question:"I am comfortable sharing a watter bottle with a friend", 
+
+      answers: [{
+         type: "answer-1",
+        content: "Agree strongly"},
+
+        {type: "answer-2",
+        content: "Agree somewhat"},
+
+        {type: "answer-3",
+        content: "Agree slightly"},
+
+        {type: "answer-4",
+        content: "Neither agree nor disagree"},
+
+        {type: "answer-5",
+        content: "Disagree slightly"},
+
+        {type: "answer-6",
+        content: "Disagree somewhat"},
+
+        {type: "answer-7",
+        content: "Disagree strongly"},
+        
+      ],
+      qtype: 'quiz',
+      questionId: 78,
+      surveytag: 'pvd',
+      title: 'Vulnerability', 
+      constraint: [
+       {min: ""},
+       {max: ""}
+      ]
+  },
+
+  {
+    question:"I do not like to write with a pencil someone else has obviously chewed on", 
+
+      answers: [{
+         type: "answer-1",
+        content: "Agree strongly"},
+
+        {type: "answer-2",
+        content: "Agree somewhat"},
+
+        {type: "answer-3",
+        content: "Agree slightly"},
+
+        {type: "answer-4",
+        content: "Neither agree nor disagree"},
+
+        {type: "answer-5",
+        content: "Disagree slightly"},
+
+        {type: "answer-6",
+        content: "Disagree somewhat"},
+
+        {type: "answer-7",
+        content: "Disagree strongly"},
+        
+      ],
+      qtype: 'quiz',
+      questionId: 79,
+      surveytag: 'pvd',
+      title: 'Vulnerability', 
+      constraint: [
+       {min: ""},
+       {max: ""}
+      ]
+  },
+
+  { 
+    question: "My past experiences make me believe I am not likely to get sick even when my friends are sick", 
+
+      answers: [{
+         type: "answer-1",
+        content: "Agree strongly"},
+
+        {type: "answer-2",
+        content: "Agree somewhat"},
+
+        {type: "answer-3",
+        content: "Agree slightly"},
+
+        {type: "answer-4",
+        content: "Neither agree nor disagree"},
+
+        {type: "answer-5",
+        content: "Disagree slightly"},
+
+        {type: "answer-6",
+        content: "Disagree somewhat"},
+
+        {type: "answer-7",
+        content: "Disagree strongly"},
+        
+      ],
+      qtype: 'quiz',
+      questionId: 80,
+      surveytag: 'pvd',
+      title: 'Vulnerability', 
+      constraint: [
+       {min: ""},
+       {max: ""}
+      ]
+  },
+
+
+  { 
+    question: "I have a history of susceptibility to infectious disease", 
+
+      answers: [{
+         type: "answer-1",
+        content: "Agree strongly"},
+
+        {type: "answer-2",
+        content: "Agree somewhat"},
+
+        {type: "answer-3",
+        content: "Agree slightly"},
+
+        {type: "answer-4",
+        content: "Neither agree nor disagree"},
+
+        {type: "answer-5",
+        content: "Disagree slightly"},
+
+        {type: "answer-6",
+        content: "Disagree somewhat"},
+
+        {type: "answer-7",
+        content: "Disagree strongly"},
+        
+      ],
+      qtype: 'quiz',
+      questionId: 81,
+      surveytag: 'pvd',
+      title: 'Vulnerability', 
+      constraint: [
+       {min: ""},
+       {max: ""}
+      ]
+  },
+
+  { 
+    question: "I prefer to wash my hands pretty soon after shaking someone's hand", 
+
+      answers: [{
+         type: "answer-1",
+        content: "Agree strongly"},
+
+        {type: "answer-2",
+        content: "Agree somewhat"},
+
+        {type: "answer-3",
+        content: "Agree slightly"},
+
+        {type: "answer-4",
+        content: "Neither agree nor disagree"},
+
+        {type: "answer-5",
+        content: "Disagree slightly"},
+
+        {type: "answer-6",
+        content: "Disagree somewhat"},
+
+        {type: "answer-7",
+        content: "Disagree strongly"},
+        
+      ],
+      qtype: 'quiz',
+      questionId: 82,
+      surveytag: 'pvd',
+      title: 'Vulnerability', 
+      constraint: [
+       {min: ""},
+       {max: ""}
+      ]
+  },
+
+  { 
+    question: "In general, I am very susceptible to colds, flu and other infectious diseases", 
+
+      answers: [{
+         type: "answer-1",
+        content: "Agree strongly"},
+
+        {type: "answer-2",
+        content: "Agree somewhat"},
+
+        {type: "answer-3",
+        content: "Agree slightly"},
+
+        {type: "answer-4",
+        content: "Neither agree nor disagree"},
+
+        {type: "answer-5",
+        content: "Disagree slightly"},
+
+        {type: "answer-6",
+        content: "Disagree somewhat"},
+
+        {type: "answer-7",
+        content: "Disagree strongly"},
+        
+      ],
+      qtype: 'quiz',
+      questionId: 83,
+      surveytag: 'pvd',
+      title: 'Vulnerability', 
+      constraint: [
+       {min: ""},
+       {max: ""}
+      ]
+  },
+
+  { 
+    question: "I dislike wearing used clothes because you do not know what the last person who wore it was like", 
+
+      answers: [{
+         type: "answer-1",
+        content: "Agree strongly"},
+
+        {type: "answer-2",
+        content: "Agree somewhat"},
+
+        {type: "answer-3",
+        content: "Agree slightly"},
+
+        {type: "answer-4",
+        content: "Neither agree nor disagree"},
+
+        {type: "answer-5",
+        content: "Disagree slightly"},
+
+        {type: "answer-6",
+        content: "Disagree somewhat"},
+
+        {type: "answer-7",
+        content: "Disagree strongly"},
+        
+      ],
+      qtype: 'quiz',
+      questionId: 84,
+      surveytag: 'pvd',
+      title: 'Vulnerability', 
+      constraint: [
+       {min: ""},
+       {max: ""}
+      ]
+  },
+
+  { 
+    question: "I am more likely than the people around me to catch an infectious disease", 
+
+      answers: [{
+         type: "answer-1",
+        content: "Agree strongly"},
+
+        {type: "answer-2",
+        content: "Agree somewhat"},
+
+        {type: "answer-3",
+        content: "Agree slightly"},
+
+        {type: "answer-4",
+        content: "Neither agree nor disagree"},
+
+        {type: "answer-5",
+        content: "Disagree slightly"},
+
+        {type: "answer-6",
+        content: "Disagree somewhat"},
+
+        {type: "answer-7",
+        content: "Disagree strongly"},
+        
+      ],
+      qtype: 'quiz',
+      questionId: 85,
+      surveytag: 'pvd',
+      title: 'Vulnerability', 
+      constraint: [
+       {min: ""},
+       {max: ""}
+      ]
+  },
+
+  { 
+    question: "My hands do not feel dirty after touching money", 
+
+      answers: [{
+         type: "answer-1",
+        content: "Agree strongly"},
+
+        {type: "answer-2",
+        content: "Agree somewhat"},
+
+        {type: "answer-3",
+        content: "Agree slightly"},
+
+        {type: "answer-4",
+        content: "Neither agree nor disagree"},
+
+        {type: "answer-5",
+        content: "Disagree slightly"},
+
+        {type: "answer-6",
+        content: "Disagree somewhat"},
+
+        {type: "answer-7",
+        content: "Disagree strongly"},
+        
+      ],
+      qtype: 'quiz',
+      questionId: 86,
+      surveytag: 'pvd',
+      title: 'Vulnerability', 
+      constraint: [
+       {min: ""},
+       {max: ""}
+      ]
+  },
+
+  { 
+    question: "I am unlikley to catch a cold, flu, or other illness, even if it is 'going around'", 
+
+      answers: [{
+         type: "answer-1",
+        content: "Agree strongly"},
+
+        {type: "answer-2",
+        content: "Agree somewhat"},
+
+        {type: "answer-3",
+        content: "Agree slightly"},
+
+        {type: "answer-4",
+        content: "Neither agree nor disagree"},
+
+        {type: "answer-5",
+        content: "Disagree slightly"},
+
+        {type: "answer-6",
+        content: "Disagree somewhat"},
+
+        {type: "answer-7",
+        content: "Disagree strongly"},
+        
+      ],
+      qtype: 'quiz',
+      questionId: 87,
+      surveytag: 'pvd',
+      title: 'Vulnerability', 
+      constraint: [
+       {min: ""},
+       {max: ""}
+      ]
+  },
+
+
+  { 
+    question: "It does not make me anxious to be around sick people", 
+
+      answers: [{
+         type: "answer-1",
+        content: "Agree strongly"},
+
+        {type: "answer-2",
+        content: "Agree somewhat"},
+
+        {type: "answer-3",
+        content: "Agree slightly"},
+
+        {type: "answer-4",
+        content: "Neither agree nor disagree"},
+
+        {type: "answer-5",
+        content: "Disagree slightly"},
+
+        {type: "answer-6",
+        content: "Disagree somewhat"},
+
+        {type: "answer-7",
+        content: "Disagree strongly"},
+        
+      ],
+      qtype: 'quiz',
+      questionId: 88,
+      surveytag: 'pvd',
+      title: 'Vulnerability', 
+      constraint: [
+       {min: ""},
+       {max: ""}
+      ]
+  },
+
+  { 
+    question: "My immune system protects me from most of illnesses that other people get", 
+
+      answers: [{
+         type: "answer-1",
+        content: "Agree strongly"},
+
+        {type: "answer-2",
+        content: "Agree somewhat"},
+
+        {type: "answer-3",
+        content: "Agree slightly"},
+
+        {type: "answer-4",
+        content: "Neither agree nor disagree"},
+
+        {type: "answer-5",
+        content: "Disagree slightly"},
+
+        {type: "answer-6",
+        content: "Disagree somewhat"},
+
+        {type: "answer-7",
+        content: "Disagree strongly"},
+        
+      ],
+      qtype: 'quiz',
+      questionId: 89,
+      surveytag: 'pvd',
+      title: 'Vulnerability', 
+      constraint: [
+       {min: ""},
+       {max: ""}
+      ]
+  },
+
+  { 
+    question: "I avoid using public telephones because of the risk that I may catch something from the previous user", 
+
+      answers: [{
+         type: "answer-1",
+        content: "Agree strongly"},
+
+        {type: "answer-2",
+        content: "Agree somewhat"},
+
+        {type: "answer-3",
+        content: "Agree slightly"},
+
+        {type: "answer-4",
+        content: "Neither agree nor disagree"},
+
+        {type: "answer-5",
+        content: "Disagree slightly"},
+
+        {type: "answer-6",
+        content: "Disagree somewhat"},
+
+        {type: "answer-7",
+        content: "Disagree strongly"},
+        
+      ],
+      qtype: 'quiz',
+      questionId: 90,
+      surveytag: 'pvd',
+      title: 'Vulnerability', 
+      constraint: [
+       {min: ""},
+       {max: ""}
+      ]
+  },
+
+  { 
+    question: "How was your experience in this experiment? Did you have any troubles with completing the game or questionnaires?", 
+
+    answers: [
+        { 
+          type: "answer-na",
+          content: "Not applicable"}
+        ],
+
+      qtype:'free-report', 
+      questionId: 91,
+      surveytag: 'feedback',
+      title: 'Feedback', 
+      constraint: [
+       {min: ""},
+       {max: "10000"}
+      ]
+  },
+
 
   // closing the JSON 
 

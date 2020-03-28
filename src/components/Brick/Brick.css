@@ -1,27 +1,28 @@
 .symbol {
-  width: 50%;
+  width: 30vh;
+  height: 30vh;
   margin-right:2%;
+  margin-top: -8%;
     -moz-box-sizing:border-box;
     -webkit-box-sizing:border-box;
     box-sizing:border-box;    
-  border: 8px solid black;
-  border-radius: 6px;     
+  border: 1vh solid black;
+  border-radius: 1vh;     
 }
 
 .square {
-  height: 50%;
-  padding: 1%;
-  width: 50%;
-  margin-left: 5%;
-  margin-right: 5%;
-  margin-top: 5%;
-  margin-bottom: 25%; 
+  width: 30vh;
+  padding: 1vh;
+  margin-left: 2vh;
+  margin-right: 2vh;
+  margin-top: 2vh;
+  margin-bottom: 5vh; 
   -moz-box-sizing:border-box;
   -webkit-box-sizing:border-box;
   box-sizing:border-box;    
-  border: 8px solid black;
-  border-radius: 5px;    
-  font: 100px "Century Gothic", Futura, sans-serif;
+  border: 1vh solid black;
+  border-radius: 1vh;    
+  font: 16vh "Century Gothic", Futura, sans-serif;
   color: black;
   text-align: center;
   vertical-align: middle;
@@ -39,8 +40,8 @@
 }
 
 .selected{
-  border: 8px solid green;
-  border-radius: 5px;
+  border: 1vh solid green;
+  border-radius: 1vh;
 }
 
 .feedback {

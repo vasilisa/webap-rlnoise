@@ -1,19 +1,3 @@
-body {
-  font: 14px "Century Gothic", Futura, sans-serif;
-  margin: 5%;
-  background: #fffff;
-  margin-top: 5%;
-  margin-left:5%;
-  margin-right:5%;
-  }
-
-.title{
-  font: 26px "Century Gothic", Futura, sans-serif;
-  background: white;
-  margin-top: 50px;
-  margin-left:5px;
-
-}
 .block {
   text-align: center;
     display:flex;
@@ -31,21 +15,50 @@ body {
     font-size: 200%;
 }
 
-.translatetext {
-	margin-top: 4%;
-}
 
 .button{
-  top: 5%;
-  padding: 2%; 
-  width: 5%;
-  height: 5%; 
-  margin: 1% 1% 0 0;
+  top: 2vh;
+  padding: 2vh; 
+  width: 25vh;
+  height: 5vh; 
+  margin: 0.5vh 0.5vh 0 0;
   vertical-align: center;
   background: #8594; 
-  border: 4px solid black;
+  border: 0.5vh solid black;
   cursor: pointer;
 }
+
+
+.buttonInstructionsBlock{
+  width: 25vh;
+  height: 5vh;
+  margin-top:4vh;
+  border-radius: 0.5vh;
+  font-weight:bold; 
+  position:center;
+  margin-right:5vh;
+
+}
+
+.buttonInstructionsHiddenBlock{
+  width: 5vh;
+  height: 5vh;
+  margin: 0 auto;
+  border-radius: 0.5vh;
+  font-weight:bold; 
+}
+
+
+
+/*
+
+.textbox{
+  font: 26px "Century Gothic", Futura, sans-serif;
+}
+
+.bold { font-weight: bold; }
+.red { color: #FF0000; }
+.blue { color: #326699; }
 
 .buttonInstructions{
   width: 10%;
@@ -60,29 +73,4 @@ body {
   margin: 0 auto;
   border-radius: 3px;
 }
-
-
-.textbox{
-  font: 26px "Century Gothic", Futura, sans-serif;
-}
-
-.introsymbol {
-  width: 15%;
-  height: 15%;
-  height: 15%;
-  margin-left: 5%;
-  margin-right: 5%;
-  margin-top: 2%;
-  margin-bottom: 2%; 
-    -moz-box-sizing:border-box;
-    -webkit-box-sizing:border-box;
-    box-sizing:border-box;  
-  border: 4px solid black;
-  border-radius: 6px;    
-}
-
-
-.bold { font-weight: bold; }
-.red { color: #FF0000; }
-.blue { color: #326699; }
-
+*/
