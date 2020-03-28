@@ -310,24 +310,26 @@ render()
     {
       text = <div className='textbox'> 
                 <p>Did you notice that the most rewarding colored shape was not the same throughout the session?</p>
-                <p>At the beginning it was <span class="bold red"> the red circle </span> but in the middle of the session it changed, and <span class="bold blue">the blue star </span> became more rewarding?!</p>
-                <p></p>
-                <p> It is important that you track these changes in order to maximize your performance and increase your chance to win a bonus!</p>
+                <p>At the beginning it was <span class="bold red"> the red circle </span> but in the middle of the session it changed,</p> 
+                <p>and <span class="bold blue">the blue star </span> became more rewarding?!</p>
+                <p> It is important that you track these changes !</p>
+                <p> It is also important to track outcomes <span className='bold italic'>in time</span> and avoid switching too much</p>
+                <p> because even a good shape can occasionally give few points !</p>
                 <p>Let's do another training session with <span class = "bold">partial feedback</span>now: you will <span class="bold">only</span> see the feedback of the <span class="bold">chosen</span> slot machine.</p> 
                 <div className="translate"/>
-                <img className="introsymbol"  src={require('../../images/symbol_shape_1_grate_None_color_2.png')} alt='introsymbol'/> 
-                <img className="introsymbol"  src={require('../../images/symbol_shape_3_grate_None_color_1.png')} alt='introsymbol'/> 
+                <img className="introsymbol" src={require('../../images/symbol_shape_1_grate_None_color_2.png')} alt='introsymbol'/> 
+                <img className="introsymbol" src={require('../../images/symbol_shape_3_grate_None_color_1.png')} alt='introsymbol'/> 
                 </div>
       
         return (
           <CSSTransitionGroup
-      className="container"
-      component="div"
-      transitionName="fade"
-      transitionEnterTimeout={800}
-      transitionLeaveTimeout={500}
-      transitionAppear
-      transitionAppearTimeout={500}>
+            className="container"
+            component="div"
+            transitionName="fade"
+            transitionEnterTimeout={800}
+            transitionLeaveTimeout={500}
+            transitionAppear
+            transitionAppearTimeout={500}>
 
           <div>
           <center> 
@@ -349,9 +351,11 @@ render()
     { 
       text = <div className='textbox'> 
                 <p>Did you notice that the most rewarding colored shape was not the same throughout the session?</p>
-                <p>At the beginning it was <span class="bold red">the red circle </span> but in the middle of the session it changed, and <span class="bold blue">the blue star </span> became more rewarding?!</p>
-                <p></p>
-                <p>It is important that you track these changes in order to maximize your performance and increase your chance to win a bonus!</p> 
+                <p>At the beginning it was <span class="bold red"> the red circle </span> but in the middle of the session it changed,</p> 
+                <p>and <span class="bold blue">the blue star </span> became more rewarding?!</p>
+                <p> It is important that you track these changes !</p>
+                <p> It is also important to track outcomes <span className='bold italic'>in time</span> and avoid switching too much</p>
+                <p> because even a good shape can occasionally give few points !</p>
                 <p>Let's do another training session with <span class="bold">complete feedback</span> now: you will see <span class="bold">both</span> the feedback of the <span class="bold">chosen</span> and <span class="bold">unchosen</span> slot machines.</p> 
                 <div className="translate"/>
                 <img className="introsymbol"  src={require('../../images/symbol_shape_1_grate_None_color_2.png')} alt='introsymbol'/> 

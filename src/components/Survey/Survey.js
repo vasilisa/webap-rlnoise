@@ -9,7 +9,7 @@ class Survey extends React.Component {
   constructor(props){
     super(props);
 
-    // console.log(this.props.location.state)
+    console.log(this.props.location.state)
     
     // Information about a specific block of the Survey: 
     const block_info = {
@@ -23,7 +23,7 @@ class Survey extends React.Component {
       questions        : quizQuestions,
     }
 
-    // console.log(this.props.location.state.participant_info)
+    console.log(this.props.location.state.participant_info)
 
     this.getSurveyBlock.bind(this);
     this.redirectToQuiz.bind(this); 
@@ -52,22 +52,16 @@ class Survey extends React.Component {
           {
             if (this._isMounted)
             {
-              // console.log(this.state.participant_info.block_number)
+              console.log(this.state.participant_info.block_number)
               const newblocknumber = this.state.participant_info.block_number + 1
-              // console.log(newblocknumber)
-
+              console.log(newblocknumber)
               this.getSurveyBlock(newblocknumber+1)
               this.setState({newblock_frame : true, participant_info : {...this.state.participant_info, block_number:newblocknumber},}) // what gets updated 
-              // add Score here when last block
-              if (newblocknumber === this.state.participant_info.TotalBlock+1){
-                this.redirectToEnd()
-              }              
             }
           }
         }
       }
     
-  
   componentDidMount() { 
   this._isMounted = true;
   document.body.style.background= '#fff'; 
@@ -93,7 +87,7 @@ class Survey extends React.Component {
  // Get info about the specific Survey Block: questions IDS to play on this block + entry text 
 getSurveyBlock(block_number_) {
 
-    // console.log(block_number_)
+    console.log(block_number_)
 
     this.setState({ loading: true });
 
@@ -120,6 +114,16 @@ getSurveyBlock(block_number_) {
         surveytag_block = "health"
     }
 
+    else if (block_number_===6) {
+        
+        surveytag_block = "pvd"
+    }
+
+    else if (block_number_===7) {
+        
+        surveytag_block = "feedback"
+    }
+
     else {
       console.log('Error: Unknown surveytag for block',block_number_);
     }
@@ -129,9 +133,9 @@ getSurveyBlock(block_number_) {
     const { block_info }   = { ...this.state }; // recreate the current state 
     const currentState     = block_info;        // assigned it to a const 
     currentState.surveytag = surveytag_block    // change the value of the survey field 
-    // console.log(currentState)
+    console.log(currentState)
     this.setState({block_info: currentState }) // insert it into a state. 
-    // console.log('Block_info state after update', this.state.block_info);
+    console.log('Block_info state after update', this.state.block_info);
  }
 
  redirectToEnd(){
@@ -236,6 +240,51 @@ render()
           </center>
           </div>);
       }
+
+    else if ((this.state.block_info.surveytag === "pvd") && (this.state.newblock_frame)) 
+    { 
+      text = <div className='SurveyIntroText'> <p>Vulnerability to pathogens</p>
+                <p>This section contains questions about how you perceive your <span className='bold italic'>current vulnerability</span> to pathogens.</p> 
+                </div>
+        
+        return (
+        <div>
+        <center> 
+        <div className="instructionsButtonContainer">
+          <div>
+            {text}           
+          </div> 
+            <center>
+            <Button className="buttonInstructionStart" onClick={()=>this.redirectToQuiz()}>
+            START
+            </Button>
+            </center>
+          </div>
+          </center>
+          </div>);
+      }
+    else if ((this.state.block_info.surveytag === "feedback") && (this.state.newblock_frame)) 
+    { 
+      text = <div className='SurveyIntroText'> <p>Your feedback</p>
+                <p>Please, provide us with the feedback about this study</p> 
+                </div>
+        return (
+        <div>
+        <center> 
+        <div className="instructionsButtonContainer">
+          <div>
+            {text}           
+          </div> 
+            <center>
+            <Button className="buttonInstructionStart" onClick={()=>this.redirectToQuiz()}>
+            START
+            </Button>
+            </center>
+          </div>
+          </center>
+          </div>);
+      }
+
     else if (this.state.participant_info.block_number === this.state.participant_info.TotalBlock+1) 
     {
       text = <div className='SurveyIntroText'> <p><span class="bold">You finished the survey!</span> </p>
