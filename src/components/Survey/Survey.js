@@ -244,7 +244,8 @@ render()
     else if ((this.state.block_info.surveytag === "pvd") && (this.state.newblock_frame)) 
     { 
       text = <div className='SurveyIntroText'> <p>Vulnerability to pathogens</p>
-                <p>This section contains questions about how you perceive your <span className='bold italic'>current vulnerability</span> to pathogens.</p> 
+                <p>This section contains questions about how you perceive your <span className='bold italic'>current vulnerability</span> to pathogens.</p>
+                <p>Please indicate how strongly you agree or disagree with the following statements</p> 
                 </div>
         
         return (

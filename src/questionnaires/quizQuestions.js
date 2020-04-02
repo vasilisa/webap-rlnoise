@@ -1,7 +1,8 @@
 var quizQuestions = [
 
 /*
-  Part 1: INTRO 
+  Live Strategy questions for the RLNOISE ONLINE PROJECT 
+  by VS March 2020
 */
 
   {
