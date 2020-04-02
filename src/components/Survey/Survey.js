@@ -141,8 +141,8 @@ getSurveyBlock(block_number_) {
 
  redirectToEnd(){
     alert("You will be redirected to the validation page. Please, confirm leaving the page. Thank you!")
-    // window.location.replace('https://app.prolific.co/submissions/complete?cc=1A496EDB')
-    window.location = 'https://app.prolific.co/submissions/complete?cc=1A496EDB'
+    // window.location = 'https://app.prolific.co/submissions/complete?cc=1A496EDB' Version 1 
+    window.location = 'https://app.prolific.co/submissions/complete?cc=19EC7BD4'
 }
 
 render()
