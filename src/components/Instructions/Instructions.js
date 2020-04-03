@@ -4,9 +4,6 @@ import { Button } from 'react-bootstrap';
 
 import { API_URL } from '../../config';
 import { handleResponse } from '../helpers';
-
-import queryString from 'query-string';
-
 import './Instructions.css';
 
 /*
@@ -18,11 +15,8 @@ class Instructions extends React.Component {
     constructor(props) {
         super(props);
 
-        // Get the URL from PROLIFIC and PROLIFIC_ID for the USER 
-        let url = this.props.location.search;
-        let params = queryString.parse(url);
-
-        const prolific_id = (params['PROLIFIC_ID']=== undefined ? 'undefined' : params['PROLIFIC_ID']) 
+        const prolific_id = this.props.location.state.prolific_id
+        console.log(prolific_id) 
 
         var currentDate = new Date();
         var date        = currentDate.getDate();
@@ -37,14 +31,15 @@ class Instructions extends React.Component {
             game_id : '',       // to be determined 
             block_number : 0, 
             currentInstructionText: 1,
-            TotalBlock: 5,  
+            TotalBlock: 5, //1 for test purpose to skip the task otherwise 5 
             newblock_frame : true, 
             readyToProceed: false,
             redirect: false,
-            prolific_id : prolific_id 
+            prolific_id: prolific_id
         }
 
-    console.log('Prolific_ID',this.state.prolific_id)    
+    console.log(this.state.prolific_id) 
+    
         
     this.handleInstructionsLocal = this.handleInstructionsLocal.bind(this) // bind the method to avoid error on frames collapsed
     this.fetchParticipantInfo.bind(this); 
@@ -63,7 +58,7 @@ class Instructions extends React.Component {
            .then(handleResponse)
            .then((data) => {
              const participant_id_ = parseInt(data['new_participant_id'])
-             // console.log(participant_id_)
+             console.log(participant_id_)
 
              this.setState({
                      participant_id : participant_id_,
@@ -81,7 +76,7 @@ class Instructions extends React.Component {
            .then(handleResponse)
            .then((data) => {
              const game_id_ = parseInt(data['game_id'])
-             // console.log(game_id_)
+             console.log(game_id_)
 
              this.setState({
                      game_id : game_id_,

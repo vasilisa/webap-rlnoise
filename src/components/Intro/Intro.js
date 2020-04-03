@@ -2,8 +2,9 @@ import React from 'react';
 import { Button } from 'react-bootstrap';
 import {withRouter} from 'react-router-dom';
 import PropTypes from 'prop-types';
-import './Intro.css';
+import queryString from 'query-string';
 
+import './Intro.css';
 import './bootstrap.min.css';
 
 
@@ -15,10 +16,21 @@ const Checkbox = props => (
 class Intro extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
+
+    let url    = this.props.location.search;
+    console.log(url) 
+    let params = queryString.parse(url);
+
+    console.log(params) 
+    const prolific_id = (params['PROLIFIC_PID']=== undefined ? 'undefined' : params['PROLIFIC_PID']) 
+    
+      this.state = {
       checked: false,
+      prolific_id: prolific_id
     }
 
+    console.log('Prolific_ID',this.state.prolific_id)    
+    
     this.redirectToTarget.bind(this);
   }
 
@@ -31,47 +43,48 @@ class Intro extends React.Component {
 
     this.props.history.push({
       pathname: `/Instructions`,
+      state: {prolific_id: this.state.prolific_id},
     })
   }
 
   handleCheckboxChange = event =>
-    this.setState({ checked: event.target.checked})
+    this.setState({checked: event.target.checked})
     
 render() {
   return (
       <div>
         <div className="IntroConsentText">
-          <p><span class="bold">INFORMATION FOR THE PARTICIPANT</span></p>
+          <p><span className="bold">INFORMATION FOR THE PARTICIPANT</span></p>
           <p>You are about to participate in the research study entitled: Learning in changing environments</p>
           <p>Researcher in charge: Dr. Valentin WYART.</p> 
           <p>This study aims to understand the learning and decision-making. Its fundamental purpose is to investigate the cognitive mechanisms of these learning and decision-making processes. 
           The proposed experiment has no immediate application or clinical value, but it will allow us to improve our understanding of the brain functioning.
           We are asking you to participate in this study because you have been recruited by the RISC or Prolific platforms.</p>
-          <p><span class="bold">PROCEDURE</span></p>
+          <p><span className="bold">PROCEDURE</span></p>
           <p>During your participation in this study, we will ask you to play a game, which does not require any particular competence and will last about 30 min.</p>
           <p>The game will be followed by a questionnaire that will take about 15 minutes.</p>
           <ul>
-          <span class="bold">We will ask you two types of questions relating to:</span>
+          <span className="bold">We will ask you two types of questions relating to:</span>
           <p></p>
           <li>{}Your childhood and your adult life (e.g., your current economic situation, your parents' situation as a child, etc.)</li> 
           <p></p>
-          <li>{}Certain biological data that characterize your development (e.g., weight and height at birth, age at puberty, etc.).</li> 
+          <li>{}Certain biological data that characterize your development (e.g., weight and size at birth, age at puberty, etc.).</li> 
           </ul>
           <p>Our aim is to better understand the links between people's biological development, living conditions (during childhood and adult life) and patterns of decision-making.</p>  
           <p>In total your internet-based participation will require approximately 1 hour.</p>
-          <p><span class="bold">VOLUNTARY PARTICIPATION AND CONFIDENTIALITY</span></p>
+          <p><span className="bold">VOLUNTARY PARTICIPATION AND CONFIDENTIALITY</span></p>
           <p>Your participation in this study is voluntary. This means that you are consenting to participate in this project without external pressure. During your participation in this project, the researcher in charge and his staff will collect and record information about you.
           In order to preserve your identity and the confidentiality of the data, the identification of each file will be coded, thus preserving the anonymity of your answers. We will not collect any personal data from the RISC or Prolific platforms. Your data will be kept confidential and 
           the researcher in charge of this study will only use the data for research purposes in order to answer the scientific objectives of the project. The data may be published in scientific journals, in which case no publication or scientific communication will contain identifying information.
           </p>
-          <p><span class="bold">RESEARCH RESULTS AND PUBLICATION</span></p>
+          <p><span className="bold">RESEARCH RESULTS AND PUBLICATION</span></p>
           <td>You will be able to check the publications resulting from this study by following</td><div></div><td><a href={"https://sites.google.com/site/valentinwyart/publications"}>this link</a></td>
           <p></p>
-          <p><span class="bold">CONTACT AND ADDITIONAL INFORMATION</span></p>
+          <p><span className="bold">CONTACT AND ADDITIONAL INFORMATION</span></p>
           <p>Email: valetin.wyart@ens.fr</p>
           <p>This research was approved by the Inserm Ethical Review Committee: IRB00003888 on November 13th, 2018.
           Your participation in this research confirms that you have read this information and wish to participate in the research study.</p>
-          <p><span class="bold">By checking this box, I confirm that I am 18 years old, my participation is voluntary and I can stop the study at any time without justification.</span></p>
+          <p><span className="bold">By checking this box, I confirm that I am 18 years old, my participation is voluntary and I can stop the study at any time without justification.</span></p>
         </div>
         <div>
           <label>

@@ -12,7 +12,6 @@
   border-radius: 0.5vh; 
   }   
 
-
 .InstructText{
   font: "Century Gothic", Futura, sans-serif;
   font-size  : 4vh;
@@ -26,7 +25,6 @@
   font-size  : 4vh; 
   margin-top : 1vh;
   margin-left: 1vh;
-  border-width: 0.5vh;
 }
 
 .buttonInstructions{
@@ -105,7 +103,7 @@
   width: 60%;
   margin-left: 5%;
   margin-right: 5%;
-  margin-top: 3px;
+  margin-top: 1%;
   margin-bottom: 2px; 
     -moz-box-sizing:border-box;
     -webkit-box-sizing:border-box;

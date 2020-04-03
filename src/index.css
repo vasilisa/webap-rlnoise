@@ -40,6 +40,13 @@ code {
 }
 
 
+.quizImage {
+  margin-top: 1%;
+  width: 125vh;
+  height: 100vh;
+}
+
+
 .IntroText{
   font: "Century Gothic", Futura, sans-serif;
   font-size  : 14vh;
