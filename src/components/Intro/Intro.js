@@ -22,7 +22,7 @@ class Intro extends React.Component {
     let params = queryString.parse(url);
 
     console.log(params) 
-    const prolific_id = (params['PROLIFIC_PID']=== undefined ? 'undefined' : params['PROLIFIC_PID']) 
+    const prolific_id = (params['PROLIFIC_ID']=== undefined ? 'undefined' : params['PROLIFIC_ID']) 
     
       this.state = {
       checked: false,
