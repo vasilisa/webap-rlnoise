@@ -18,7 +18,7 @@ class Intro_Survey extends React.Component {
       prolific_id: this.props.location.state.participant_info.prolific_id,
       date: this.props.location.state.participant_info.date,
       TotalBlock: 6, 
-      block_number: 0, // 0  
+      block_number: 0, // change for test purposes 0  
       newblock_frame: true 
   }
 
@@ -29,9 +29,7 @@ class Intro_Survey extends React.Component {
     router: PropTypes.object
   }
     
-  
   redirectToTarget(){
-
     this.props.history.push({
       pathname: `/Survey`,
       state: {participant_info:this.state, newblock_frame : this.state.newblock_frame}
@@ -53,12 +51,11 @@ render() {
           <p>This study is conducted by Drs. Valentin Wyart and Pierre Jacquet - researchers at the Department of Cognitive Studies of the Ecole Normale Supérieure (Paris, France). 
           It aims to better understand the links between living conditions, the reproductive development and the health of individuals.</p> 
           <ul>
-          <span class="bold">Two types of questions</span> will be asked, relating to:
+          <span class="bold">Three types of questions</span> will be asked, relating to:
           <p></p>
           <li>{}Your childhood and your adult life (e.g., your current economic situation, your parents' situation as a child, etc.)</li> 
           <p></p>
-          <li>{}Certain biological data that characterize your development (e.g., weight and height at birth, age at puberty, etc.).</li> </ul>
-
+          <li>{}Certain biological data that characterize your development (e.g., weight and size at birth, age at puberty, etc.).</li> </ul>
           <p>All your answers will be treated in a <span class="bold">strictly confidential and anonymous</span> manner. 
           A numerical code will be automatically assigned to you at the end of the questionnaire in order to maintain your anonymity with the research team. 
           It will be impossible to use this data to identify you.</p>

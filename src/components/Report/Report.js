@@ -17,7 +17,7 @@ class Report extends React.Component {
     answercheck: false,
     shouldBlockNavigation: false
   }
-  // console.log(this.state) // initial states 
+  console.log(this.state) // initial states 
 
   this.handleSubmit       = this.handleSubmit.bind(this);  
   this.handleChangeReport = this.handleChangeReport.bind(this);
@@ -43,7 +43,7 @@ componentDidMount() {
 
 _handleRefresh(e){
   if (e.key==='Enter') {
-  // console.log('enter e', e.srcElement);
+  console.log('enter e', e.srcElement);
 
   // console.log('value', e.target.value);
 
@@ -56,7 +56,7 @@ _handleRefresh(e){
     answercheck: true}
     );
 
-    // console.log(this.state.answercheck)
+    console.log(this.state.answercheck)
     // Send answers to the parent component
     document.getElementById("create-course-form").reset();
     let prev_report = this.state.report 
@@ -87,14 +87,14 @@ handleChangeReport(event) {
     }
     );
   
-  // console.log(event.key)
+  console.log(event.key)
 
   if ((test!=="") && (test!==null) && (test>parseInt(this.props.constraint[0].min)) && (test<parseInt(this.props.constraint[1].max))) 
   {
     this.setState({
     answercheck: true}
     );
-    // console.log(this.state.answercheck)
+    console.log(this.state.answercheck)
   }
   else {
     event.preventDefault()
@@ -104,7 +104,7 @@ handleChangeReport(event) {
   handleSubmit(event) {
         document.getElementById("create-course-form").reset();
 
-        // console.log(event)
+        console.log(event)
         
         event.preventDefault();
         let prev_report = this.state.report 
