@@ -15,6 +15,7 @@ class QuizBlock extends Component {
     console.log(this.props.location.state.questions) 
     var quizQuestionsBlock = this.props.location.state.questions.filter(d => d.surveytag === this.props.location.state.block_info.surveytag);
     
+
     console.log(quizQuestionsBlock)
     
     this.state = {
@@ -30,6 +31,7 @@ class QuizBlock extends Component {
       constraint: [], 
       quizQuestionsBlock: quizQuestionsBlock,
       participant_info: this.props.location.state.participant_info,
+      image: '',  // for displaying image in some questions 
       
       // This is to be recorded and POSTED to the DB
       answered_questionsId      : [],
@@ -43,7 +45,10 @@ class QuizBlock extends Component {
   }
 
   componentDidMount() {
-    const firstQuestion       = this.state.quizQuestionsBlock[0] 
+    const firstQuestion = this.state.quizQuestionsBlock[0]
+    const image_item    = (this.state.quizQuestionsBlock[0].image=== undefined) ? null : require('../../images/' + this.state.quizQuestionsBlock[0].image)
+    
+    // console.log(image_item) 
 
     var shuffledAnswerOptions = this.state.quizQuestionsBlock.map(question =>this.NoShuffleArray(question.answers)); 
     
@@ -58,7 +63,8 @@ class QuizBlock extends Component {
       qtype:         firstQuestion.qtype,
       question:      firstQuestion.question,
       answerOptions: shuffledAnswerOptions[0],
-      constraint:    firstQuestion.constraint
+      constraint:    firstQuestion.constraint,
+      image:         image_item
     });
   }
 
@@ -119,6 +125,9 @@ NoShuffleArray(array) {
     const counter       = this.state.counter + 1;
     const questionCount = this.state.questionCount + 1;
     const nextQuestion  = this.state.quizQuestionsBlock[counter]
+    const image_item    = (this.state.quizQuestionsBlock[counter].image=== undefined) ? null : require('../../images/' + this.state.quizQuestionsBlock[counter].image)
+    
+    // console.log(image_item) 
 
     this.setState({
       counter: counter,
@@ -128,7 +137,8 @@ NoShuffleArray(array) {
       answerOptions: nextQuestion.answers,
       answer: '',
       qtype: nextQuestion.qtype,
-      constraint: nextQuestion.constraint // check if exists otherwise empty to implement 
+      constraint: nextQuestion.constraint,
+      image: image_item 
     });
   }
 
@@ -178,7 +188,7 @@ NoShuffleArray(array) {
   }
 
   renderQuiz() {
-    if (this.state.qtype === "quiz") 
+    if (this.state.qtype === "quiz")
     { 
       return (
         <Quiz
@@ -189,6 +199,7 @@ NoShuffleArray(array) {
           question        ={this.state.question}
           questionTotal   ={this.state.quizQuestionsBlock.length}
           onAnswerSelected={this.handleAnswerSelected}
+          image           ={this.state.image}
         />
       );
     } 
