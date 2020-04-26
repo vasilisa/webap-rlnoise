@@ -14,7 +14,7 @@ class Board extends React.Component {
     const block_info       = this.props.location.state.block_info
     const pool_symbols     = this.props.location.state.pool_symbols
 
-    console.log(block_info)
+    // console.log(block_info)
     const current_symbols  = ['','']
 
     
@@ -67,7 +67,7 @@ class Board extends React.Component {
 
   handleClick(i) {
 
-    console.log(i) // 0 if the left brick clicked and 1 if the right one  
+    // console.log(i) // 0 if the left brick clicked and 1 if the right one  
     // update symbol without Mutation
     const newcount     = this.state.block_info.trial_numb + 1
     const end_of_block = (newcount === this.state.block_info.TotalTrial ? true : false ) ? true : false 
@@ -146,7 +146,7 @@ class Board extends React.Component {
       }
 
       chosen_symbols.push(chosen_symbol)  
-      console.log('Chosen_symbol',chosen_symbols)
+      // console.log('Chosen_symbol',chosen_symbols)
 
       const chosen_r_th   = chosen_symbol===1 ? this.state.block_info.th_reward_1[this.state.block_info.trial_numb] : this.state.block_info.th_reward_2[this.state.block_info.trial_numb];
       const unchosen_r_th = chosen_symbol===1 ? this.state.block_info.th_reward_2[this.state.block_info.trial_numb] : this.state.block_info.th_reward_1[this.state.block_info.trial_numb];
@@ -155,14 +155,14 @@ class Board extends React.Component {
       const chosen_r   = chosen_symbol===1 ? this.state.block_info.reward_1[this.state.block_info.trial_numb] : this.state.block_info.reward_2[this.state.block_info.trial_numb];
       const unchosen_r = chosen_symbol===1 ? this.state.block_info.reward_2[this.state.block_info.trial_numb] : this.state.block_info.reward_1[this.state.block_info.trial_numb];
       
-      console.log('Chosen reward theoretical',chosen_r_th)
-      console.log('Unchosen reward theoretical',unchosen_r_th)
+      // console.log('Chosen reward theoretical',chosen_r_th)
+      // console.log('Unchosen reward theoretical',unchosen_r_th)
 
-      console.log('Chosen reward',chosen_r)
-      console.log('Unchosen reward',unchosen_r)
+      // console.log('Chosen reward',chosen_r)
+      // console.log('Unchosen reward',unchosen_r)
 
-      console.log('Observed chosen feedback',feedback[i])
-      console.log('Observed unchosen feedback',feedback[1-i])
+      // console.log('Observed chosen feedback',feedback[i])
+      // console.log('Observed unchosen feedback',feedback[1-i])
       
       let block_perf = this.state.block_perf + ((chosen_r_th-unchosen_r_th)/this.state.block_info.position.length) 
 
@@ -219,7 +219,7 @@ class Board extends React.Component {
   {
     let block_id   = this.state.block_info.block_number
 
-    console.log(this.state.participant_info.game_id)
+    // console.log(this.state.participant_info.game_id)
     
     let body     = {        'block_number'     : this.state.participant_info.block_number+1, 
                             'chosen_positions' : this.state.chosen_positions,
@@ -230,6 +230,7 @@ class Board extends React.Component {
                             'block_perf'       : this.state.block_perf,
                             'completed'        :'yes',
                             'date'             : this.state.participant_info.date,
+                            'date_time'        : this.state.participant_info.date_time, 
                             'game_id'          : this.state.participant_info.game_id}
     
     fetch(`${API_URL}/participants_data/create/` + this.state.participant_info.participant_id + `/` + block_id + `/` + this.state.participant_info.prolific_id, {

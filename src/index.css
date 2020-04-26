@@ -212,3 +212,10 @@ code {
 .fade-appear {
   opacity: 0;
 }
+
+
+.bold { font-weight: bold;}
+.red { color: #FF0000; }
+.blue { color: #326699; }
+
+

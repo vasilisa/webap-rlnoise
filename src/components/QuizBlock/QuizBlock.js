@@ -1,23 +1,27 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { API_URL } from '../../config';
-
 import Quiz from '../Quiz/Quiz';
 import Report from '../Report/Report';
 import ReportNA from '../ReportNA/ReportNA';
 import FreeReport from '../FreeReport/FreeReport';
+import ButtonQuiz from '../ButtonQuiz/ButtonQuiz';
+import CheckboxQuiz from '../CheckboxQuiz/CheckboxQuiz';
 
 
-class QuizBlock extends Component {
+class QuizBlock extends React.Component {
   constructor(props) {
     super(props);
 
     // Get the right questions JSON part
-    console.log(this.props.location.state.questions) 
     var quizQuestionsBlock = this.props.location.state.questions.filter(d => d.surveytag === this.props.location.state.block_info.surveytag);
     
+    // console.log(quizQuestionsBlock)
 
-    console.log(quizQuestionsBlock)
+    var date_time_now = new Date().toLocaleString();
     
+    
+    // console.log('QuizBlock Props PINFO:',this.props.location.state.participant_info)
+  
     this.state = {
       counter: 0,
       questionCount: 1, // count across all questions in the questionnaire 
@@ -31,31 +35,27 @@ class QuizBlock extends Component {
       constraint: [], 
       quizQuestionsBlock: quizQuestionsBlock,
       participant_info: this.props.location.state.participant_info,
-      image: '',  // for displaying image in some questions 
-      
+      image: '',    // image question
+      image_a: '', // image - answer if available
+      date_time_start: date_time_now,
       // This is to be recorded and POSTED to the DB
       answered_questionsId      : [],
       answered_questionsContent : [],
     
     };
 
-   this.handleAnswerSelected = this.handleAnswerSelected.bind(this);
+   this.handleAnswerSelected  = this.handleAnswerSelected.bind(this);
    this.redirectToSurvey      = this.redirectToSurvey.bind(this);
-     
+    
   }
 
   componentDidMount() {
     const firstQuestion = this.state.quizQuestionsBlock[0]
     const image_item    = (this.state.quizQuestionsBlock[0].image=== undefined) ? null : require('../../images/' + this.state.quizQuestionsBlock[0].image)
-    
-    // console.log(image_item) 
-
+    const image_a       = (this.state.quizQuestionsBlock[0].image_a=== undefined) ? null : require('../../images/' + this.state.quizQuestionsBlock[0].image_a)
+     
     var shuffledAnswerOptions = this.state.quizQuestionsBlock.map(question =>this.NoShuffleArray(question.answers)); 
     
-    // if (this.state.do_shuffle===true){
-    //   const shuffledAnswerOptions = this.state.quizQuestionsBlock.map(question =>
-    //   this.shuffleArray(question.answers));
-    // }
     
     document.body.style.background= '#fff';
     this.setState({
@@ -64,7 +64,9 @@ class QuizBlock extends Component {
       question:      firstQuestion.question,
       answerOptions: shuffledAnswerOptions[0],
       constraint:    firstQuestion.constraint,
-      image:         image_item
+      image:         image_item, 
+      image_a:       image_a, 
+      
     });
   }
 
@@ -95,9 +97,9 @@ NoShuffleArray(array) {
   // onAnswerSelected points to this function in AnswerOption.js 
   handleAnswerSelected(answerContent,questionId,event) {
     
-    this.setUserAnswer(event.currentTarget.value,answerContent,questionId); // event.currentTarget.value); // to be changed to see what is recorded 
+    this.setUserAnswer(event.currentTarget.value,answerContent,questionId); 
 
-    if (this.state.questionCount < this.state.quizQuestionsBlock.length) {  // to change to the number of questions in this part of the Survey
+    if (this.state.questionCount < this.state.quizQuestionsBlock.length) {   
       setTimeout(() => this.setNextQuestion(), 300);
     } else {
       setTimeout(() => this.redirectToSurvey(), 300); 
@@ -126,8 +128,8 @@ NoShuffleArray(array) {
     const questionCount = this.state.questionCount + 1;
     const nextQuestion  = this.state.quizQuestionsBlock[counter]
     const image_item    = (this.state.quizQuestionsBlock[counter].image=== undefined) ? null : require('../../images/' + this.state.quizQuestionsBlock[counter].image)
-    
-    // console.log(image_item) 
+    const image_a       = (this.state.quizQuestionsBlock[counter].image_a=== undefined) ? null : require('../../images/' + this.state.quizQuestionsBlock[counter].image_a)
+        
 
     this.setState({
       counter: counter,
@@ -138,32 +140,40 @@ NoShuffleArray(array) {
       answer: '',
       qtype: nextQuestion.qtype,
       constraint: nextQuestion.constraint,
-      image: image_item 
+      image: image_item,
+      image_a: image_a,
+       
     });
   }
 
   redirectToSurvey ()
 
   {
-    let block_id = this.state.participant_info.block_number+1
-
+    let block_id = this.state.participant_info.block_number_survey+1
+    // console.log('Block_number QuizBlock:', this.state.participant_info.block_number)
+    var date_time_now = new Date().toLocaleString();
+    
     if (this.state.participant_info.block_number < this.state.participant_info.TotalBlock) {
       var completed = 'no'}
     else if (this.state.participant_info.block_number === this.state.participant_info.TotalBlock) {
-      var completed = 'yes' // add if it is aborted here later 
+      var completed = 'yes'
     }
 
     let body     = {        'participant_id'  : this.state.participant_info.participant_id, 
                             'prolific_id'     : this.state.participant_info.prolific_id, 
+                            'study_id'        : this.state.participant_info.study_id,
                             'block_number'    : this.state.participant_info.block_number+1, 
                             'block_name'      : this.props.location.state.block_info.surveytag, 
                             'question_ids'    : this.state.answered_questionsId, 
                             'answers'         : this.state.answered_questionsContent,
-                            'date'            : this.state.participant_info.date,
-                            'survey_completed': completed
-                          }
+                            'survey_completed': completed,
+                            'date_time_survey_start'  : this.state.date_time_start,
+                            'date_time_survey_end'    : date_time_now,
+                            'date_time'               : this.props.location.state.participant_info.date_time,  // this is time start of the experiment
+                            'date'                    : this.props.location.state.participant_info.date
+                          } 
 
-  console.log(body)
+  // console.log(body)
   fetch(`${API_URL}/participants_question_data/create/` + this.state.participant_info.participant_id + `/` + block_id + `/` + this.state.participant_info.prolific_id, {
        method: 'POST',
        headers: {
@@ -173,9 +183,10 @@ NoShuffleArray(array) {
        body: JSON.stringify(body)
      })
 
+  // console.log('PINFO quizBlock', this.state.participant_info)
   this.props.history.push({
       pathname: `/Survey`,
-      state: {participant_info:this.state.participant_info,newblock_frame: false}
+      state: {participant_info:this.state.participant_info,newblock_frame: false, finished: true}
     })
   }
   
@@ -188,7 +199,7 @@ NoShuffleArray(array) {
   }
 
   renderQuiz() {
-    if (this.state.qtype === "quiz")
+    if (this.state.qtype === "quiz") 
     { 
       return (
         <Quiz
@@ -200,6 +211,10 @@ NoShuffleArray(array) {
           questionTotal   ={this.state.quizQuestionsBlock.length}
           onAnswerSelected={this.handleAnswerSelected}
           image           ={this.state.image}
+          image_a         ={this.state.image_a}
+          // Add line for the part of the study: NEW 
+          survey_part     ={this.state.participant_info.block_number+1}
+          surveyTotal     ={this.state.participant_info.TotalBlock+1}
         />
       );
     } 
@@ -216,9 +231,10 @@ NoShuffleArray(array) {
           question        ={this.state.question}
           questionTotal   ={this.state.quizQuestionsBlock.length}
           onAnswerSelected={this.handleAnswerSelected}
-          // questions       ={this.state.questions}
           constraint      ={this.state.constraint}
-          participant_info={this.state.participant_info}
+          survey_part     ={this.state.participant_info.block_number+1}
+          surveyTotal     ={this.state.participant_info.TotalBlock+1}
+      
         />
       );
   }
@@ -236,7 +252,9 @@ NoShuffleArray(array) {
           questionTotal   ={this.state.quizQuestionsBlock.length}
           onAnswerSelected={this.handleAnswerSelected}
           constraint      ={this.state.constraint}
-          participant_info={this.state.participant_info}
+          survey_part     ={this.state.participant_info.block_number+1}
+          surveyTotal     ={this.state.participant_info.TotalBlock+1}
+      
       />
     );
   }
@@ -253,7 +271,43 @@ NoShuffleArray(array) {
           questionTotal   ={this.state.quizQuestionsBlock.length}
           onAnswerSelected={this.handleAnswerSelected}
           constraint      ={this.state.constraint}
-          participant_info={this.state.participant_info}
+          survey_part     ={this.state.participant_info.block_number+1}
+          surveyTotal     ={this.state.participant_info.TotalBlock+1}
+      
+      />
+    );
+  }
+
+  else if (this.state.qtype === "button") 
+  {
+    return (
+        <ButtonQuiz 
+          questionId      ={this.state.questionId}
+          questionCount   ={this.state.questionCount}
+          question        ={this.state.question}
+          questionTotal   ={this.state.quizQuestionsBlock.length}
+          onAnswerSelected={this.handleAnswerSelected}
+          survey_part     ={this.state.participant_info.block_number+1}
+          surveyTotal     ={this.state.participant_info.TotalBlock+1}
+      
+      />
+    );
+  }
+
+    else if (this.state.qtype === "checkbox") 
+  {
+    return (
+        <CheckboxQuiz 
+          answer          ={this.state.answer}  
+          answerOptions   ={this.state.answerOptions} 
+          questionId      ={this.state.questionId}
+          questionCount   ={this.state.questionCount}
+          question        ={this.state.question}
+          questionTotal   ={this.state.quizQuestionsBlock.length}
+          onAnswerSelected={this.handleAnswerSelected}
+          survey_part     ={this.state.participant_info.block_number+1}
+          surveyTotal     ={this.state.participant_info.TotalBlock+1}
+      
       />
     );
   }
@@ -262,9 +316,6 @@ NoShuffleArray(array) {
   render() {
     return (
       <div className="QuizBlock">
-        <div className="QuizBlock-header">
-          <h2>{this.state.quizQuestionsBlock[this.state.counter].title}</h2>
-        </div>
         {this.state.result ? this.redirectToSurvey() : this.renderQuiz()} 
       </div>
     );
@@ -272,3 +323,10 @@ NoShuffleArray(array) {
 }
 
 export default QuizBlock;
+
+/*
+Section header 
+<div className="QuizBlock-header">
+          <h2>{this.state.quizQuestionsBlock[this.state.counter].title}</h2>
+        </div>
+*/ 

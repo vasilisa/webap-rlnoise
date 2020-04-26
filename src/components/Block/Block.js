@@ -54,7 +54,7 @@ class Block extends React.Component {
   }
 
   redirectToTarget () {
-      console.log(this.state.pool_symbols)
+      // console.log(this.state.pool_symbols)
       if((this.state.participant_info.block_number <= (this.state.participant_info.TotalBlock)))
           {           
           if (this.state.newblock_frame){
@@ -71,9 +71,9 @@ class Block extends React.Component {
             if (this._isMounted)
             {
               
-              console.log(this.state.participant_info.block_number)
+              // console.log(this.state.participant_info.block_number)
               const newblocknumber = this.state.participant_info.block_number + 1
-              console.log(newblocknumber)
+              // console.log(newblocknumber)
 
               if (newblocknumber === this.state.participant_info.TotalBlock+1){ 
                 console.log('Fetching the score')
@@ -100,7 +100,7 @@ class Block extends React.Component {
             .then(handleResponse)
             .then((data) => {
               const bonus = data['bonus']
-              console.log(bonus)
+              // console.log(bonus)
 
               this.setState({
                   score : bonus,
@@ -139,7 +139,7 @@ redirectToSurvey = () => {
               'date'            : this.state.participant_info.date,
               'bonus'           : this.state.score}
               
-    console.log(body) 
+    // console.log(body) 
     fetch(`${API_URL}/participants_data_bonus/create/`+this.state.participant_info.participant_id +'/'+this.state.participant_info.prolific_id, {
        method: 'POST',
        headers: {
@@ -185,7 +185,7 @@ redirectToSurvey = () => {
 
         const required_pool_of_symbols = Object.keys(data['symbols']).map((key, index) => (require('../../images/' + data['symbols'][key])))
 
-        console.log(data['symbols'])  
+        // console.log(data['symbols'])  
 
           this.setState({
             pool_symbols : required_pool_of_symbols,
@@ -201,7 +201,7 @@ redirectToSurvey = () => {
 
 // This is to get the data for a specific block from the Back 
   async fetchBlock(game_id_,block_number_) {
-    console.log(block_number_)
+    // console.log(block_number_)
     this.setState({ loading: true });
     const fetchResult = fetch(`${API_URL}/game_blocks/`+game_id_+'/'+block_number_)
       .then(handleResponse)
@@ -217,14 +217,14 @@ redirectToSurvey = () => {
           th_reward_2    : Object.keys(data['th_reward_2']).map((key, index) => (data['th_reward_2'][key])),
           position       : Object.keys(data['position']).map((key, index) => (data['position'][key])),
           trial_numb     : 0,
-          TotalTrial     : Object.keys(data['reward_1']).length 
+          TotalTrial     : 1 // THIS IS FOR THE TEST ONLY Object.keys(data['reward_1']).length 
 
         }
           
         this.setState({
           block_info: block_info,
         });
-        console.log(this.state.block_info)
+        // console.log(this.state.block_info)
       })
         .catch((error) => {
           this.setState({ error : error.errorMessage, loading: false });
@@ -239,7 +239,7 @@ render()
     let text
     if ((this.state.participant_info.block_number === 0) && (this.state.newblock_frame) && (this.state.block_info.block_feedback==="1"))
     { 
-      text = <div className='textbox'> <p>This is a <span class="bold">partial</span> feedback block: you will <span class = "bold">only</span> see points of the <span class = "bold">chosen</span> slot machine.</p> 
+      text = <div className='textbox'> <p>This is a <span className="bold">partial</span> feedback block: you will <span className = "bold">only</span> see points of the <span className = "bold">chosen</span> slot machine.</p> 
               <div className="translate"/>
                 <img className="introsymbol"  src={require('../../images/symbol_shape_0_grate_None_color_3.png')} alt='introsymbol' /> 
                 <img className="introsymbol"  src={require('../../images/symbol_shape_2_grate_None_color_0.png')} alt='introsymbol' /> 
@@ -274,7 +274,7 @@ render()
 
     else if ((this.state.participant_info.block_number===0)  && (this.state.newblock_frame) && (this.state.block_info.block_feedback==="2"))
     {
-      text = <div className='textbox'> <p>This is a <span class = "bold">complete</span> feedback block: you will see <span class = "bold">both </span> points of the <span class="bold">chosen</span> and <span class = "bold">unchosen</span> slot machines.</p> 
+      text = <div className='textbox'> <p>This is a <span className="bold">complete</span> feedback block: you will see <span className="bold">both </span> points of the <span className="bold">chosen</span> and <span className= "bold">unchosen</span> slot machines.</p> 
                 <div className="translate"/>
                 <img className="introsymbol"  src={require('../../images/symbol_shape_0_grate_None_color_3.png')} alt='introsymbol'/> 
                 <img className="introsymbol"  src={require('../../images/symbol_shape_2_grate_None_color_0.png')} alt='introsymbol'/> 
@@ -311,13 +311,13 @@ render()
     {
       text = <div className='textbox'> 
                 <p>Did you notice that the most rewarding colored shape was not the same throughout the session?</p>
-                <p>At the beginning it was <span class="bold red"> the red circle </span> but in the middle of the session it changed,</p> 
-                <p>and <span class="bold blue">the blue star </span> became more rewarding?!</p>
+                <p>At the beginning it was <span className="bold red"> the red circle </span> but in the middle of the session it changed,</p> 
+                <p>and <span className="bold blue">the blue star </span> became more rewarding?!</p>
                 <p>It is important that you track these changes !</p>
                 <p>It is also important to track outcomes <span className='bold italic'>in time</span> and avoid switching too much</p>
                 <p>because even a good shape can occasionally give few points !</p>
                 <p></p> 
-                <p>Let's do another training session with <span class = "bold">partial feedback</span>now: you will <span class="bold">only</span> see the feedback of the <span class="bold">chosen</span> slot machine.</p> 
+                <p>Let's do another training session with <span className="bold">partial feedback</span>now: you will <span className="bold">only</span> see the feedback of the <span className="bold">chosen</span> slot machine.</p> 
                 <div className="translate"/>
                 <img className="introsymbol"  src={require('../../images/symbol_shape_1_grate_None_color_2.png')} alt='introsymbol'/> 
                 <img className="introsymbol"  src={require('../../images/symbol_shape_3_grate_None_color_1.png')} alt='introsymbol'/> 
@@ -353,12 +353,12 @@ render()
     { 
       text = <div className='textbox'> 
                 <p>Did you notice that the most rewarding colored shape was not the same throughout the session?</p>
-                <p>At the beginning it was <span class="bold red"> the red circle </span> but in the middle of the session it changed,</p> 
-                <p>and <span class="bold blue">the blue star </span> became more rewarding?!</p>
+                <p>At the beginning it was <span className="bold red"> the red circle </span> but in the middle of the session it changed,</p> 
+                <p>and <span className="bold blue">the blue star </span> became more rewarding?!</p>
                 <p>It is important that you track these changes !</p>
                 <p>It is also important to track outcomes <span className='bold italic'>in time</span> and avoid switching too much</p>
                 <p>because even a good shape can occasionally give few points !</p>
-                <p>Let's do another training session with <span class="bold">complete feedback</span> now: you will see <span class="bold">both</span> the feedback of the <span class="bold">chosen</span> and <span class="bold">unchosen</span> slot machines.</p> 
+                <p>Let's do another training session with <span className="bold">complete feedback</span> now: you will see <span className="bold">both</span> the feedback of the <span className="bold">chosen</span> and <span className="bold">unchosen</span> slot machines.</p> 
                 <div className="translate"/>
                 <img className="introsymbol"  src={require('../../images/symbol_shape_1_grate_None_color_2.png')} alt='introsymbol'/> 
                 <img className="introsymbol"  src={require('../../images/symbol_shape_3_grate_None_color_1.png')} alt='introsymbol'/> 
@@ -394,7 +394,7 @@ render()
       text = <div className='textbox'><p> You finished the training!</p>
                   <p></p>
                   <p> Let's start the task now! </p>
-                  <p> At the beginning of each block you will see if you are playing <span class = "bold">partial</span> or <span class = "bold">complete</span> feedback block! </p>
+                  <p> At the beginning of each block you will see if you are playing <span className="bold">partial</span> or <span className="bold">complete</span> feedback block! </p>
                   <p> Finding the most rewarding slot machine will be harder than during the training, so pay attention! </p></div>
       return (
         <CSSTransitionGroup
@@ -439,7 +439,7 @@ render()
       
       if (this.state.newblock_frame) 
         {
-          text = <div><p>The next block is <span class ="bold">{feedback_type_text}</span> feedback block!</p></div>
+          text = <div><p>The next block is <span className="bold">{feedback_type_text}</span> feedback block!</p></div>
         }
       else
         { 

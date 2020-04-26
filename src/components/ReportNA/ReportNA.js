@@ -1,10 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {withRouter} from 'react-router-dom';
-
 import { CSSTransitionGroup } from 'react-transition-group';
 import Question from '../QuizQuestion/Question';
-import QuestionCount from '../QuizQuestion/QuestionCount';
+import ProgressBar from '../QuizQuestion/ProgressBar';
 import AnswerOption from '../QuizQuestion/AnswerOption';
 
 
@@ -19,7 +18,7 @@ class ReportNA extends React.Component {
     answercheck: false  
 
   }
-  console.log(this.state) // initial states 
+  // console.log(this.state) // initial states 
 
   this.handleSubmit        = this.handleSubmit.bind(this);  
   this.handleChangeReport  = this.handleChangeReport.bind(this);
@@ -31,6 +30,24 @@ class ReportNA extends React.Component {
 
 componentDidMount() {
   this._isMounted = true;
+  // document.getElementById("create-course-form").reset();
+
+  // CHANGED 
+  // document.body.style.background= '#fff';   
+  this.setState({
+    report: '',
+    answer: '',
+    answercheck: false,
+    shouldBlockNavigation: false}
+    )
+  window.history.pushState(window.state, null, window.location.href);
+  window.onbeforeunload = null;
+  window.addEventListener("keypress", e => this._handleRefresh(e));
+
+}
+
+componentWillUndmount() {
+  
   // document.getElementById("create-course-form").reset();
   document.body.style.background= '#fff';   
   this.setState({
@@ -44,6 +61,7 @@ componentDidMount() {
   window.addEventListener("keypress", e => this._handleRefresh(e));
 
 }
+
 
 _handleRefresh(e){
   if (e.key==='Enter') {
@@ -62,6 +80,8 @@ _handleRefresh(e){
 
     console.log(this.state.answercheck)
     // Send answers to the parent component
+
+    // CHANGE 
     // document.getElementById("create-course-form").reset();
     let prev_report = this.state.report 
         this.setState({
@@ -87,20 +107,34 @@ _handleRefresh(e){
     }
     );
   
-  console.log(Number(test))
+  // console.log(Number(test))
 
   if ((test!=="") && (test!==null) && (test>parseInt(this.props.constraint[0].min)) && (test<parseInt(this.props.constraint[1].max))) {
     this.setState({
     answercheck: true }
     );
-    console.log(this.state.answer) 
+    // console.log(this.state.answer) 
   }
-
 }
+
+
 
   handleSubmit(event) {
         event.preventDefault();
-        this.props.onAnswerSelected(this.state.report,this.props.questionId,event)
+        let prev_report = this.state.report 
+        this.setState({
+          report: ''}
+        )
+
+
+      if (this.state.answercheck===true) {
+        // Push the answers to the parent componant 
+          this.props.onAnswerSelected(this.state.report,this.props.questionId,event)
+      }
+
+      else {
+        event.preventDefault(); 
+     }
         
   }
 
@@ -129,7 +163,9 @@ render() {
       transitionAppearTimeout={500}
     >
       <div key={this.props.questionId}>
-        <QuestionCount counter={this.props.questionCount} total={this.props.questionTotal} />
+      <p><span className='bold'>Part {this.props.survey_part} of {this.props.surveyTotal}</span></p>
+        <ProgressBar counter={this.props.questionCount} total={this.props.questionTotal}/>
+        <br></br>
         <Question content={this.props.question} />
         <div className="col-md-6 no-padding">
         <input value={this.state.report} onKeyDown={this._handleRefresh} onChange={this.handleChangeReport} name="report" id="report" className="form-control" placeholder="" type="number" pattern="[0-9]*" inputMode="numeric" required />
@@ -162,7 +198,8 @@ ReportNA.propTypes = {
   questionTotal: PropTypes.number.isRequired,
   onAnswerSelected: PropTypes.func.isRequired,
   constraint: PropTypes.array.isRequired,
-  participant_info:PropTypes.object.isRequired
+  survey_part: PropTypes.number.isRequired,
+  surveyTotal: PropTypes.number.isRequired
 };
 
 

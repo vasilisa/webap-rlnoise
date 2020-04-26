@@ -22,14 +22,16 @@ class Intro extends React.Component {
     let params = queryString.parse(url);
 
     console.log(params) 
-    const prolific_id = (params['PROLIFIC_ID']=== undefined ? 'undefined' : params['PROLIFIC_ID']) 
+    const prolific_id = (params['PROLIFIC_PID']=== undefined ? 'undefined' : params['PROLIFIC_PID']) 
     
+    var date_time_now = new Date().toLocaleString();
+
       this.state = {
       checked: false,
-      prolific_id: prolific_id
+      prolific_id: prolific_id, 
+      date_time: date_time_now // start of the experiment 
     }
 
-    console.log('Prolific_ID',this.state.prolific_id)    
     
     this.redirectToTarget.bind(this);
   }
@@ -43,7 +45,7 @@ class Intro extends React.Component {
 
     this.props.history.push({
       pathname: `/Instructions`,
-      state: {prolific_id: this.state.prolific_id},
+      state: {prolific_id: this.state.prolific_id, date_time: this.state.date_time},
     })
   }
 

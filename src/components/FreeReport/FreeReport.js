@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import {withRouter} from 'react-router-dom';
 import { CSSTransitionGroup } from 'react-transition-group';
 import Question from '../QuizQuestion/Question';
-import QuestionCount from '../QuizQuestion/QuestionCount';
+import ProgressBar from '../QuizQuestion/ProgressBar';
 
 
 class FreeReport extends React.Component {
@@ -80,7 +80,7 @@ handleChangeReport(event) {
 
   var test = event.target.value
 
-  console.log(event.target.value)
+  // console.log(event.target.value)
      
   this.setState({
     report: event.target.value,
@@ -93,7 +93,7 @@ handleChangeReport(event) {
     this.setState({
     answercheck: true}
     );
-    console.log(this.state.answercheck)
+    // console.log(this.state.answercheck)
   }
   else {
     event.preventDefault()
@@ -126,7 +126,9 @@ render() {
       transitionAppearTimeout={500}
     >
       <div key={this.props.questionId}>
-        <QuestionCount counter={this.props.questionCount} total={this.props.questionTotal} />
+      <p><span className='bold'>Part {this.props.survey_part} of {this.props.surveyTotal}</span></p>
+        <ProgressBar counter={this.props.questionCount} total={this.props.questionTotal}/>
+        <br></br>
         <Question content={this.props.question} />
         <div className="col-md-20 pad-400">
         <form id="create-course-form">
@@ -153,7 +155,9 @@ FreeReport.propTypes = {
   questionTotal: PropTypes.number.isRequired,
   onAnswerSelected: PropTypes.func.isRequired,
   constraint: PropTypes.array.isRequired,
-  participant_info:PropTypes.object.isRequired
+  survey_part: PropTypes.number.isRequired,
+  surveyTotal: PropTypes.number.isRequired
+
 };
 
           

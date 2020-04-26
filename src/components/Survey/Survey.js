@@ -9,7 +9,7 @@ class Survey extends React.Component {
   constructor(props){
     super(props);
 
-    console.log(this.props.location.state)
+    // console.log(this.props.location.state)
     
     // Information about a specific block of the Survey: 
     const block_info = {
@@ -23,7 +23,7 @@ class Survey extends React.Component {
       questions        : quizQuestions,
     }
 
-    console.log(this.props.location.state.participant_info)
+    // console.log(this.props.location.state.participant_info)
 
     this.getSurveyBlock.bind(this);
     this.redirectToQuiz.bind(this); 
@@ -52,9 +52,9 @@ class Survey extends React.Component {
           {
             if (this._isMounted)
             {
-              console.log(this.state.participant_info.block_number)
+              // console.log(this.state.participant_info.block_number)
               const newblocknumber = this.state.participant_info.block_number + 1
-              console.log(newblocknumber)
+              // console.log(newblocknumber)
               this.getSurveyBlock(newblocknumber+1)
               this.setState({newblock_frame : true, participant_info : {...this.state.participant_info, block_number:newblocknumber},}) // what gets updated 
             }
@@ -88,7 +88,7 @@ class Survey extends React.Component {
  // Get info about the specific Survey Block: questions IDS to play on this block + entry text 
 getSurveyBlock(block_number_) {
 
-    console.log(block_number_)
+    // console.log(block_number_)
 
     this.setState({ loading: true });
 
@@ -122,6 +122,12 @@ getSurveyBlock(block_number_) {
 
     else if (block_number_===7) {
         
+        surveytag_block = "demo"
+    }
+
+
+    else if (block_number_===8) {
+        
         surveytag_block = "feedback"
     }
 
@@ -134,15 +140,16 @@ getSurveyBlock(block_number_) {
     const { block_info }   = { ...this.state }; // recreate the current state 
     const currentState     = block_info;        // assigned it to a const 
     currentState.surveytag = surveytag_block    // change the value of the survey field 
-    console.log(currentState)
+    // console.log(currentState)
     this.setState({block_info: currentState }) // insert it into a state. 
-    console.log('Block_info state after update', this.state.block_info);
+    // console.log('Block_info state after update', this.state.block_info);
  }
 
  redirectToEnd(){
     alert("You will be redirected to the validation page. Please, confirm leaving the page. Thank you!")
     // window.location.replace('https://app.prolific.co/submissions/complete?cc=1A496EDB')
-    window.location = 'https://app.prolific.co/submissions/complete?cc=19EC7BD4'
+    window.location = 'https://app.prolific.co/submissions/complete?cc=ADDHERE'
+
 }
 
 render()
@@ -150,7 +157,7 @@ render()
     let text
     if ((this.state.block_info.surveytag === "intro") && (this.state.newblock_frame))
     { 
-      text = <div className='SurveyIntroText'> <p>Let's start with some introductory questions ... </p></div>
+      text = <div className='SurveyIntroText'> <p><span className="bold">Let's start with some introductory questions ... </span></p></div>
 
     return (
       <div>
@@ -161,7 +168,7 @@ render()
         </div> 
         <center>
           <Button className="buttonInstructionStart" onClick={()=>this.redirectToQuiz()}>
-          <span class="bold">START</span>
+          <span className="bold">START</span>
           </Button>
         </center>
       </div>
@@ -171,10 +178,10 @@ render()
 
     else if ((this.state.block_info.surveytag === "adulthood")  && (this.state.newblock_frame))
     {
-      text = <div className='SurveyIntroText'> <p>Adult Life.</p>
+      text = <div className='SurveyIntroText'> <p><span className="bold">Adult Life</span></p>
                 <p>We will now ask you to answer questions about your adult life. You are asked to indicate the extent to which you agree or disagree with each of the following statements.</p> 
-                <p>There are no right or wrong answers!</p>
-                <p>The important thing is that your answers reflect your life experiences as closely as possible.</p></div> 
+                <p><span className="bold">There are no right or wrong answers!</span></p>
+                <p><span className="bold">The important thing is that your answers reflect your life experiences as closely as possible.</span></p></div> 
        
         return (
           <div>
@@ -196,11 +203,11 @@ render()
     else if ((this.state.block_info.surveytag === "childhood") && (this.state.newblock_frame))
     {
       text = <div className='SurveyIntroText'> <p>Childhood.</p>
-            <p>We will now ask you to answer questions about your childhood and your life with your parents.</p>
+            <p>We will now ask you to answer questions about <span className="bold">your childhood and your life with your parents.</span></p>
             <p>In all of these questions, a parent refers to the person who has parental authority in the home. This can mean both biological and adoptive parents.</p> 
             <p>The information we will now ask you to report concerns the period of your life when you were younger than 12. This time includes preschool, kindergarten, and the elementary school.</p>
             <p>You are asked to indicate the extent to which you agree or disagree with each of the following statements.</p>
-            <p>Again, there are no right or wrong answers! The important thing is that your answers reflect your life experiences as closely as possible.</p> 
+            <p><span className="bold">Again, there are no right or wrong answers! The important thing is that your answers reflect your life experiences as closely as possible.</span></p> 
           </div>
       
         return (
@@ -222,7 +229,7 @@ render()
     else if ((this.state.block_info.surveytag === "repdevelop") && (this.state.newblock_frame)) 
     { 
       text = <div className='SurveyIntroText'> <p>Reproductive development</p>
-                <p>This section contains questions about your reproductive development: age at puberty, age at first consented sexual experience, age at birth of your first child, number of children.</p> 
+                <p>This section contains questions about your <span className="bold">reproductive development</span>: age at puberty, age at first consented sexual experience, age at birth of your first child, number of children.</p> 
                 </div>
         
         return (
@@ -241,6 +248,30 @@ render()
           </center>
           </div>);
       }
+
+    else if ((this.state.block_info.surveytag === "health") && (this.state.newblock_frame)) 
+    { 
+      text = <div className='SurveyIntroText'> <p>Health</p>
+                <p>This section contains questions about how your current <span className='bold italic'>health</span>.</p> 
+                </div>
+        
+        return (
+        <div>
+        <center> 
+        <div className="instructionsButtonContainer">
+          <div>
+            {text}           
+          </div> 
+            <center>
+            <Button className="buttonInstructionStart" onClick={()=>this.redirectToQuiz()}>
+            START
+            </Button>
+            </center>
+          </div>
+          </center>
+          </div>);
+      }
+
 
     else if ((this.state.block_info.surveytag === "pvd") && (this.state.newblock_frame)) 
     { 
@@ -264,9 +295,34 @@ render()
           </center>
           </div>);
       }
+
+
+
+    else if ((this.state.block_info.surveytag === "demo") && (this.state.newblock_frame)) 
+    { 
+      text = <div className='SurveyIntroText'> <p><span className="bold">Almost done! Just few questions left. Thank you!</span></p>
+              </div>
+        return (
+        <div>
+        <center> 
+        <div className="instructionsButtonContainer">
+          <div>
+            {text}           
+          </div> 
+            <center>
+            <Button className="buttonInstructionStart" onClick={()=>this.redirectToQuiz()}>
+            START
+            </Button>
+            </center>
+          </div>
+          </center>
+          </div>);
+      }
+
+
     else if ((this.state.block_info.surveytag === "feedback") && (this.state.newblock_frame)) 
     { 
-      text = <div className='SurveyIntroText'> <p>Your feedback</p>
+      text = <div className='SurveyIntroText'> <p><span className="bold">Your feedback</span></p>
                 <p>Please, provide us with the feedback about this study</p> 
                 </div>
         return (
@@ -289,8 +345,8 @@ render()
     else if (this.state.participant_info.block_number === this.state.participant_info.TotalBlock+1) 
     {
       text = <div className='SurveyIntroText'> <p><span class="bold">You finished the survey!</span> </p>
-      <p>Thank you for your participation!</p> 
-      <Button variant="secondary" color="danger" size="sm" className="buttonInstructionFinal" type="submit" onClick={() => this.redirectToEnd()}>Click here </Button></div>
+      <p>Thank you for your participation and helping research!</p> 
+      <Button variant="secondary" color="danger" size="m" className="buttonInstructionFinal" type="submit" onClick={() => this.redirectToEnd()}>Click here </Button></div>
         return (
           <div>
           <center> 

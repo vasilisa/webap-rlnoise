@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {withRouter} from 'react-router-dom';
 import { CSSTransitionGroup } from 'react-transition-group';
 import Question from '../QuizQuestion/Question';
-import QuestionCount from '../QuizQuestion/QuestionCount';
+import ProgressBar from '../QuizQuestion/ProgressBar';
+
 
 
 class Report extends React.Component {
@@ -17,7 +17,7 @@ class Report extends React.Component {
     answercheck: false,
     shouldBlockNavigation: false
   }
-  console.log(this.state) // initial states 
+  // console.log(this.state) // initial states 
 
   this.handleSubmit       = this.handleSubmit.bind(this);  
   this.handleChangeReport = this.handleChangeReport.bind(this);
@@ -43,7 +43,7 @@ componentDidMount() {
 
 _handleRefresh(e){
   if (e.key==='Enter') {
-  console.log('enter e', e.srcElement);
+  // console.log('enter e', e.srcElement);
 
   // console.log('value', e.target.value);
 
@@ -56,7 +56,7 @@ _handleRefresh(e){
     answercheck: true}
     );
 
-    console.log(this.state.answercheck)
+    // console.log(this.state.answercheck)
     // Send answers to the parent component
     document.getElementById("create-course-form").reset();
     let prev_report = this.state.report 
@@ -87,14 +87,14 @@ handleChangeReport(event) {
     }
     );
   
-  console.log(event.key)
+  // console.log(event.key)
 
   if ((test!=="") && (test!==null) && (test>parseInt(this.props.constraint[0].min)) && (test<parseInt(this.props.constraint[1].max))) 
   {
     this.setState({
     answercheck: true}
     );
-    console.log(this.state.answercheck)
+    // console.log(this.state.answercheck)
   }
   else {
     event.preventDefault()
@@ -104,7 +104,7 @@ handleChangeReport(event) {
   handleSubmit(event) {
         document.getElementById("create-course-form").reset();
 
-        console.log(event)
+        // console.log(event)
         
         event.preventDefault();
         let prev_report = this.state.report 
@@ -130,9 +130,10 @@ render() {
       transitionAppearTimeout={500}
     >
       <div key={this.props.questionId}>
-        <QuestionCount counter={this.props.questionCount} total={this.props.questionTotal} />
+      <p><span className='bold'>Part {this.props.survey_part} of {this.props.surveyTotal}</span></p>
+        <ProgressBar counter={this.props.questionCount} total={this.props.questionTotal}/>
+        <br></br>
         <Question content={this.props.question} />
-
         <div className="col-md-6 no-padding">
         <form id="create-course-form">
         <input value={this.state.report} onKeyDown={this._handleRefresh} onChange={this.handleChangeReport} name="report" id="report" className="form-control" placeholder="" type="number" inputMode="numeric" required />
@@ -159,8 +160,9 @@ Report.propTypes = {
   questionTotal: PropTypes.number.isRequired,
   onAnswerSelected: PropTypes.func.isRequired,
   constraint: PropTypes.array.isRequired,
-  participant_info:PropTypes.object.isRequired
+  survey_part: PropTypes.number.isRequired,
+  surveyTotal: PropTypes.number.isRequired
 };
 
           
-export default withRouter(Report);
+export default Report;
