@@ -32,7 +32,7 @@ class Instructions extends React.Component {
             game_id : '',       // to be determined 
             block_number : 0, 
             currentInstructionText: 1,
-            TotalBlock: 1, //5 ORIG 1 for test purpose to skip the task otherwise 5 
+            TotalBlock: 5, // 1 for test purpose to skip the task otherwise 5 
             newblock_frame : true, 
             readyToProceed: false,
             redirect: false,
