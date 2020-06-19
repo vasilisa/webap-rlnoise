@@ -149,9 +149,9 @@ class Instructions extends React.Component {
             </div>;
         }
         else if (this.state.currentInstructionText===4) {
-            mytext = <div className='textbox'> <p></p> <p>There is <span className="bold">always</span> a slot machine that gives <span className="bold">currenty</span> more points on average then the other one.</p>
+            mytext = <div className='textbox'> <p></p> <p>There is <span className="bold">always</span> a slot machine that gives <span className="bold">currently</span> more points on average then the other one.</p>
             <p> This will be the case during a certain period of time (what we call an episode).</p>
-            <p>You do not know how long the episode would last but you can get a sense of it by trying to remind the outcomes of the slot machines in the nearest past.</p>
+            <p>You do not know how long the episode would last but you can get a sense of it by trying to remember the outcomes of the slot machines in the nearest past.</p>
             </div>;
         }
 
