@@ -741,7 +741,7 @@ var quizQuestions = [
   },
 
   {   
-      question:"When I was younger than 12 ... At least one of my parents regulalry checked that I did my homework. ", 
+      question:"When I was younger than 12 ... At least one of my parents regularly checked that I did my homework. ", 
 
       answers: [{
         type: "answer-1",
@@ -765,7 +765,7 @@ var quizQuestions = [
   },
 
   {   
-      question:"When I was younger than 12 ... At least one of my parents regulalry kept track of my school progress. ", 
+      question:"When I was younger than 12 ... At least one of my parents regularly kept track of my school progress. ", 
 
       answers: [{
         type: "answer-1",
@@ -962,7 +962,7 @@ var quizQuestions = [
   },
 
   {   
-      question:"When I was younger than 12 ... My family had holliday tradition that we did every year (e.g. cooking a special food at a particular time of year/decorate the house the same way). ", 
+      question:"When I was younger than 12 ... My family had holiday tradition that we did every year (e.g. cooking a special food at a particular time of year/decorate the house the same way). ", 
 
       answers: [{
         type: "answer-1",
@@ -986,7 +986,7 @@ var quizQuestions = [
   },
 
   {   
-      question:"When I was younger than 12 ... At least one of my parents was disorganizied. ", 
+      question:"When I was younger than 12 ... At least one of my parents was disorganized. ", 
 
       answers: [{
         type: "answer-1",
@@ -1180,7 +1180,7 @@ var quizQuestions = [
   },
 
   {   
-      question:"When I was younger than 12 ... There were time when one of my parents was unemployed and couldn't find a job even though he/she wanted one.", 
+      question:"When I was younger than 12 ... There were times when one of my parents was unemployed and couldn't find a job even though he/she wanted one.", 
       answers: [{
         type: "answer-1",
         content: "Yes"},
@@ -1203,7 +1203,7 @@ var quizQuestions = [
   },
 
   {   
-      question:"When I was younger than 12 ... My parents had a stable relationships with each other. ", 
+      question:"When I was younger than 12 ... My parents had a stable relationship with each other. ", 
 
       answers: [{
         type: "answer-1",
@@ -1275,7 +1275,7 @@ var quizQuestions = [
   },
 
   {   
-      question:"When I was younger than 12 ... There were ofen people coming and going in my house that I did not expect to be there. ", 
+      question:"When I was younger than 12 ... There were often people coming and going in my house that I did not expect to be there. ", 
 
       answers: [{
         type: "answer-1",
@@ -1421,7 +1421,7 @@ var quizQuestions = [
   },
 
   {   
-      question:"When I was younger than 12 ... In my house things I needeed were often misplaced so that I could not find them. ", 
+      question:"When I was younger than 12 ... In my house things I needed were often misplaced so that I could not find them. ", 
 
       answers: [{
         type: "answer-1",
@@ -2456,7 +2456,7 @@ var quizQuestions = [
   },
 
   { 
-    question: "I am unlikley to catch a cold, flu, or other illness, even if it is 'going around'", 
+    question: "I am unlikely to catch a cold, flu, or other illness, even if it is 'going around'", 
 
       answers: [{
          type: "answer-1",
