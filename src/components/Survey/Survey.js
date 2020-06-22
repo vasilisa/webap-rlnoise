@@ -3,6 +3,8 @@ import { Button } from 'react-bootstrap';
 import {withRouter} from 'react-router-dom';
 import quizQuestions from '../../questionnaires/quizQuestions'; // a JS object with the total list of questions for the survey. 
 // import './Survey.css'
+import { API_URL } from '../../config';
+import { handleResponse } from '../helpers';
 
 
 class Survey extends React.Component {
