@@ -166,8 +166,7 @@ getSurveyBlock(block_number_) {
     // Push cashed data to the DB
     var date_time_end = new Date().toLocaleString();
 
-    console.log(this.state.participant_info.date_time)
-
+    
     let body_cashed = {
       'log'          : cashed_,  // this.state.cashed, 
       'date_time'    : this.state.participant_info.date_time, 
@@ -184,7 +183,7 @@ getSurveyBlock(block_number_) {
        body: JSON.stringify(body_cashed)
     })
 
-    console.log('Clearing cash') 
+    // console.log('Clearing cash') 
     sessionStorage.removeItem('cashed')
 
 

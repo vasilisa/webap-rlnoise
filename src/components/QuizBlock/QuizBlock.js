@@ -240,8 +240,8 @@ NoShuffleArray(array) {
     } 
 
     // Push new data to local storage 
-    console.log('Quiz Saving cash')
-    console.log(cashed_update)
+    //console.log('Quiz Saving cash')
+    // console.log(cashed_update)
     sessionStorage.setItem("cashed", JSON.stringify(cashed_update));
 
   // console.log('PINFO quizBlock', this.state.participant_info)
