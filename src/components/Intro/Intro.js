@@ -83,7 +83,7 @@ render() {
           <td>You will be able to check the publications resulting from this study by following</td><div></div><td><a href={"https://sites.google.com/site/valentinwyart/publications"}>this link</a></td>
           <p></p>
           <p><span className="bold">CONTACT AND ADDITIONAL INFORMATION</span></p>
-          <p>Email: valetin.wyart@ens.fr</p>
+          <p>Email: valentin.wyart@ens.fr</p>
           <p>This research was approved by the Inserm Ethical Review Committee: IRB00003888 on November 13th, 2018.
           Your participation in this research confirms that you have read this information and wish to participate in the research study.</p>
           <p><span className="bold">By checking this box, I confirm that I am 18 years old, my participation is voluntary and I can stop the study at any time without justification.</span></p>
