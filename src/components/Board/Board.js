@@ -40,7 +40,8 @@ class Board extends React.Component {
       reaction_times   : [],
       current_symbols  : current_symbols,
       pool_symbols     : pool_symbols,  
-      completed        : 'no' 
+      completed        : 'no',
+      cashed           : {} // concatenated data to be stored in cash browser  
     };
 
     this.redirectToBlock.bind(this)
@@ -48,7 +49,31 @@ class Board extends React.Component {
     this.prev_reaction_time_date = time_date_first.getTime()
     // this._handleGoBack.bind(this);  TO IMPLEMENT LATER   
     // this._handleRefresh.bind(this);
-  };  
+  };
+
+
+  componentDidMount() {
+    this.hydrateStateWithLocalStorage();
+ }
+
+  hydrateStateWithLocalStorage() {
+
+      // if the key exists in localStorage
+      if (sessionStorage.hasOwnProperty('cashed')) {
+        let cashed_ = sessionStorage.getItem('cashed');
+
+        try {
+          cashed_ = JSON.parse(cashed_);
+          this.setState({'cashed': cashed_ });
+        } catch (e) {
+          // handle empty string
+          this.setState({'cashed': cashed_ });
+        }
+
+      }
+      console.log('Board retreived cash', this.state.cashed)
+    }
+    
 
 
   renderBrick(i) {
@@ -241,6 +266,47 @@ class Board extends React.Component {
        },
        body: JSON.stringify(body)
      })
+
+    // Push data to the cash browser 
+    // for each key in cashed object append the values
+    var cashed_update = this.state.cashed
+    // console.log('This state cash', this.state.cashed)
+    if (Object.keys(cashed_update).length === 0 && cashed_update.constructor === Object || cashed_update === '' || cashed_update ===undefined) {
+      // console.log('cash is empty: first session', this.state.cashed)
+      
+      const keys = ['block_number','chosen_positions','chosen_symbols','chosen_rewards', 
+                    'unchosen_rewards',
+                    'reaction_times',
+                    'block_perf'] 
+      
+      for (const key of keys) {
+        cashed_update[key] = [body[key]] // wrap into an array here 
+      }
+
+      // cashed_update = body
+    }
+    else {
+    try {
+      const keys = Object.keys(cashed_update)
+      
+      for (const key of keys) {
+        
+        let val  = cashed_update[key]
+        let val2 = body[key]
+
+        val.push(val2)
+        cashed_update[key] = val
+      }
+
+    } catch (e) {
+      // console.log('Failed to append')
+      cashed_update = this.state.cashed
+    }
+
+    } 
+
+    // Push new data to local storage 
+    sessionStorage.setItem("cashed", JSON.stringify(cashed_update));
 
     this.props.history.push({
       pathname: `/Block`,

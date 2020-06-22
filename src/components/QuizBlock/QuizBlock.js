@@ -41,11 +41,14 @@ class QuizBlock extends React.Component {
       // This is to be recorded and POSTED to the DB
       answered_questionsId      : [],
       answered_questionsContent : [],
+      cashed : {} // for cashed data 
     
     };
 
    this.handleAnswerSelected  = this.handleAnswerSelected.bind(this);
    this.redirectToSurvey      = this.redirectToSurvey.bind(this);
+   this.hydrateStateWithLocalStorage = this.hydrateStateWithLocalStorage.bind(this); 
+
     
   }
 
@@ -68,7 +71,26 @@ class QuizBlock extends React.Component {
       image_a:       image_a, 
       
     });
+
+    this.hydrateStateWithLocalStorage();
   }
+
+  hydrateStateWithLocalStorage() {
+
+       // if the key exists in localStorage
+       if (sessionStorage.hasOwnProperty('cashed')) {
+         let cashed_ = sessionStorage.getItem('cashed');
+         try {
+           cashed_ = JSON.parse(cashed_);
+           this.setState({'cashed': cashed_ });
+         } catch (e) {
+           // handle empty string
+           this.setState({'cashed': cashed_ });
+         }
+       }
+       console.log('retreived cash', this.state.cashed)
+     }
+
 
   shuffleArray(array) {
     var currentIndex = array.length,
@@ -182,6 +204,44 @@ NoShuffleArray(array) {
        },    
        body: JSON.stringify(body)
      })
+
+  // for each key in cashed object append the values
+    var cashed_update = this.state.cashed
+    if (Object.keys(cashed_update).length === 0 && cashed_update.constructor === Object || cashed_update === '' || cashed_update ===undefined) {
+      
+    const keys = ['block_number','block_name', 
+                    'question_ids',
+                    'answers',
+                    'date_time_survey_start',
+                    'date_time_survey_end']
+
+      for (const key of keys) {
+        cashed_update[key] = [body[key]] // wrap into an array here 
+      }
+    }
+    else {
+    try {
+      const keys = Object.keys(cashed_update)
+      
+      for (const key of keys) {
+        
+        let val  = cashed_update[key]
+        let val2 = body[key]
+
+        val.push(val2)
+        cashed_update[key] = val
+      }
+
+    } catch (e) {
+      console.log('Failed to append')
+      cashed_update = this.state.cashed
+    }
+
+    } 
+
+    // Push new data to local storage 
+    console.log('Saving cash')
+    sessionStorage.setItem("cashed", JSON.stringify(cashed_update));
 
   // console.log('PINFO quizBlock', this.state.participant_info)
   this.props.history.push({

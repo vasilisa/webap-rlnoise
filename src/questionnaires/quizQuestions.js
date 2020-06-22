@@ -1,7 +1,7 @@
 var quizQuestions = [
 
 /*
-  Part 1: INTRO 
+  Questions 20 and 88 are the catche question to check participant attention 
 */
 
   {
@@ -616,19 +616,24 @@ var quizQuestions = [
   },
 
 
-  {   
-      question:" When I was younger than 12 ... My parents kept track of what I ate (made sure that I did not skip meals or tried to make sure I ate healthy foods). ", 
+  // THis is a ctach question to check participant's attention 
+      {
+        question:" Please answer 'Never' for this question to show your attention.",
 
       answers: [{
         type: "answer-1",
-        content: "Yes"},
+        content: "Often"},
       
         {type: "answer-2",
-        content: "No"},
+        content: "Sometimes"},
 
         {type: "answer-3",
-        content: "I don't know / Not applicable"}
-      ],
+        content: "Rarely"},
+
+        {type: "answer-4",
+        content: "Never"},
+  
+       ],
       qtype: 'quiz',
       questionId: 20,
       surveytag: 'childhood',
@@ -642,7 +647,7 @@ var quizQuestions = [
 
 
   {   
-      question:" When I was younger than 12 ... My family ate a meal together most days. ", 
+      question:" When I was younger than 12 ... My parents kept track of what I ate (made sure that I did not skip meals or tried to make sure I ate healthy foods). ", 
 
       answers: [{
         type: "answer-1",
@@ -667,7 +672,7 @@ var quizQuestions = [
 
 
   {   
-      question:" When I was younger than 12 ... My parents tried to make sure I got a good night sleep (e.g. I had a regular bedtime, my parents checked to make sure I went to sleep). ", 
+      question:" When I was younger than 12 ... My family ate a meal together most days. ", 
 
       answers: [{
         type: "answer-1",
@@ -692,7 +697,7 @@ var quizQuestions = [
 
 
   {   
-      question:"When I was younger than 12 ... I had a bedtime routine (e.g. my parents tucked me in, my parents read me a book, I took a bath). ", 
+      question:" When I was younger than 12 ... My parents tried to make sure I got a good night sleep (e.g. I had a regular bedtime, my parents checked to make sure I went to sleep). ", 
 
       answers: [{
         type: "answer-1",
@@ -717,7 +722,7 @@ var quizQuestions = [
 
 
   {   
-      question:"When I was younger than 12 ... In my afterschool or free time hours at least one of my parents knew what I was doing. ", 
+      question:"When I was younger than 12 ... I had a bedtime routine (e.g. my parents tucked me in, my parents read me a book, I took a bath). ", 
 
       answers: [{
         type: "answer-1",
@@ -740,8 +745,9 @@ var quizQuestions = [
 
   },
 
+
   {   
-      question:"When I was younger than 12 ... At least one of my parents regularly checked that I did my homework. ", 
+      question:"When I was younger than 12 ... In my afterschool or free time hours at least one of my parents knew what I was doing. ", 
 
       answers: [{
         type: "answer-1",
@@ -765,7 +771,7 @@ var quizQuestions = [
   },
 
   {   
-      question:"When I was younger than 12 ... At least one of my parents regularly kept track of my school progress. ", 
+      question:"When I was younger than 12 ... At least one of my parents regularly checked that I did my homework. ", 
 
       answers: [{
         type: "answer-1",
@@ -789,7 +795,7 @@ var quizQuestions = [
   },
 
   {   
-      question:"When I was younger than 12 ... At least one parent made time each day to see how I was doing. ", 
+      question:"When I was younger than 12 ... At least one of my parents regularly kept track of my school progress. ", 
 
       answers: [{
         type: "answer-1",
@@ -803,6 +809,30 @@ var quizQuestions = [
       ],
       qtype: 'quiz',
       questionId: 27,
+      surveytag: 'childhood',
+      title: 'Childhood: parental investment', 
+      constraint: [
+       {min: ""},
+       {max: ""}
+      ]
+
+  },
+
+  {   
+      question:"When I was younger than 12 ... At least one parent made time each day to see how I was doing. ", 
+
+      answers: [{
+        type: "answer-1",
+        content: "Yes"},
+      
+        {type: "answer-2",
+        content: "No"},
+
+        {type: "answer-3",
+        content: "I don't know / Not applicable"}
+      ],
+      qtype: 'quiz',
+      questionId: 28,
       surveytag: 'childhood',
       title: 'Childhood: parental investment', 
       constraint: [
@@ -827,7 +857,7 @@ var quizQuestions = [
         content: "I don't know / Not applicable"}
       ],
       qtype: 'quiz',
-      questionId: 28,
+      questionId: 29,
       surveytag: 'childhood',
       title: 'Childhood: parental predictability', 
       constraint: [
@@ -852,7 +882,7 @@ var quizQuestions = [
         content: "I don't know / Not applicable"}
       ],
       qtype: 'quiz',
-      questionId: 29,
+      questionId: 30,
       surveytag: 'childhood',
       title: 'Childhood: parental predictability', 
       constraint: [
@@ -877,7 +907,7 @@ var quizQuestions = [
         content: "I don't know / Not applicable"}
       ],
       qtype: 'quiz',
-      questionId: 30,
+      questionId: 31,
       surveytag: 'childhood',
       title: 'Childhood: parental predictability', 
       constraint: [
@@ -889,31 +919,6 @@ var quizQuestions = [
 
   {   
       question:"When I was younger than 12 ... I often wondered whether or not one of my parents would come home at the end of the day. ", 
-
-      answers: [{
-        type: "answer-1",
-        content: "Yes"},
-      
-        {type: "answer-2",
-        content: "No"},
-
-        {type: "answer-3",
-        content: "I don't know / Not applicable"}
-      ],
-      qtype: 'quiz',
-      questionId: 31,
-      surveytag: 'childhood',
-      title: 'Childhood: parental predictability', 
-      constraint: [
-       {min: ""},
-       {max: ""}
-      ]
-
-  },
-
-
-  {   
-      question:"When I was younger than 12 ... My family planned activities to do together. ", 
 
       answers: [{
         type: "answer-1",
@@ -938,7 +943,7 @@ var quizQuestions = [
 
 
   {   
-      question:"When I was younger than 12 ... At least one of my parents would plan something for the family, but then not follow through with the plan. ", 
+      question:"When I was younger than 12 ... My family planned activities to do together. ", 
 
       answers: [{
         type: "answer-1",
@@ -961,8 +966,9 @@ var quizQuestions = [
 
   },
 
+
   {   
-      question:"When I was younger than 12 ... My family had holiday tradition that we did every year (e.g. cooking a special food at a particular time of year/decorate the house the same way). ", 
+      question:"When I was younger than 12 ... At least one of my parents would plan something for the family, but then not follow through with the plan. ", 
 
       answers: [{
         type: "answer-1",
@@ -986,7 +992,7 @@ var quizQuestions = [
   },
 
   {   
-      question:"When I was younger than 12 ... At least one of my parents was disorganized. ", 
+      question:"When I was younger than 12 ... My family had holiday tradition that we did every year (e.g. cooking a special food at a particular time of year/decorate the house the same way). ", 
 
       answers: [{
         type: "answer-1",
@@ -1000,6 +1006,30 @@ var quizQuestions = [
       ],
       qtype: 'quiz',
       questionId: 35,
+      surveytag: 'childhood',
+      title: 'Childhood: parental predictability', 
+      constraint: [
+       {min: ""},
+       {max: ""}
+      ]
+
+  },
+
+  {   
+      question:"When I was younger than 12 ... At least one of my parents was disorganized. ", 
+
+      answers: [{
+        type: "answer-1",
+        content: "Yes"},
+      
+        {type: "answer-2",
+        content: "No"},
+
+        {type: "answer-3",
+        content: "I don't know / Not applicable"}
+      ],
+      qtype: 'quiz',
+      questionId: 36,
       surveytag: 'childhood',
       title: 'Childhood: parental predictability', 
       constraint: [
@@ -1024,7 +1054,7 @@ var quizQuestions = [
         content: "I don't know / Not applicable"}
       ],
       qtype: 'quiz',
-      questionId: 36,
+      questionId: 37,
       surveytag: 'childhood',
       title: 'Childhood: parental predictability', 
       constraint: [
@@ -1048,7 +1078,7 @@ var quizQuestions = [
         content: "I don't know / Not applicable"}
       ],
       qtype: 'quiz',
-      questionId: 37,
+      questionId: 38,
       surveytag: 'childhood',
       title: 'Childhood: parental predictability', 
       constraint: [
@@ -1072,7 +1102,7 @@ var quizQuestions = [
         content: "I don't know / Not applicable"}
       ],
       qtype: 'quiz',
-      questionId: 38,
+      questionId: 39,
       surveytag: 'childhood',
       title: 'Childhood: parental predictability', 
       constraint: [
@@ -1097,7 +1127,7 @@ var quizQuestions = [
         content: "I don't know / Not applicable"}
       ],
       qtype: 'quiz',
-      questionId: 39,
+      questionId: 40,
       surveytag: 'childhood',
       title: 'Childhood: parental predictability', 
       constraint: [
@@ -1121,7 +1151,7 @@ var quizQuestions = [
         content: "I don't know / Not applicable"}
       ],
       qtype: 'quiz',
-      questionId: 40,
+      questionId: 41,
       surveytag: 'childhood',
       title: 'Childhood: parental environment', 
       constraint: [
@@ -1145,7 +1175,7 @@ var quizQuestions = [
         content: "I don't know / Not applicable"}
       ],
       qtype: 'quiz',
-      questionId: 41,
+      questionId: 42,
       surveytag: 'childhood',
       title: 'Childhood: parental environment', 
       constraint: [
@@ -1169,7 +1199,7 @@ var quizQuestions = [
         content: "I don't know / Not applicable"}
       ],
       qtype: 'quiz',
-      questionId: 42,
+      questionId: 43,
       surveytag: 'childhood',
       title: 'Childhood: parental environment', 
       constraint: [
@@ -1192,7 +1222,7 @@ var quizQuestions = [
         content: "I don't know / Not applicable"}
       ],
       qtype: 'quiz',
-      questionId: 43,
+      questionId: 44,
       surveytag: 'childhood',
       title: 'Childhood: parental environment', 
       constraint: [
@@ -1216,7 +1246,7 @@ var quizQuestions = [
         content: "I don't know / Not applicable"}
       ],
       qtype: 'quiz',
-      questionId: 44,
+      questionId: 45,
       surveytag: 'childhood',
       title: 'Childhood: parental environment', 
       constraint: [
@@ -1240,7 +1270,7 @@ var quizQuestions = [
         content: "I don't know / Not applicable"}
       ],
       qtype: 'quiz',
-      questionId: 45,
+      questionId: 46,
       surveytag: 'childhood',
       title: 'Childhood: parental environment', 
       constraint: [
@@ -1264,7 +1294,7 @@ var quizQuestions = [
         content: "I don't know / Not applicable"}
       ],
       qtype: 'quiz',
-      questionId: 46,
+      questionId: 47,
       surveytag: 'childhood',
       title: 'Childhood: parental environment', 
       constraint: [
@@ -1288,7 +1318,7 @@ var quizQuestions = [
         content: "I don't know / Not applicable"}
       ],
       qtype: 'quiz',
-      questionId: 47,
+      questionId: 48,
       surveytag: 'childhood',
       title: 'Childhood: physical environment', 
       constraint: [
@@ -1313,7 +1343,7 @@ var quizQuestions = [
         content: "I don't know / Not applicable"}
       ],
       qtype: 'quiz',
-      questionId: 48,
+      questionId: 49,
       surveytag: 'childhood',
       title: 'Childhood: physical environment', 
       constraint: [
@@ -1337,7 +1367,7 @@ var quizQuestions = [
         content: "I don't know / Not applicable"}
       ],
       qtype: 'quiz',
-      questionId: 49,
+      questionId: 50,
       surveytag: 'childhood',
       title: 'Childhood: physical environment', 
       constraint: [
@@ -1361,7 +1391,7 @@ var quizQuestions = [
         content: "I don't know / Not applicable"}
       ],
       qtype: 'quiz',
-      questionId: 50,
+      questionId: 51,
       surveytag: 'childhood',
       title: 'Childhood: physical environment', 
       constraint: [
@@ -1385,7 +1415,7 @@ var quizQuestions = [
         content: "I don't know / Not applicable"}
       ],
       qtype: 'quiz',
-      questionId: 51,
+      questionId: 52,
       surveytag: 'childhood',
       title: 'Childhood: physical environment', 
       constraint: [
@@ -1410,7 +1440,7 @@ var quizQuestions = [
         content: "I don't know / Not applicable"}
       ],
       qtype: 'quiz',
-      questionId: 52,
+      questionId: 53,
       surveytag: 'childhood',
       title: 'Childhood: physical environment', 
       constraint: [
@@ -1434,7 +1464,7 @@ var quizQuestions = [
         content: "I don't know / Not applicable"}
       ],
       qtype: 'quiz',
-      questionId: 53,
+      questionId: 54,
       surveytag: 'childhood',
       title: 'Childhood: physical environment', 
       constraint: [
@@ -1458,7 +1488,7 @@ var quizQuestions = [
         content: "I don't know / Not applicable"}
       ],
       qtype: 'quiz',
-      questionId: 54,
+      questionId: 55,
       surveytag: 'childhood',
       title: 'Childhood: safety and security', 
       constraint: [
@@ -1482,7 +1512,7 @@ var quizQuestions = [
         content: "I don't know / Not applicable"}
       ],
       qtype: 'quiz',
-      questionId: 55,
+      questionId: 56,
       surveytag: 'childhood',
       title: 'Childhood: safety and security', 
       constraint: [
@@ -1506,7 +1536,7 @@ var quizQuestions = [
         content: "I don't know / Not applicable"}
       ],
       qtype: 'quiz',
-      questionId: 56,
+      questionId: 57,
       surveytag: 'childhood',
       title: 'Childhood: safety and security', 
       constraint: [
@@ -1530,7 +1560,7 @@ var quizQuestions = [
         content: "I don't know / Not applicable"}
       ],
       qtype: 'quiz',
-      questionId: 57,
+      questionId: 58,
       surveytag: 'childhood',
       title: 'Childhood: safety and security', 
       constraint: [
@@ -1554,7 +1584,7 @@ var quizQuestions = [
         content: "I don't know / Not applicable"}
       ],
       qtype: 'quiz',
-      questionId: 58,
+      questionId: 59,
       surveytag: 'childhood',
       title: 'Childhood: safety and security', 
       constraint: [
@@ -1578,7 +1608,7 @@ var quizQuestions = [
         content: "I don't know / Not applicable"}
       ],
       qtype: 'quiz',
-      questionId: 59,
+      questionId: 60,
       surveytag: 'childhood',
       title: 'Childhood: safety and security', 
       constraint: [
@@ -1602,7 +1632,7 @@ var quizQuestions = [
         content: "I don't know / Not applicable"}
       ],
       qtype: 'quiz',
-      questionId: 60,
+      questionId: 61,
       surveytag: 'childhood',
       title: 'Childhood: loss of a loved one', 
       constraint: [
@@ -1626,7 +1656,7 @@ var quizQuestions = [
         content: "I don't know / Not applicable"}
       ],
       qtype: 'quiz',
-      questionId: 61,
+      questionId: 62,
       surveytag: 'childhood',
       title: 'Childhood: loss of a loved one', 
       constraint: [
@@ -1649,7 +1679,7 @@ var quizQuestions = [
         content: "I don't know / Not applicable"}
       ],
       qtype: 'quiz',
-      questionId: 62,
+      questionId: 63,
       surveytag: 'childhood',
       title: 'Childhood: loss of a loved one', 
       constraint: [
@@ -1673,7 +1703,7 @@ var quizQuestions = [
         content: "I don't know / Not applicable"}
       ],
       qtype: 'quiz',
-      questionId: 63,
+      questionId: 64,
       surveytag: 'childhood',
       title: 'Childhood: loss of a loved one', 
       constraint: [
@@ -1696,7 +1726,7 @@ var quizQuestions = [
         content: "I don't know / Not applicable"}
       ],
       qtype: 'quiz',
-      questionId: 64,
+      questionId: 65,
       surveytag: 'childhood',
       title: 'Childhood: loss of a loved one', 
       constraint: [
@@ -1720,7 +1750,7 @@ var quizQuestions = [
         content: "I don't know / Not applicable"}
       ],
       qtype: 'quiz',
-      questionId: 65,
+      questionId: 66,
       surveytag: 'childhood',
       title: 'Childhood: loss of a loved one', 
       constraint: [
@@ -1769,7 +1799,7 @@ var quizQuestions = [
  
       ],
       qtype: 'quiz',
-      questionId: 66,
+      questionId: 67,
       surveytag: 'childhood',
       title: 'Childhood: household', 
       constraint: [
@@ -1791,7 +1821,7 @@ var quizQuestions = [
           content: "Not applicable"}
         ],
       qtype: 'report-na',
-      questionId: 67,
+      questionId: 68,
       surveytag: 'repdevelop',
       title: 'Reproductive development', 
       constraint: [
@@ -1810,7 +1840,7 @@ var quizQuestions = [
           content: "Not applicable"}
         ],
       qtype: 'report-na',
-      questionId: 68,
+      questionId: 69,
       surveytag: 'repdevelop',
       title: 'Reproductive development', 
       constraint: [
@@ -1829,7 +1859,7 @@ var quizQuestions = [
           content: "Not applicable"}
         ],
       qtype: 'report-na',
-      questionId: 69,
+      questionId: 70,
       surveytag: 'repdevelop',
       title: 'Reproductive development', 
       constraint: [
@@ -1848,7 +1878,7 @@ var quizQuestions = [
           content: "Not applicable"}
         ],
       qtype: 'report-na',
-      questionId: 70,
+      questionId: 71,
       surveytag: 'repdevelop',
       title: 'Reproductive development', 
       constraint: [
@@ -1867,7 +1897,7 @@ var quizQuestions = [
           content: "Not applicable"}
         ],
       qtype: 'report-na',
-      questionId: 71,
+      questionId: 72,
       surveytag: 'repdevelop',
       title: 'Reproductive development', 
       constraint: [
@@ -1887,7 +1917,7 @@ var quizQuestions = [
         content: "No"}
       ],
       qtype: 'quiz',
-      questionId: 72,
+      questionId: 73,
       surveytag: 'repdevelop',
       title: 'Reproductive development', 
       constraint: [
@@ -1906,7 +1936,7 @@ var quizQuestions = [
           content: "Not applicable"}
         ],
       qtype: 'report', 
-      questionId: 73,
+      questionId: 74,
       surveytag: 'repdevelop',
       title: 'Reproductive development', 
       constraint: [
@@ -1924,7 +1954,7 @@ var quizQuestions = [
           content: "Not applicable"}
         ],
       qtype: 'report-na',
-      questionId: 74,
+      questionId: 75,
       surveytag: 'repdevelop',
       title: 'Reproductive development', 
       constraint: [
@@ -1961,7 +1991,7 @@ var quizQuestions = [
 
       ],
       qtype: 'quiz',
-      questionId: 75,
+      questionId: 76,
       surveytag: 'health',
       title: 'Health', 
       constraint: [
@@ -1991,7 +2021,7 @@ var quizQuestions = [
         content: "None at all"}
       ],
       qtype: 'quiz',
-      questionId: 76,
+      questionId: 77,
       surveytag: 'health',
       title: 'Health', 
       constraint: [
@@ -2028,7 +2058,7 @@ var quizQuestions = [
 
       ],
       qtype: 'quiz',
-      questionId: 77,
+      questionId: 78,
       surveytag: 'health',
       title: 'Health', 
       constraint: [
@@ -2047,7 +2077,7 @@ var quizQuestions = [
           content: ""}
         ],
       qtype: 'report',
-      questionId: 78,
+      questionId: 79,
       surveytag: 'repdevelop',
       title: 'Health', 
       constraint: [
@@ -2085,7 +2115,7 @@ var quizQuestions = [
         
       ],
       qtype: 'quiz',
-      questionId: 79,
+      questionId: 80,
       surveytag: 'pvd',
       title: 'Vulnerability', 
       constraint: [
@@ -2121,7 +2151,7 @@ var quizQuestions = [
         
       ],
       qtype: 'quiz',
-      questionId: 80,
+      questionId: 81,
       surveytag: 'pvd',
       title: 'Vulnerability', 
       constraint: [
@@ -2157,7 +2187,7 @@ var quizQuestions = [
         
       ],
       qtype: 'quiz',
-      questionId: 81,
+      questionId: 82,
       surveytag: 'pvd',
       title: 'Vulnerability', 
       constraint: [
@@ -2193,7 +2223,7 @@ var quizQuestions = [
         
       ],
       qtype: 'quiz',
-      questionId: 82,
+      questionId: 83,
       surveytag: 'pvd',
       title: 'Vulnerability', 
       constraint: [
@@ -2229,7 +2259,7 @@ var quizQuestions = [
         
       ],
       qtype: 'quiz',
-      questionId: 83,
+      questionId: 84,
       surveytag: 'pvd',
       title: 'Vulnerability', 
       constraint: [
@@ -2266,7 +2296,7 @@ var quizQuestions = [
         
       ],
       qtype: 'quiz',
-      questionId: 84,
+      questionId: 85,
       surveytag: 'pvd',
       title: 'Vulnerability', 
       constraint: [
@@ -2302,7 +2332,7 @@ var quizQuestions = [
         
       ],
       qtype: 'quiz',
-      questionId: 85,
+      questionId: 86,
       surveytag: 'pvd',
       title: 'Vulnerability', 
       constraint: [
@@ -2338,42 +2368,6 @@ var quizQuestions = [
         
       ],
       qtype: 'quiz',
-      questionId: 86,
-      surveytag: 'pvd',
-      title: 'Vulnerability', 
-      constraint: [
-       {min: ""},
-       {max: ""}
-      ]
-  },
-
-  { 
-    question: "I dislike wearing used clothes because you do not know what the last person who wore it was like", 
-
-      answers: [{
-         type: "answer-1",
-        content: "Agree strongly"},
-
-        {type: "answer-2",
-        content: "Agree somewhat"},
-
-        {type: "answer-3",
-        content: "Agree slightly"},
-
-        {type: "answer-4",
-        content: "Neither agree nor disagree"},
-
-        {type: "answer-5",
-        content: "Disagree slightly"},
-
-        {type: "answer-6",
-        content: "Disagree somewhat"},
-
-        {type: "answer-7",
-        content: "Disagree strongly"},
-        
-      ],
-      qtype: 'quiz',
       questionId: 87,
       surveytag: 'pvd',
       title: 'Vulnerability', 
@@ -2384,7 +2378,7 @@ var quizQuestions = [
   },
 
   { 
-    question: "I am more likely than the people around me to catch an infectious disease", 
+    question: "Please answer 'Disagree somewhat' to this question to show your attention.",
 
       answers: [{
          type: "answer-1",
@@ -2419,8 +2413,9 @@ var quizQuestions = [
       ]
   },
 
+
   { 
-    question: "My hands do not feel dirty after touching money", 
+    question: "I dislike wearing used clothes because you do not know what the last person who wore it was like", 
 
       answers: [{
          type: "answer-1",
@@ -2456,7 +2451,7 @@ var quizQuestions = [
   },
 
   { 
-    question: "I am unlikely to catch a cold, flu, or other illness, even if it is 'going around'", 
+    question: "I am more likely than the people around me to catch an infectious disease", 
 
       answers: [{
          type: "answer-1",
@@ -2483,6 +2478,78 @@ var quizQuestions = [
       ],
       qtype: 'quiz',
       questionId: 90,
+      surveytag: 'pvd',
+      title: 'Vulnerability', 
+      constraint: [
+       {min: ""},
+       {max: ""}
+      ]
+  },
+
+  { 
+    question: "My hands do not feel dirty after touching money", 
+
+      answers: [{
+         type: "answer-1",
+        content: "Agree strongly"},
+
+        {type: "answer-2",
+        content: "Agree somewhat"},
+
+        {type: "answer-3",
+        content: "Agree slightly"},
+
+        {type: "answer-4",
+        content: "Neither agree nor disagree"},
+
+        {type: "answer-5",
+        content: "Disagree slightly"},
+
+        {type: "answer-6",
+        content: "Disagree somewhat"},
+
+        {type: "answer-7",
+        content: "Disagree strongly"},
+        
+      ],
+      qtype: 'quiz',
+      questionId: 91,
+      surveytag: 'pvd',
+      title: 'Vulnerability', 
+      constraint: [
+       {min: ""},
+       {max: ""}
+      ]
+  },
+
+  { 
+    question: "I am unlikely to catch a cold, flu, or other illness, even if it is 'going around'", 
+
+      answers: [{
+         type: "answer-1",
+        content: "Agree strongly"},
+
+        {type: "answer-2",
+        content: "Agree somewhat"},
+
+        {type: "answer-3",
+        content: "Agree slightly"},
+
+        {type: "answer-4",
+        content: "Neither agree nor disagree"},
+
+        {type: "answer-5",
+        content: "Disagree slightly"},
+
+        {type: "answer-6",
+        content: "Disagree somewhat"},
+
+        {type: "answer-7",
+        content: "Disagree strongly"},
+        
+      ],
+      qtype: 'quiz',
+      questionId: 92,
       surveytag: 'pvd',
       title: 'Vulnerability', 
       constraint: [
@@ -2519,7 +2586,7 @@ var quizQuestions = [
         
       ],
       qtype: 'quiz',
-      questionId: 91,
+      questionId: 93,
       surveytag: 'pvd',
       title: 'Vulnerability', 
       constraint: [
@@ -2555,7 +2622,7 @@ var quizQuestions = [
         
       ],
       qtype: 'quiz',
-      questionId: 92,
+      questionId: 94,
       surveytag: 'pvd',
       title: 'Vulnerability', 
       constraint: [
@@ -2591,7 +2658,7 @@ var quizQuestions = [
         
       ],
       qtype: 'quiz',
-      questionId: 93,
+      questionId: 95,
       surveytag: 'pvd',
       title: 'Vulnerability', 
       constraint: [
@@ -2605,7 +2672,7 @@ var quizQuestions = [
       answers: [],
       
       qtype: 'report',
-      questionId: 94,
+      questionId: 96,
       surveytag: 'demo', 
       title: 'Demo',
       constraint: [
@@ -2615,47 +2682,6 @@ var quizQuestions = [
 
         {min: "77"},
         {max: "1312"}
-      ]
-
-  },
-  {   
-      question:"Are you sure about your previous answer?",
-      
-      answers: [{
-        type: "answer-1",
-        content: "Sure"},
-
-        {
-        type: "answer-2",
-        content: "Not sure"}
-      ],
-      qtype: 'quiz',
-      questionId: 95,
-      surveytag: 'demo',
-      title: 'Demo',
-      constraint: [
-       {min: ""},
-      {max: ""}
-      ]
-
-  },
-
-
-{
-      question: "Please, report your ACTUAL height (inch)",
-      answers: [],
-      
-      qtype: 'report',
-      questionId: 96,
-      surveytag: 'demo', 
-      title: 'Demo',
-      constraint: [
-
-        // {min: "35"},
-        // {max: "595"}
-
-        {min: "19.0"},
-        {max: "118.0"}
       ]
 
   },
@@ -2682,6 +2708,47 @@ var quizQuestions = [
   },
 
 
+{
+      question: "Please, report your ACTUAL height (inch)",
+      answers: [],
+      
+      qtype: 'report',
+      questionId: 98,
+      surveytag: 'demo', 
+      title: 'Demo',
+      constraint: [
+
+        // {min: "35"},
+        // {max: "595"}
+
+        {min: "19.0"},
+        {max: "118.0"}
+      ]
+
+  },
+  {   
+      question:"Are you sure about your previous answer?",
+      
+      answers: [{
+        type: "answer-1",
+        content: "Sure"},
+
+        {
+        type: "answer-2",
+        content: "Not sure"}
+      ],
+      qtype: 'quiz',
+      questionId: 99,
+      surveytag: 'demo',
+      title: 'Demo',
+      constraint: [
+       {min: ""},
+      {max: ""}
+      ]
+
+  },
+
+
 
   { 
     question: "How was your experience in this experiment? Did you have any troubles with completing the game or questionnaires?", 
@@ -2689,7 +2756,7 @@ var quizQuestions = [
     answers: [],
 
       qtype:'free-report', 
-      questionId: 98,
+      questionId: 100,
       surveytag: 'feedback',
       title: 'Feedback', 
       constraint: [
