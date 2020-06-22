@@ -184,6 +184,9 @@ getSurveyBlock(block_number_) {
        body: JSON.stringify(body_cashed)
     })
 
+    console.log('Clearing cash') 
+    sessionStorage.removeItem('cashed')
+
 
     alert("You will be redirected to the validation page. Please, confirm leaving the page. Thank you!")
     // window.location.replace('https://app.prolific.co/submissions/complete?cc=1A496EDB')
@@ -383,7 +386,7 @@ render()
 
     else if (this.state.participant_info.block_number === this.state.participant_info.TotalBlock+1) 
     {
-      text = <div className='SurveyIntroText'> <p><span class="bold">You finished the survey!</span> </p>
+      text = <div className='SurveyIntroText'> <p><span className="bold">You finished the survey!</span> </p>
       <p>Thank you for your participation and helping research!</p> 
       <Button variant="secondary" color="danger" size="m" className="buttonInstructionFinal" type="submit" onClick={() => this.redirectToEnd()}>Click here </Button></div>
         return (

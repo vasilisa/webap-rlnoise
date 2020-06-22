@@ -20,7 +20,8 @@ class Intro_Survey extends React.Component {
       TotalBlock: 7, // 7 ORIGINAL 
       block_number: 6, // change for test purposes 0  
       newblock_frame: true, 
-      date_time: this.props.location.state.participant_info.date_time 
+      date_time: this.props.location.state.participant_info.date_time, 
+      game_id: this.props.location.state.participant_info.game_id  
   }
 
     this.redirectToTarget.bind(this);
