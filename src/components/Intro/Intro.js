@@ -26,11 +26,23 @@ class Intro extends React.Component {
     
     var date_time_now = new Date().toLocaleString();
 
+    var currentDate = new Date();
+    var date        = currentDate.getDate();
+    var month       = currentDate.getMonth(); //Be careful! January is 0 not 1
+    var year        = currentDate.getFullYear();
+    var dateString  = date + "-" +(month + 1) + "-" + year;
+    
+
       this.state = {
       checked: false,
       prolific_id: prolific_id, 
       date_time: date_time_now // start of the experiment 
+      game_id: -100, // show that the survey was done separately from the game 
+      participant_id:-100,
+      date: dateString,
     }
+
+
 
     
     this.redirectToTarget.bind(this);
@@ -44,8 +56,8 @@ class Intro extends React.Component {
   redirectToTarget(){
 
     this.props.history.push({
-      pathname: `/Instructions`,
-      state: {prolific_id: this.state.prolific_id, date_time: this.state.date_time},
+      pathname: `/Intro_Survey`,
+      state: {participant_info: this.state},
     })
   }
 
