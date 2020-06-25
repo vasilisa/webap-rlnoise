@@ -36,7 +36,7 @@ class Intro extends React.Component {
       this.state = {
       checked: false,
       prolific_id: prolific_id, 
-      date_time: date_time_now // start of the experiment 
+      date_time: date_time_now, // start of the experiment 
       game_id: -100, // show that the survey was done separately from the game 
       participant_id:-100,
       date: dateString,
